@@ -104,10 +104,33 @@ class DocumentController extends Controller
         return DocumentCollection::collection( $documents );
     }
 
-    public function getApprovalDocument($document){
+    public function DocumentStatusProcessor(Request $request, $document){
+        $request->validate([
+            'status' => 'required|string|max:255',
+            'message' => 'string',
+            'createdAt' => 'required|date|max:255',
+            ],
+            [
+                'documentId.required' => 'Document Id is require!',
+                'status.required' => 'Status is require!'
 
-        $document = DocumentResource::collection(Document::where('document_id', $document)->where('status', '=', 'Set For Approval')->get());
-        return $document;
+            ]);
+
+        try {
+            $document = Document::whereDocumentId($document)->firstOrFail();
+        }
+        catch (ModelNotFoundException  $exception) {
+            return back()->withError('Document not found by ID '. $document)->withInput();
+        }
+        return $document->update([
+            'status' => $request->get('status'),
+            'approved_at' => $request->get('createdAt'),
+            'approved_status' => strtolower($request->get('status')) == "approved" ? 1 : 0
+        ]);
+    }
+
+    public function getDocumentByApproval(Document $document){
+        return new DocumentResource($document);
     }
 
     public function getDocumentById($document){

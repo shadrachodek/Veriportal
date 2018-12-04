@@ -32,8 +32,11 @@ Route::prefix('v1')->group(function () {
     Route::get('document/set-for-approval-documents', 'Api\DocumentController@getAllSetForApprovalDocuments');
     Route::get('document-like/{document_id}/', 'Api\DocumentController@getDocumentLike');
     Route::get('batch-like/{batch_id}/', 'Api\BatchController@getBatchLike');
+    Route::Patch('process-a-document/{document_id}', 'Api\DocumentController@DocumentStatusProcessor');
+    Route::Patch('process-a-batch/{batch_id}', 'Api\DocumentController@BatchStatusProcessor');
 
-    Route::get('document/{document}/', 'Api\DocumentController@getApprovalDocument');
+
+    Route::get('document/{document}/approval', 'Api\DocumentController@getDocumentByApproval');
     Route::get('document/{batch}/batch', 'Api\DocumentController@getDocumentUnderBatch');
     Route::get('documents/denied', 'Api\DocumentController@getAllDenied');
     Route::get('documents/approved', 'Api\DocumentController@getAllApproved');
