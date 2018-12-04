@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Imo Portal</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Dashboard core CSS    -->
+    <link href="./assets/css/light-bootstrap-dashboard.css?v=1.4.1" rel="stylesheet"/>
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="./assets/css/demo.css" rel="stylesheet" />
+
+    <link href="./assets/css/custom.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"> 
+    <!-- <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'> -->
+    <link href="./assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="orange" data-image="./assets/img/full-screen-image-3.jpg">
+        <!--
+
+            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+            Tip 2: you can also add an image using data-image tag
+
+        -->
+
+        <!-- Side Bar Starts Here -->
+
+        <div class="logo">
+            <img class="mx-auto d-block" src="./assets/img/logo.png" />
+        </div>
+
+    	<div class="sidebar-wrapper">
+            
+			<ul class="nav">
+				<li >
+					<a href="dashboard.html">
+						<i class="pe-7s-graph"></i>
+						<p>Dashboard</p>
+					</a>
+				</li>
+				<li class="active">
+					<a href="document-owners.html">
+                        <i class="pe-7s-user"></i>
+                        <p>Owners
+                          
+                        </p>
+                    </a>
+					
+				</li>
+				<li>
+					<a data-toggle="collapse" href="#formsExamples">
+                        <i class="pe-7s-copy-file"></i>
+                        <p>Document
+                           <b class="caret"></b>
+                        </p>
+                    </a>
+					<div class="collapse" id="formsExamples">
+						<ul class="nav">
+							<li>
+								<a href="index.blade.php">
+									<i class="fa fa-file-archive-o"></i>
+									<span class="sidebar-normal">Documents List</span>
+								</a>
+							</li>
+							<li>
+								<a href="document-batches.html">
+									<i class="fa fa-clone"></i>
+									<span class="sidebar-normal">Documents Batches</span>
+								</a>
+							</li>
+							<li>
+								<a href="document-approved.html">
+									<i class="fa fa-check"></i>
+									<span class="sidebar-normal">Documents Approved</span>
+								</a>
+							</li>
+							<li>
+								<a href="document-declined.html">
+									<i class="fa fa-close"></i>
+									<span class="sidebar-normal">Documents Declined</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li >
+                        <a data-toggle="collapse" href="#formsDropdown">
+                            <i class="pe-7s-note2"></i>
+                            <p>Stock Management
+                               <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse" id="formsDropdown">
+                            <ul class="nav">
+                                <li>
+                                    <a href="stock-management-item.html">
+                                        <i class="fa fa-bars"></i>
+                                        <span class="sidebar-normal"> Items </span>
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="stock-management-material-request.html">
+                                        <i class="fa fa-hourglass"></i>
+                                        <span class="sidebar-normal"> Material Request </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="stock-management-receive-item.html">
+                                        <i class="fa fa-arrow-down"></i>
+                                        <span class="sidebar-normal"> Receive Items </span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                </li>
+                
+				<li>
+					<a href="print-management.html">
+                        <i class="pe-7s-print"></i>
+                        <p>Print Management
+                      
+                        </p>
+                    </a>
+	
+                </li>
+                
+				<li>
+                    <a href="reports.html">
+                        <i class="pe-7s-graph3"></i>
+                        <p>Reports</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="user-management.html">
+                        <i class="pe-7s-users"></i>
+                        <p>User management</p>
+                    </a>
+                </li>
+				<li>
+					<a href="setting.html">
+                        <i class="pe-7s-config"></i>
+                        <p>Settings
+                          
+                        </p>
+                    </a>
+					
+				</li>
+            </ul>
+            
+			<div class="fixed-footer"> <p class="text-muted"> Powered by: Verisys.ng </p>  </div>
+
+        </div>
+		
+        
+
+    </div>
+
+    <!-- Sidebar Ends Here -->
+
+    
+       <!-- Main Container starts here -->
+
+    <div class="main-panel">
+
+        <!-- Top bar Starts Here -->
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+                     <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                          
+                        </div>
+				<div class="collapse navbar-collapse">
+
+					<form class="navbar-form navbar-left navbar-search-form" role="search">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-search"></i></span>
+							<input type="text" value="" class="form-control" placeholder="Search...">
+						</div>
+					</form>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="charts.html">
+								<i class="fa fa-line-chart"></i>
+								<p>Stats</p>
+							</a>
+						</li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-bell-o"></i>
+								<span class="notification">5</span>
+								<p class="hidden-md hidden-lg">
+									Notifications
+									<b class="caret"></b>
+								</p>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Notification 1</a></li>
+								<li><a href="#">Notification 2</a></li>
+								
+							</ul>
+                        </li>
+                        
+                         
+                           
+                    
+
+						<li class="dropdown dropdown-with-icons">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								
+								<p class="">
+									Tania Andrew
+									<b class="caret"></b>
+                                </p>
+                                
+                            </a>
+                           
+
+							<ul class="dropdown-menu dropdown-with-icons">
+								<li>
+									<a href="#">
+										<i class="pe-7s-mail"></i> Messages
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="pe-7s-help1"></i> Help Center
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="pe-7s-tools"></i> Settings
+									</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="#">
+										<i class="pe-7s-lock"></i> Lock Screen
+									</a>
+								</li>
+								<li>
+									<a href="#" class="text-danger">
+										<i class="pe-7s-close-circle"></i>
+										Log out
+									</a>
+                                </li>
+                                
+							</ul>
+                        </li>
+                        <img class="photo" src="assets/img/default-avatar.png" />
+                    </ul>
+
+                    
+                    
+                    
+
+				</div>
+			</div>
+		</nav>
+        <!-- Top bar Ends Here -->
+
+
+         <!-- Main Content starts Here -->
+
+        <div class="main-content">
+            <div class="container-fluid">
+
+                    <h4 class="title">Document Transfer</h4>
+
+                <div class="row card card-inner-spacer adjuster">
+                    
+                        <div class="col-md-4 middle-div">  
+                            <h5  class="text-center"> Enter Document ID</h5>
+                            <div class="input-group ">
+                             <input type="text" name="document-id" class="form-control" placeholder="">
+                             <span class="input-group-btn">
+                                    <button class="btn btn-default btn-fill btn-wd"><a href="document-transfer-select-new.html">Submit</a></button>
+                            </span>
+                           
+                            </div><!-- /input-group -->
+                        </div>
+                   
+                </div>
+
+                
+                
+
+            </div>
+        </div>
+
+        <!-- Main Content starts Here -->
+        
+
+    </div>
+</div>
+
+
+</body>
+
+    <!--   Core JS Files  -->
+
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- <script src="assets/js/core/popper.min.js"></script> -->
+
+
+	<!--  Forms Validations Plugin -->
+	<script src="assets/js/jquery.validate.min.js"></script>
+
+	<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+    <script src="assets/js/moment.min.js"></script>
+    
+    <script src="assets/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+
+    <!--  Date Time Picker Plugin is included in this js file -->
+    <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!--  Select Picker Plugin -->
+    <script src="assets/js/bootstrap-selectpicker.js"></script>
+
+	<!--  Checkbox, Radio, Switch and Tags Input -->
+		<script src="assets/js/bootstrap-switch-tags.min.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!-- Sweet Alert 2 plugin -->
+	<script src="assets/js/sweetalert2.js"></script>
+
+    <!-- Vector Map plugin -->
+	<script src="assets/js/jquery-jvectormap.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+
+	<!-- Wizard Plugin    -->
+    <script src="assets/js/jquery.bootstrap.wizard.min.js"></script>
+
+    <!--  Bootstrap Table Plugin    -->
+    <script src="./assets/js/bootstrap-table.js"></script>
+
+	<!--  Plugin for DataTables.net  -->
+    <script src="assets/js/jquery.datatables.js"></script>
+
+   
+
+
+    <!--  Full Calendar Plugin    -->
+    <script src="assets/js/fullcalendar.min.js"></script>
+
+    <!-- Light Bootstrap Dashboard Core javascript and methods -->
+	<script src="./assets/js/light-bootstrap-dashboard.js"></script>
+
+	<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+	<script src="assets/js/demo.js"></script>
+
+	<script type="text/javascript">
+        $('.datetimepicker').datetimepicker({
+    icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-chevron-up",
+        down: "fa fa-chevron-down",
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+        today: 'fa fa-screenshot',
+        clear: 'fa fa-trash',
+        close: 'fa fa-remove'
+    }
+});
+    
+        </script>
+
+</html>
