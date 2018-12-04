@@ -8,6 +8,7 @@ use App\Http\Resources\Document\DocumentResource;
 use App\Model\Document;
 use App\Model\DocumentList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DocumentController extends Controller
 {
@@ -95,5 +96,50 @@ class DocumentController extends Controller
 
     public function OwnerDocuments(){
         return "Yes";
+    }
+
+    public function getAllSetForApprovalDocuments(){
+
+        $documents = DocumentResource::collection( Document::where( 'set_approval_status', '=', 1)->get());
+        return DocumentCollection::collection( $documents );
+    }
+
+    public function getApprovalDocument($document){
+
+        $document = DocumentResource::collection(Document::where('document_id', $document)->where('status', '=', 'Set For Approval')->get());
+        return $document;
+    }
+
+    public function getDocumentById($document){
+
+        $document = ApprovedDocument::collection( Document::where('document_id', $document)->where('approved_status', '!=', null)->get());
+        return $document;
+    }
+
+    public function getDocumentLike($document){
+
+        $document = DB::table('documents')
+            ->where('document_id', 'like', "%{$document}%")
+            ->get();
+        return DocumentResource::collection($document);
+
+    }
+
+    public function getDocumentUnderBatch($batch){
+
+        $documentUnderBatch = DocumentResource::collection(Document::where('batch_id', $batch)->where('status', '=', 'Set For Approval')->get());
+        return $documentUnderBatch;
+    }
+
+    public function getAllApproved(){
+
+        $approvedDoc = ApprovedDocument::collection(Document::where('approved_status', '=', true)->get());
+        return $approvedDoc;
+    }
+
+    public function getAllDenied(){
+
+        $deniedDoc = ApprovedDocument::collection(Document::where('approved_status', '=', false)->get());
+        return $deniedDoc;
     }
 }

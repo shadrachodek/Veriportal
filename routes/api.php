@@ -29,6 +29,16 @@ Route::prefix('v1')->group(function () {
        // Route::apiResource('{owner}/document/{document}', 'Api\DocumentController');
       //  Route::apiResource('/{owner}/documents', 'Api\OwnerDocumentController');
     });
+    Route::get('document/set-for-approval-documents', 'Api\DocumentController@getAllSetForApprovalDocuments');
+    Route::get('document-like/{document_id}/', 'Api\DocumentController@getDocumentLike');
+    Route::get('batch-like/{batch_id}/', 'Api\BatchController@getBatchLike');
+
+    Route::get('document/{document}/', 'Api\DocumentController@getApprovalDocument');
+    Route::get('document/{batch}/batch', 'Api\DocumentController@getDocumentUnderBatch');
+    Route::get('documents/denied', 'Api\DocumentController@getAllDenied');
+    Route::get('documents/approved', 'Api\DocumentController@getAllApproved');
+    Route::get('document/{document_id}/detail', 'Api\DocumentController@getDocumentById');
+    Route::post('document/status/update ', 'Api\DocumentController@callback');
 
 
 });

@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\Document;
 
+use App\Http\Resources\BatchResource;
+use App\Http\Resources\OwnerResource;
 use Illuminate\Http\Resources\Json\Resource;
 
 class DocumentCollection extends Resource
@@ -21,8 +23,8 @@ class DocumentCollection extends Resource
             'reprint' => $this->reprint_counter,
             'status' => $this->status,
             'documentType' => $this->documentable_type,
-            'batch' => $this->batch,
-            'owner' => $this->owner,
+            'batch' => new BatchResource($this->batch),
+            'owner' => new OwnerResource($this->owner),
             'document' => $this->documentable,
         ];
     }

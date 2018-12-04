@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BatchResource;
 use App\Model\Batch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BatchController extends Controller
 {
@@ -16,6 +18,14 @@ class BatchController extends Controller
     public function index()
     {
         //
+    }
+
+    public function getBatchLike($batch){
+        $batch = DB::table('batches')
+            ->where('batch_id', 'like', "%{$batch}%")
+            ->get();
+
+        return BatchResource::collection( $batch );
     }
 
     /**
