@@ -101,10 +101,10 @@ class DocumentController extends Controller
 
             $document = Document::whereDocumentId($document_id)->firstOrFail();
             $document->status = 'Set For Approval';
-            $document->set_for_approval = 1;
+            $document->set_for_approval_by = 1;
             $document->batch_id = $batch->batch_id;
             $document->set_for_approval_at = Carbon::now();
-            $document->set_approval_status = true;
+            $document->set_for_approval_status = true;
             $document->created_at = Carbon::now();
             $document->save();
             $batch::whereId($batch->id)->update([

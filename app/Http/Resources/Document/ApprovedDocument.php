@@ -2,11 +2,11 @@
 
 namespace App\Http\Resources\Document;
 
+use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\BatchResource;
 use App\Http\Resources\OwnerResource;
-use Illuminate\Http\Resources\Json\JsonResource;
 
-class DocumentResource extends JsonResource
+class ApprovedDocument extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -22,11 +22,12 @@ class DocumentResource extends JsonResource
             'printStatus' => $this->print_status,
             'reprint' => $this->reprint_counter,
             'status' => $this->status,
+            'approvedBy' => $this->getFullName(),
+            'approvedAt' => $this->approved_at,
             'documentType' => $this->documentable_type,
             'batch' => new BatchResource( $this->batch ),
             'owner' => new OwnerResource( $this->owner ),
             'document' => $this->documentable,
-
         ];
     }
 }

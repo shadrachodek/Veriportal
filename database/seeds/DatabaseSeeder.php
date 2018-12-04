@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        factory(App\Model\Cofo::class, 10)
+        factory(App\Model\Cofo::class, 200)
             ->create()
             ->each(function ($user) {$user->documents()
                 ->save(factory(App\Model\Document::class)

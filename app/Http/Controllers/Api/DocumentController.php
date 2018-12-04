@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Document\ApprovedDocument;
+use App\Http\Resources\Document\DeniedDocument;
 use App\Http\Resources\Document\DocumentCollection;
 use App\Http\Resources\Document\DocumentResource;
 use App\Model\Document;
 use App\Model\DocumentList;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
+
 
 class DocumentController extends Controller
 {
@@ -74,7 +79,6 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        //
     }
 
     /**
@@ -104,10 +108,10 @@ class DocumentController extends Controller
         return DocumentCollection::collection( $documents );
     }
 
-    public function DocumentStatusProcessor(Request $request, $document){
+    public function DocumentStatusProcessor(Request $request, Document $document){
         $request->validate([
             'status' => 'required|string|max:255',
-            'message' => 'string',
+            'message' => 'bail',
             'createdAt' => 'required|date|max:255',
             ],
             [
@@ -116,17 +120,28 @@ class DocumentController extends Controller
 
             ]);
 
-        try {
-            $document = Document::whereDocumentId($document)->firstOrFail();
-        }
-        catch (ModelNotFoundException  $exception) {
-            return back()->withError('Document not found by ID '. $document)->withInput();
-        }
-        return $document->update([
-            'status' => $request->get('status'),
+            if (!$document->set_for_approval_status) {
+                return \response($document->document_id . " Is Not yet Verified for Approval");
+            }
+
+        $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;
+        $statusText = strtoupper($request->get('status'));
+        $document->update([
+            'approved_status' => $statusText,
+            'approved_by' => 2,
             'approved_at' => $request->get('createdAt'),
-            'approved_status' => strtolower($request->get('status')) == "approved" ? 1 : 0
+            'status' => $request->get('status'),
+            'message' => $request->get('message'),
+            'updated_at' => Carbon::now()
         ]);
+
+//        update([
+//            'status' => $request->get('status'),
+//            'approved_at' => $request->get('createdAt'),
+//            'approved_status' => strtolower($request->get('status')) == "approved" ? 1 : 0
+//        ]);
+
+        return \response($document->document_id . " Process Successfully Updated");
     }
 
     public function getDocumentByApproval(Document $document){
@@ -154,15 +169,16 @@ class DocumentController extends Controller
         return $documentUnderBatch;
     }
 
-    public function getAllApproved(){
+    public function AllApprovedDocument(){
 
-        $approvedDoc = ApprovedDocument::collection(Document::where('approved_status', '=', true)->get());
-        return $approvedDoc;
+        $approvedDocument = ApprovedDocument::collection(Document::whereApprovedStatus(1)->get());
+        return $approvedDocument;
     }
 
-    public function getAllDenied(){
+    public function AllDeniedDocument(){
 
-        $deniedDoc = ApprovedDocument::collection(Document::where('approved_status', '=', false)->get());
-        return $deniedDoc;
+        $deniedDocument = DeniedDocument::collection(Document::whereApprovedStatus(0)->get());
+        return $deniedDocument;
+
     }
 }
