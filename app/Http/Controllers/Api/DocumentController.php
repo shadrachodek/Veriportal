@@ -104,8 +104,8 @@ class DocumentController extends Controller
 
     public function getAllSetForApprovalDocuments(){
 
-        $documents = DocumentResource::collection( Document::where( 'set_approval_status', '=', 1)->get());
-        return DocumentCollection::collection( $documents );
+        $documents = DocumentResource::collection( Document::whereSetForApprovalStatus(1)->get());
+        return $documents;
     }
 
     public function DocumentStatusProcessor(Request $request, Document $document){
