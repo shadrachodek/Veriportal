@@ -14,7 +14,7 @@
                     <h4 class="title">Document Registration</h4>
 
                 <div class="row card card-inner-spacer card-inner-top card-inner-bottom">
-                    <form method="POST" action="{{ route('owner.getOwner') }}">
+                    <form method="POST" action="#">
 						@csrf
 						<div class="col-md-4 col-md-offset-4">
 

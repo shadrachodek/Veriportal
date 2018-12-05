@@ -23,7 +23,11 @@ Route::get('{owner}/select-document-type', 'DocumentController@documentType')->n
 Route::get('{owner}/{type}/document', 'DocumentController@selectedDocument')->name('selectedDocument');
 Route::get('document/{document_id}/set-for-approval', 'DocumentController@setForApproval')->name('set.for.approval');
 
+Route::view('select-owner-for-document-registration', 'back.document.select-owner-to-reg-doc')->name('select-owner-for-doc-reg');
+
 Route::post('document/{owner_id}/certificate-of-occupancy', 'CofoController@store')->name('cofo.store');
+
+Route::post('/owner/get-owner', 'OwnerController@getOwner')->name('owner.getOwner');
 
 Route::get('/', function(){
     return view('auth.login');

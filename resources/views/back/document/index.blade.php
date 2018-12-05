@@ -19,7 +19,7 @@
                     <div class="col-md-6">
                          <span class="btn-label">
                               
-                             <a class="btn  small-screens-mg btn-default btn-fill btn-wd pull-right btn-top" href="#">   <i class="fa fa-pencil"></i>   New Document Registration </a>
+                             <a class="btn  small-screens-mg btn-default btn-fill btn-wd pull-right btn-top" href="{{ route('select-owner-for-doc-reg') }}">   <i class="fa fa-pencil"></i>   New Document Registration </a>
                         </span>
 
                         <span class="btn-label">

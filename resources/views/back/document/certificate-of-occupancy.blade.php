@@ -234,7 +234,7 @@
                                     <p class="space-bottom"> Attach Document</p>
 
                                     <div class="input-group control-group increment" >
-                                        <input type="file" name="attach_doc[]" class="form-control" placeholder="Select to Upload documents">
+                                        <input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">
                                         <div class="input-group-btn">
                                             <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                                         </div>
@@ -242,7 +242,7 @@
 
                                     <div class="clone hide">
                                         <div class="control-group input-group" style="margin-top:10px">
-                                            <input type="file" name="attach_doc[]" class="form-control" placeholder="Select to Upload documents">
+                                            <input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">
                                             <div class="input-group-btn">
                                                 <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
                                             </div>

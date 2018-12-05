@@ -129,4 +129,25 @@ class OwnerController extends Controller
         $owner->delete();
         return redirect()->route('owner.index')->with('message', 'account deleted');
     }
+
+    public function getOwner(Request $request){
+        $request->validate([
+            'owner_id' => 'required|numeric',
+        ],
+            [
+                'owner_id.required' => 'Owner ID is require!',
+                'owner_id.numeric' => 'Your input was invalid'
+
+            ]);
+        try {
+            $owner = Owner::whereOwnerId($request->owner_id)->firstOrFail();
+        }
+        catch (ModelNotFoundException  $exception) {
+            return back()->withError('Owner not found by ID '. $request->owner_id)->withInput();
+        }
+
+        return redirect()->route('documentType', compact( 'owner'));
+
+        // return redirect()->route('doc.doctype', $owner->owner_id);
+    }
 }
