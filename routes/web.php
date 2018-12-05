@@ -27,7 +27,7 @@ Route::view('select-owner-for-document-registration', 'back.document.select-owne
 
 Route::post('document/{owner_id}/certificate-of-occupancy', 'CofoController@store')->name('cofo.store');
 
-Route::post('/owner/get-owner', 'OwnerController@getOwner')->name('owner.getOwner');
+Route::post('owner-that-need-document', 'OwnerController@getOwner')->name('owner-that-need-document');
 
 Route::get('/', function(){
     return view('auth.login');
