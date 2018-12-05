@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Cofo;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class CofoController extends Controller
 {
@@ -43,7 +44,10 @@ class CofoController extends Controller
             foreach ($photos as $photo) {
                 $extension = $photo->getClientOriginalExtension();
                 $filename  = $owner . "-". time() . '.' . $extension;
-                $paths[]   = $photo->storeAs('dcoument', $filename);
+                $paths[]   = $photo->storeAs('public/document', $filename);
+                $image = Image::make(storage_path('app/public/document/'.$filename))->resize(50, 50);
+                dd($image);
+
             }
 
             dd($paths);
@@ -51,7 +55,7 @@ class CofoController extends Controller
 
     }
 
-    /**
+    /**r
      * Display the specified resource.
      *
      * @param  \App\Model\Cofo  $cofo

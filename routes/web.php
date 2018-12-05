@@ -38,8 +38,11 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//login
+//login Routes...
 $this->get('login', 'UserController@showLoginForm')->name('login');
 $this->post('login', 'UserController@login');
 $this->post('logout', 'UserController@logout')->name('logout');
+
+// Registration Routes...
+//$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
