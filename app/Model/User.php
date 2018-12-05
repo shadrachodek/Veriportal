@@ -21,6 +21,7 @@ class User extends Authenticatable
         'first_name', 'last_name', 'phone', 'city', 'lga_lcda', 'status', 'username', 'user_id', 'email', 'password',
     ];
 
+
     public function username()
     {
         return 'username';

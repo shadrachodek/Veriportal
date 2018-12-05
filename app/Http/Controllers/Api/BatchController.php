@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BatchResource;
+use App\Http\Resources\Document\DocumentResource;
 use App\Model\Batch;
+use App\Model\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -96,5 +98,12 @@ class BatchController extends Controller
     public function destroy(Batch $batch)
     {
         //
+    }
+
+
+    public function allAwaitingDocumentOnABatch($batch){
+
+        $documentUnderBatch = DocumentResource::collection(Document::whereBatchId($batch)->whereSetForApprovalStatus(true)->get());
+        return $documentUnderBatch;
     }
 }

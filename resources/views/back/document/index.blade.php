@@ -37,7 +37,7 @@
 
                             <div class="card card-inner-spacer">
                              
-                                    <h5 class="sub-title">12,000 - Documents</h5>
+                                    <h5 class="sub-title">{{ $documentCount }} - Documents</h5>
 
                                 <div class="row">
 

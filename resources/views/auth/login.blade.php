@@ -12,7 +12,15 @@
                 </div>
 
 
-
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <div class="col-md-6 col-sm-12  col-lg-6 right-panel">
 
@@ -54,9 +62,6 @@
                                                     <span class="form-check-sign "></span>
                                                     Remember me
                                                 </label>
-                                                <a class="pull-right" href="{{ route('password.request') }}">
-                                                    {{ __('Forgot Your Password?') }}
-                                                </a>
                                             </div>
 
                                         </div>

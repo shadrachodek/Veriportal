@@ -31,7 +31,7 @@
                     </div>
             @endif
                   <!-- ****************************************************************************************************** --> 
-                <form method="POST" action="{{ route('cofo.store', $owner_id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('cofo.store', $owner) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row card card-inner-spacer modifier">
 
@@ -232,7 +232,23 @@
 
                                 <div class="form-group">
                                     <p class="space-bottom"> Attach Document</p>
-                                        <input name="attach_doc[]"  type="file" class="form-control"  placeholder="Select to Upload documents" multiple>
+
+                                    <div class="input-group control-group increment" >
+                                        <input type="file" name="attach_doc[]" class="form-control" placeholder="Select to Upload documents">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="clone hide">
+                                        <div class="control-group input-group" style="margin-top:10px">
+                                            <input type="file" name="attach_doc[]" class="form-control" placeholder="Select to Upload documents">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -266,5 +282,24 @@
 
     </div>
 </div>
+    @push('scripts')
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+
+                $(".btn-success").click(function(){
+                    var html = $(".clone").html();
+                    $(".increment").after(html);
+                });
+
+                $("body").on("click",".btn-danger",function(){
+                    $(this).parents(".control-group").remove();
+                });
+
+            });
+
+        </script>
+
+    @endpush
 
 @endsection

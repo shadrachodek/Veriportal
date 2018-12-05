@@ -15,4 +15,5 @@ class DocumentList extends Model
     {
         return 'slug';
     }
+
 }

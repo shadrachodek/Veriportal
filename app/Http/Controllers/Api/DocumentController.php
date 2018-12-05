@@ -127,10 +127,10 @@ class DocumentController extends Controller
         $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;
         $statusText = strtoupper($request->get('status'));
         $document->update([
-            'approved_status' => $statusText,
+            'approved_status' => $status ,
             'approved_by' => 2,
             'approved_at' => $request->get('createdAt'),
-            'status' => $request->get('status'),
+            'status' => $statusText,
             'message' => $request->get('message'),
             'updated_at' => Carbon::now()
         ]);
@@ -161,12 +161,6 @@ class DocumentController extends Controller
             ->get();
         return DocumentResource::collection($document);
 
-    }
-
-    public function getDocumentUnderBatch($batch){
-
-        $documentUnderBatch = DocumentResource::collection(Document::where('batch_id', $batch)->where('status', '=', 'Set For Approval')->get());
-        return $documentUnderBatch;
     }
 
     public function AllApprovedDocument(){

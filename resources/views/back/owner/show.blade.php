@@ -17,13 +17,7 @@
                     
                     <div class="col-md-6">
                          <span class="btn-label">
-                               <form method="POST" action="#">
-						            @csrf
-								<input type="hidden" name="owner_id" value="{{ $owner->owner_id }}">
-                                    <button type="submit" class="btn small-screens-mg btn-default btn-fill btn-wd pull-right btn-top"> <i class="fa fa-pencil"></i>   Add Document </button>
-
-					            </form>
-
+                             <a href="{{ route('documentType', $owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd pull-right btn-top"> <i class="fa fa-pencil"></i>   Add Document </a>
                         </span>
 
                     </div> 
@@ -215,14 +209,15 @@
                         <div class="card card-inner-spacer bio-data-font-sizer">
                                     <h2> Documents </h2>
 
-                            <div class="row border-bottom">
                             @foreach($owner->documents as $document)
+                            <div class="row border-bottom">
+
                                 <div class="col-md-6 col-sm-6 col-xs-6">
 
                                     <h4>ID</h4>
                                     <h3> {{ $document->document_id }} </h3>
-                                    <p> Type: {{ $document->documentable_type }}  </p>
-                                        
+                                    <p> Type: {{ $document->documentable_type }} </p>
+
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-xs-6">
@@ -231,11 +226,10 @@
                                         <h3>{{ $document->status }} </h3>
                                     </div>
                                 </div>
-                            @endforeach
 
                             </div>
 
-                        
+                            @endforeach
 
                                     
                     </div>

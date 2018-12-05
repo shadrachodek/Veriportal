@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DataTables\DocumentDataTable;
 use App\Model\Document;
+use App\Model\Owner;
+use App\Model\DocumentList;
 use App\Model\Batch;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -21,6 +23,16 @@ class DocumentController extends Controller
     {
         $documentCount = Document::all()->count();
         return $dataTable->render('back.document.index', compact('documentCount'));
+    }
+
+    public function documentType(Owner $owner){
+        $documentType = DocumentList::all();
+        return view('back.document.select-doctype', compact('documentType', 'owner'));
+    }
+
+    public function selectedDocument(Owner $owner, DocumentList $type){
+
+        return view('back.document'.'/'.$type->slug, compact('owner'));
     }
 
     /**
