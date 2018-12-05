@@ -36,7 +36,7 @@ trait ExceptionTrait
 
     protected function ModelResponse( $e ) {
         return response()->json([
-            "errors" => "Owner not Found"
+            "errors" => "Model not Found"
         ], Response::HTTP_NOT_FOUND);
     }
 

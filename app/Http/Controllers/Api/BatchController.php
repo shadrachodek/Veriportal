@@ -28,6 +28,10 @@ class BatchController extends Controller
         return BatchResource::collection( $batch );
     }
 
+    public function BatchStatusProcessor(Request $request, Batch $batch){
+        return $batch;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

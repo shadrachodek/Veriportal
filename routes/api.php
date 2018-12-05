@@ -29,11 +29,11 @@ Route::prefix('v1')->group(function () {
        // Route::apiResource('{owner}/document/{document}', 'Api\DocumentController');
       //  Route::apiResource('/{owner}/documents', 'Api\OwnerDocumentController');
     });
-    Route::get('document/set-for-approval-documents', 'Api\DocumentController@getAllSetForApprovalDocuments');
+    Route::get('set-for-approval-documents', 'Api\DocumentController@getAllSetForApprovalDocuments');
     Route::get('document-like/{document_id}/', 'Api\DocumentController@getDocumentLike');
     Route::get('batch-like/{batch_id}/', 'Api\BatchController@getBatchLike');
     Route::Patch('process-a-document/{document}', 'Api\DocumentController@DocumentStatusProcessor');
-    Route::Put('process-a-batch/{batch_id}', 'Api\DocumentController@BatchStatusProcessor');
+    Route::Patch('process-a-batch/{batch}', 'Api\BatchController@BatchStatusProcessor');
     Route::get('documents-with-approved-status', 'Api\DocumentController@AllApprovedDocument');
     Route::get('documents-with-denied-status', 'Api\DocumentController@AllDeniedDocument');
 
