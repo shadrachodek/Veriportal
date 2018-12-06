@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use Keygen;
+use Keygen\Keygen;
 use App\Model\Owner;
 use App\DataTables\OwnerDataTable;
 

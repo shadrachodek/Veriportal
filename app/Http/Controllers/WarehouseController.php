@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Owner;
+use App\Warehouse;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class WarehouseController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +14,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('back.dashboard');
+        //
     }
 
     /**
@@ -32,11 +25,6 @@ class DashboardController extends Controller
     public function create()
     {
         //
-    }
-
-    public function totalDocumentOwners()
-    {
-        return Owner::all()->count();
     }
 
     /**
@@ -53,10 +41,10 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Warehouse  $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Warehouse $warehouse)
     {
         //
     }
@@ -64,10 +52,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Warehouse  $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Warehouse $warehouse)
     {
         //
     }
@@ -76,10 +64,10 @@ class DashboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Warehouse  $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Warehouse $warehouse)
     {
         //
     }
@@ -87,10 +75,10 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Warehouse  $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Warehouse $warehouse)
     {
         //
     }

@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Exceptions\DocumentNotSetForApproval;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Document\ApprovedDocument;
 use App\Http\Resources\Document\DeniedDocument;
 use App\Http\Resources\Document\DocumentCollection;
 use App\Http\Resources\Document\DocumentResource;
 use App\Model\Document;
+use App\Model\Batch;
 use App\Model\DocumentList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Response;
 
 
 class DocumentController extends Controller
@@ -121,7 +123,7 @@ class DocumentController extends Controller
             ]);
 
             if (!$document->set_for_approval_status) {
-                return \response($document->document_id . " Is Not yet Verified for Approval");
+                return new DocumentNotSetForApproval;
             }
 
         $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;
@@ -135,13 +137,27 @@ class DocumentController extends Controller
             'updated_at' => Carbon::now()
         ]);
 
+        $batch = Batch::whereBatchId($document->batch_id)->firstOrFail();
+        $batchStatus = "Partially Processed";
+        if($batch->batch_max == $batch->number_of_document){
+            $batchStatus = "Processed";
+        }
+        $batch->update([
+            'approved_at' => Carbon::now(),
+            'status' => $batchStatus,
+            'updated_at' => Carbon::now()
+        ]);
+
 //        update([
 //            'status' => $request->get('status'),
 //            'approved_at' => $request->get('createdAt'),
 //            'approved_status' => strtolower($request->get('status')) == "approved" ? 1 : 0
 //        ]);
 
-        return \response($document->document_id . " Process Successfully Updated");
+        return response([
+            'message' => "Process Successfully Updated",
+            'data' => $document->document_id
+        ], Response::HTTP_CREATED);
     }
 
     public function getDocumentByApproval(Document $document){

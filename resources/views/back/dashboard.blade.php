@@ -133,4 +133,12 @@
     </div>
 </div>
 
+    @push('scripts')
+        <script type="text/javascript">
+            $.get("/total-document-owners", function(data, status){
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+        </script>
+    @endpush
+
 @endsection

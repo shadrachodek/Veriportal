@@ -64,7 +64,7 @@ class BatchController extends Controller
         ]);
         $batch->update([
             'approved_at' => Carbon::now(),
-            'status' => "Proccessed",
+            'status' => "Processed",
             'updated_at' => Carbon::now()
         ]);
 

@@ -68,7 +68,7 @@
             <div class="collapse" id="formsDropdown">
                 <ul class="nav">
                     <li>
-                        <a href="stock-management-item.html">
+                        <a href="{{ route('stock-management.index')  }}">
                             <i class="fa fa-bars"></i>
                             <span class="sidebar-normal"> Items </span>
                         </a>
@@ -91,7 +91,7 @@
         </li>
 
         <li>
-            <a href="print-management.html">
+            <a href="{{ route('print-job.index') }}">
                 <i class="pe-7s-print"></i>
                 <p>Print Management
 

@@ -16,9 +16,13 @@
 
 Route::resource('/user-management', 'UserController');
 Route::resource('/owner', 'OwnerController');
+Route::get('/total-document-owners', 'DashboardController@totalDocumentOwners');
+
 
 //Documents
 Route::resource('/document', 'DocumentController');
+Route::resource('/print-job', 'PrintJobController');
+Route::resource('/stock-management', 'StockController');
 Route::get('{owner}/select-document-type', 'DocumentController@documentType')->name('documentType');
 Route::get('{owner}/{type}/document', 'DocumentController@selectedDocument')->name('selectedDocument');
 Route::get('document/{document_id}/set-for-approval', 'DocumentController@setForApproval')->name('set.for.approval');
