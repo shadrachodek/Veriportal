@@ -39,43 +39,6 @@
                              
                                     <h5 class="sub-title">{{ $documentCount }} - Documents</h5>
 
-                                <div class="row">
-
-                                            
-                                            <div class="col-md-3 col-md-offset-3"> 
-                                                
-                                                <div class="form-group">
-                                                    <input type="text" value="" name="document-id" placeholder="Document ID#" class="form-control" />
-                                                </div>  
-                    
-                                            </div>
-                                            <div class="col-md-2"> 
-                    
-                                                <select name="document-type" class="selectpicker" data-title="Occupation" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                                            <option value="id">Bahasa Indonesia</option>
-                                                            <option value="ms">Bahasa Melayu</option>
-                                                        ...
-                                                </select>
-                    
-                                            </div>
-                                            <div class="col-md-2">
-                                                
-                                                    <select name="status" class="selectpicker" data-title="Marital Staus" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                                            <option value="id">Bahasa Indonesia</option>
-                                                            <option value="ms">Bahasa Melayu</option>
-                                                        ...
-                                                    </select>
-                                            
-                                            </div>
-                                            <div class="col-md-2"> 
-                                                
-                                                    <button class="btn btn-default btn-fill btn-block">Submit</button>
-                                            
-                                            </div>
-
-                                </div>
-
-
 
                                 <div class="content">
                                     

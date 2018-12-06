@@ -51,6 +51,10 @@ class Document extends Model
         return $this->user->first_name. " " .$this->user->last_name;
     }
 
+    public function getOwnerFullName() {
+        return $this->owner->first_name. " " .$this->owner->middle_name . " " .$this->owner->last_name;
+    }
+
     public function batch(){
         return $this->belongsTo('App\Model\Batch', 'batch_id', 'batch_id');
     }

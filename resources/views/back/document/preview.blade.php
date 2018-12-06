@@ -23,7 +23,7 @@
 
                                         <div class="col-md-2 text-left"> 
                                                 <p>Document ID</p>
-                                                <h5 class="sub-title-2">Batch ID- 5618878</h5>
+                                                <h5 class="sub-title-2">Batch ID- {{ $document->batch_id }}</h5>
                     
                                         </div>
 
@@ -42,7 +42,7 @@
 
                                             <div class="cert-header">
                                                 <div class="col-md-3 text-right">
-                                                    <img src="assets/img/imo-logo.png" alt="imo State Government">
+                                                    <img src="{{ asset('/img/imo-logo.png') }}" alt="imo State Government">
                                                 </div>
 
                                                 <div class="col-md-6">
@@ -54,7 +54,7 @@
 
                                                 <div class="col-md-3">
 
-                                                        <img src="assets/img/faces/face-2.jpg" alt="User">
+                                                        <img src="{{ asset('/img/faces/face-2.jpg') }}" alt="User">
                                                     
                                                 </div>
                                             </div>
@@ -63,17 +63,17 @@
 
                                                 <div class="cert-body">
 
-                                                    <p> Statutory Certificate of Occupancy No 789542355123      <span>Page: 45</span>     <span>Volume: 45</span></p>
-                                                    <p> THIS IS TO CERTIFY THAT <span>Oluwole Anthony Adeshile</span> (hereinafter called the holder/holders which term shall include any person/persons defined as such in section 9 of the Land Use Act    No.6 of 1978) is/are entitled to a right of occupancy in and over 
-                                                    Plot <span>1024, Adekunle Fajiyi way, Off Awolowo way </span> in Block within <span>800sqm</span> Layout or in and over a parcel of land described in the schedule and more particularly delineated in the 
+                                                    <p> Statutory Certificate of Occupancy No {{ $document->document_id }}      <span>Page: 45</span>     <span>Volume: 45</span></p>
+                                                    <p> THIS IS TO CERTIFY THAT <span>{{ $document->getOwnerFullName() }}</span> (hereinafter called the holder/holders which term shall include any person/persons defined as such in section 9 of the Land Use Act    No.6 of 1978) is/are entitled to a right of occupancy in and over
+                                                    Plot <span>{{ $document->documentable->house_plot_number }}, {{ $document->documentable->street_name }}, {{ $document->documentable->city }}</span> in Block within <span>{{ $document->documentable->documentable_type }}sqm</span> Layout or in and over a parcel of land described in the schedule and more particularly delineated in the
                                                     </p>
 
-                                                    <p> Plan No <span>585465223345</span> annexed hereto for a term <span>99</span> years commencing from the 1st day of January, <span>2018</span>  according to the true intent and meaning of the Land Use Act of No.6 of 1978 and subject to the provision thereof and to the following special terms and conditions hereinafter contained. 
+                                                    <p> Plan No <span>{{ $document->documentable->survey_plan_number }}</span> annexed hereto for a term <span>{{ $document->documentable->term }}</span> years commencing from the 1st day of January, <span>2018</span>  according to the true intent and meaning of the Land Use Act of No.6 of 1978 and subject to the provision thereof and to the following special terms and conditions hereinafter contained.
                                                         </p>
 
                                                    
                                                     <ol>
-                                                        <li>To pay in advance without demand to the Governor or other person appointed by him yearly rent of <span>#7,110.00</span> on the first day of January in each year.</li>
+                                                        <li>To pay in advance without demand to the Governor or other person appointed by him yearly rent of <span>#{{ $document->documentable->yearly_rent_payable }}</span> on the first day of January in each year.</li>
 
                                                         <li>The rent hereby reserved hall be revised at the end of every ten years of the Certificate of Occupancy</li>
 
@@ -81,8 +81,8 @@
 
                                                         <li>To erect and complete on the said land within <span>2 (two)</span> years from the date of ncement of this right of occupancy, buildings or other work specified in the etailed plans approved by the Chief Land Officer or other officer appointed by the Governor in that behalf.</li>
 
-                                                        <li>Such buildings or other works shall not be less than <span>#10,000,000.00</span> in value to the faction of and in accordance with plans approved by the Chief Land Officer or other officer appointed by the Governor in that behalf.</li>
-                                                        <li> To use the said land only for <span>Residential</span> Purpose </li>
+                                                        <li>Such buildings or other works shall not be less than <span>#{{ $document->documentable->building_value }}</span> in value to the faction of and in accordance with plans approved by the Chief Land Officer or other officer appointed by the Governor in that behalf.</li>
+                                                        <li> To use the said land only for <span>{{ $document->documentable->purpose_of_use }}</span> Purpose </li>
                                                         <li>To maintain, in good and substantial repair to the satisfaction of the Chief Land Officer or other officer appointed by the Governor, all buildings or works in the said land either erected or to be erected pursuant to subsection 4 supra.</li>
                                                         <li>To maintain good and substantial condition, all beacons and other landmarks by which the boundaries of the land comprised in this Certificate of Occupancy are defined and to clear and keep clear of the said land of all forms of refuse, stagnant water, rank weeds, deposit of rubbish and to keep the same in all respects in a clean and sanitary condition and execute all such acts and works as the Governor or any other officer authorized by him may reasonably require</li>
                                                         <li>To maintain good and substantial condition, all beacons and other landmarks by which the boundaries of the land comprised in this Certificate of Occupancy are defined and to clear and keep clear of the said land of all forms of refuse, stagnant water, rank weeds, deposit of rubbish and to keep the same in all respects in a clean and sanitary condition and execute all such acts and works as the Governor or any other officer authorized by him may reasonably require</li>
@@ -98,17 +98,17 @@
 
                                                         <div class="col-md-6">
                                                             <p>Date</p>
-                                                            <p><span class="cert-date"> 23rd June 2018 </span></p>
+                                                            <p><span class="cert-date"> {{ $document->approved_at }} </span></p>
                                                         </div>
                                                         <div class="col-md-6 exe-gov-sig-center">
-                                                            <img class="exe-gov-sig" src="assets/img/signature.png" alt="Executive">
+                                                            <img class="exe-gov-sig" src="{{ asset('/img/signature.png') }}" alt="Executive">
                                                             <p  class="exe-gov-text">Executive Governor</p>
                                                         </div>
 
                                                         <div class="col-md-12 holder-sig">
 
                                                             <p>Holder</p>
-                                                            <img src="assets/img/signature.png" alt="Executive">
+                                                            <img src="{{ asset('/img/signature.png') }}" alt="Executive">
                                                             
                                                             
                                                         </div>

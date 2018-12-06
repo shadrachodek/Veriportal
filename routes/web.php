@@ -42,7 +42,8 @@ Route::get('/batches/document/{document}/view', 'BatchController@show')->name('b
 Route::get('approved-documents', 'DocumentController@approveDocuments')->name('approved-document');
 Route::get('approved/{document}/show', 'DocumentController@approvedShow')->name('approved-show');
 Route::get('declined-documents', 'DocumentController@declineDocuments')->name('declined-document');
-Route::get('preview{document}/document', 'DocumentController@previewDocument')->name('preview-document');
+Route::get('declined/{document}/show', 'DocumentController@declinedShow')->name('declined-show');
+Route::get('document/{document}/preview', 'DocumentController@previewDocument')->name('preview-document');
 
 
 Route::get('/', function(){

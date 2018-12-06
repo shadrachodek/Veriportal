@@ -143,6 +143,10 @@ class DocumentController extends Controller
         return view('back.document.approved-show', compact('document'));
     }
 
+    public function declinedShow(Document $document){
+        return view('back.document.declined-show', compact('document'));
+    }
+
     public function previewDocument(Document $document){
         return view('back.document.preview', compact('document'));
     }
@@ -152,7 +156,7 @@ class DocumentController extends Controller
 
         $documents = Document::where('approved_status', 0)->get();
         $declinedCount = Document::where('approved_status', 0)->count();
-        return view('back.document.declined', compact('documents', 'declinedCount '));
+        return view('back.document.declined', compact('documents','declinedCount'));
     }
 
     public function loadPaymentPage(Document $document){

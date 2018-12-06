@@ -33,33 +33,11 @@
 
                                             <div class="col-md-6 text-left"> 
                                                 
-                                                    <h5 class="sub-title-2">{{ $declinedCount  }} - Available Documents</h5>
+                                                    <h5 class="sub-title-2">{{ $declinedCount }} - Available Documents</h5>
                     
                                             </div>
 
                                             
-                                            <div class="col-md-2 "> 
-                                                
-                                                <div class="form-group">
-                                                    <input type="text" value="" name="document-id" placeholder="Document ID#" class="form-control" />
-                                                </div>  
-                    
-                                            </div>
-                                            
-                                            <div class="col-md-2">
-                                                
-                                                    <select name="status" class="selectpicker" data-title="Document Type" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                                            <option value="id">Bahasa Indonesia</option>
-                                                            <option value="ms">Bahasa Melayu</option>
-                                                        ...
-                                                    </select>
-                                            
-                                            </div>
-                                            <div class="col-md-2"> 
-                                                
-                                                    <button class="btn btn-default btn-fill btn-block">Submit</button>
-                                            
-                                            </div>
 
                                 </div>
 
@@ -93,7 +71,7 @@
 
 
                                                     <td class="text-right">
-                                                             <a class="btn btn-default btn-fill small-btn"> href="document-declined-view-oluwole.html" > View </a>
+                                                             <a class="btn btn-default btn-fill small-btn" href="{{ route('declined-show', $document->document_id) }}" > View </a>
                                                              <a class="btn btn-warning btn-fill small-btn" href="#"> Delete </a>
                                                         </td>
 
