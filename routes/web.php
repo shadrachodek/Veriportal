@@ -29,6 +29,22 @@ Route::post('document/{owner_id}/certificate-of-occupancy', 'CofoController@stor
 
 Route::post('owner-that-need-document', 'OwnerController@getOwner')->name('owner-that-need-document');
 
+
+Route::get('/document/{document}/receipt/', 'DocumentController@receipt')->name('doc.receipt');
+Route::get('document/{document}/payments', 'DocumentController@loadPaymentPage')->name('doc.payments');
+Route::post('document/{document_id}/payment', 'DocumentController@payment')->name('doc.payment');
+
+Route::get('/batches', 'BatchController@index')->name('batch.index');
+Route::get('/batches/{batch}/document/list', 'BatchController@list')->name('batch.list');
+Route::get('/batches/document/{document}/view', 'BatchController@show')->name('batch.show');
+
+
+Route::get('approved-documents', 'DocumentController@approveDocuments')->name('approved-document');
+Route::get('approved/{document}/show', 'DocumentController@approvedShow')->name('approved-show');
+Route::get('declined-documents', 'DocumentController@declineDocuments')->name('declined-document');
+Route::get('preview{document}/document', 'DocumentController@previewDocument')->name('preview-document');
+
+
 Route::get('/', function(){
     return view('auth.login');
 });

@@ -294,13 +294,13 @@
 
                 <div class="col-md-3 col-md-offset-3">
 
-                        <button class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block"><i class="fa fa-angle-left"></i><a href="document-batch-view-oluwole.html">Back</a></button>
+                        <a class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block" href="{{ $allDocumentInBatch->nextPageUrl() }}"><i class="fa fa-angle-left"></i> Back</a>
 
                 </div>
 
                 <div class="col-md-3 ">
 
-                        <button class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block"><a href="#">Next</a><i class="fa fa-angle-right"></i></button>
+                        <a class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block" href="{{ $allDocumentInBatch->nextPageUrl() }}">Next <i class="fa fa-angle-right"></i></a>
 
                 </div>
 

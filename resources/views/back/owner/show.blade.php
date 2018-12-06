@@ -158,8 +158,7 @@
 
                                                 <div class="avata">
                     
-                                                <img class="img border-gray " src="{{ asset('/img/faces/face-2.jpg') }}" alt="photo">
-                    
+
                                                 </div>
                     
                                         </div>
@@ -168,26 +167,21 @@
 
                                             <div class="row no-gutter">
 
-                                                <div class="col-md-2 bio-back">
-                                                    <h1>Biometrics</h1>
+                                                <div class="col-md-2">
                                                 </div>
                 
-                                                <div class="col-md-4 data-cap-back">
-                
-                                                    <h4>Data Captured</h4>
-                                                    <h3>817283782783849993</h3>
+                                                <div class="col-md-4 ">
+
                                         
                                                 </div>
                                                 
-                                                <div class="col-md-2 bio-back">
-                                                        <h1>Signature</h1>
+                                                <div class="col-md-2">
                                                 </div>
 
 
-                                                <div class="col-md-4  data-cap-white">
+                                                <div class="col-md-4">
 
                                                     <div class="signature">
-                                                    <img src="{{ asset('/img/signature.png') }}" alt="owner's signature">
                                                                 
                                                 </div>   
 

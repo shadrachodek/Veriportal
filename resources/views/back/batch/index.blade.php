@@ -29,7 +29,7 @@
                                             
                                         <div class="col-md-12"> 
                                                 
-                                                <h5 class="sub-title">12 - Available Document Batch</h5>
+                                                <h5 class="sub-title">{{ $batchCount }}- Available Document Batch</h5>
                     
                                         </div>
 
@@ -53,7 +53,7 @@
                                             </thead>
                                            
                                             <tbody>
-                                            @foreach($batchs as $batch)
+                                            @foreach($batches as $batch)
                                                 <tr>
 
                                                     <td class="text-center">{{ $batch->batch_id }}</td>

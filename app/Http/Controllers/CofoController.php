@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Model\Cofo;
+use App\Model\Document;
+use Keygen\Keygen;
+use App\Model\FileStorage;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -36,6 +39,58 @@ class CofoController extends Controller
      */
     public function store(Request $request, $owner)
     {
+        $request->validate([
+            'house_plot_number' => 'required|string|max:255',
+            'street_name' => 'required|string|max:255',
+            'lga' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'dimension' => 'required|string|max:255',
+            'survey_plan_number' => 'required|string|max:255',
+            'purpose_of_use' => 'required|string|max:255',
+            'commencement_year' => 'required|string|max:255',
+            'development_period' => 'required|string|max:255',
+            'building_value' => 'required|string|max:255',
+            'yearly_rent_payable' => 'required|numeric',
+            'term' => 'required|string|max:255',
+            'revision_period' => 'required|string|max:255',
+            'attach_doc' => 'required',
+            'attach_doc.*' => 'image|mimes:jpeg,png,jpg|max:2048'
+
+        ],
+            [
+                'house_plot_number.required' => 'First Name is require!',
+                'yearly_rent_payable.required' => 'Last Name is require!',
+                'attach_doc.required' => 'Attach Document is require!',
+                'attach_doc.mimes' => 'Attach Document should be JPG/JPEG',
+                'attach_doc.max' => 'Attach Document should not be more than 2m'
+
+            ]);
+
+        $cofo = Cofo::create([
+            'house_plot_number' => $request->house_plot_number,
+            'street_name' => $request->street_name,
+            'lga' => $request->lga,
+            'city' => $request->city,
+            'dimension' => $request->dimension,
+            'survey_plan_number' => $request->survey_plan_number,
+            'purpose_of_use' => $request->purpose_of_use,
+            'commencement_year' => $request->commencement_year,
+            'development_period' => $request->development_period,
+            'building_value' => $request->building_value,
+            'yearly_rent_payable' => $request->yearly_rent_payable,
+            'term' => $request->term,
+            'revision_period' => $request->revision_period,
+        ]);
+
+        $doc = new Document();
+        $doc->document_id = Keygen::numeric(12)->generate();
+        $doc->owner_id = $owner;
+
+        $cofo->documents()->save($doc);
+        $document_id = $doc->document_id;
+
+
+        // attach document
         if($request->hasfile('attach_doc'))
         {
             $photos = $request->file('attach_doc');
@@ -45,13 +100,18 @@ class CofoController extends Controller
                 $extension = $photo->getClientOriginalExtension();
                 $filename  = $owner . "-". time() . '.' . $extension;
                 $paths[]   = $photo->storeAs('public/document', $filename);
-                $image = Image::make(storage_path('app/public/document/'.$filename))->resize(50, 50);
-                dd($image);
 
+                // save to database
+                $fileImage = new FileStorage();
+                $fileImage->filename = $filename;
+                $fileImage->ownby = $document_id;
+                $fileImage->type = "Document";
+                $fileImage->save();
             }
 
-            dd($paths);
         }
+
+        return redirect()->route('doc.payments', compact('document_id'));
 
     }
 

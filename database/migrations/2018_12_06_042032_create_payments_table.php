@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFileStoragesTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateFileStoragesTable extends Migration
      */
     public function up()
     {
-        Schema::create('file_storages', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type');
-            $table->string('filename');
-            $table->string('thumbnail')->nullable();
-            $table->unsignedBigInteger('ownby')->index();
+            $table->string('payment_type');
+            $table->bigInteger('amount');
+            $table->unsignedBigInteger('document_id')->index();
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateFileStoragesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file_storages');
+        Schema::dropIfExists('payments');
     }
 }

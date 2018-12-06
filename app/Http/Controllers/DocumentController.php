@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\DataTables\DocumentDataTable;
 use App\Model\Document;
 use App\Model\Owner;
+use App\Model\Payment;
 use App\Model\DocumentList;
 use App\Model\Batch;
 use Carbon\Carbon;
@@ -14,11 +15,11 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class DocumentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(DocumentDataTable $dataTable)
     {
         $documentCount = Document::all()->count();
@@ -128,6 +129,68 @@ class DocumentController extends Controller
         }
 
         return back()->with('Document set for approval ');
+
+    }
+
+    public function approveDocuments(){
+
+        $documents = Document::where('approved_status', 1)->get();
+        $approvedCount = Document::where('approved_status', 1)->count();
+        return view('back.document.approved', compact('documents', 'approvedCount'));
+    }
+
+    public function approvedShow(Document $document){
+        return view('back.document.approved-show', compact('document'));
+    }
+
+    public function previewDocument(Document $document){
+        return view('back.document.preview', compact('document'));
+    }
+
+
+    public function declineDocuments(){
+
+        $documents = Document::where('approved_status', 0)->get();
+        $declinedCount = Document::where('approved_status', 0)->count();
+        return view('back.document.declined', compact('documents', 'declinedCount '));
+    }
+
+    public function loadPaymentPage(Document $document){
+
+        if ( $document->payment ) {
+            return redirect()->route('doc.receipt', compact('document'));
+        }
+
+        $payment_types = ['BANK POS', 'CASH', 'BANK TRANSFER'];
+
+        //   $owners = Owner::all();
+        return view('back.document.reg-payment', compact('document', 'payment_types'));
+    }
+
+    public function receipt(Document $document){
+        return view('back.document.receipt', compact('document'));
+    }
+
+    public function payment(Request $request, $document_id)
+    {
+        $request->validate([
+            'amount_paid' => 'required|numeric',
+            'payment_type' => 'required|string|max:255',
+        ],
+            [
+                'amount_paid.required' => 'Amount paid is require!',
+                'amount_paid.numeric' => 'Invalid value input'
+
+            ]);
+
+        $payment = Payment::create([
+            'amount' => $request->amount_paid,
+            'payment_type' => $request->payment_type,
+            'document_id' => $document_id,
+            'status' => 'Paid',
+        ]);
+
+        return redirect()->route('doc.receipt', compact('document_id'));
 
     }
 

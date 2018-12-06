@@ -38,19 +38,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('batch.index') }}">
                             <i class="fa fa-clone"></i>
                             <span class="sidebar-normal">Documents Batches</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('approved-document') }}">
                             <i class="fa fa-check"></i>
                             <span class="sidebar-normal">Documents Approved</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('declined-document') }}">
                             <i class="fa fa-close"></i>
                             <span class="sidebar-normal">Documents Declined</span>
                         </a>

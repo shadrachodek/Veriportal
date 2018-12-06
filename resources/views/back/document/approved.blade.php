@@ -34,7 +34,7 @@
 
                                             <div class="col-md-6 text-left"> 
                                                 
-                                                    <h5 class="sub-title-2">129 - Available Documents</h5>
+                                                    <h5 class="sub-title-2">{{ $approvedCount  }} - Available Documents</h5>
                     
                                             </div>
 
@@ -91,11 +91,11 @@
                                                     <td>{{ $document->documentable_type }}</td>
                                                     <td>{{ $document->status }}</td>
                                                     <td>{{ $document->owner->first_name }}</td>
-                                                    <td >{{ $document->owner->last_ame }}</td>
+                                                    <td >{{ $document->owner->last_name }}</td>
 
                                                     <td class="text-right">
-                                                            <button class="btn btn-default btn-fill small-btn"> <a href="document-approved-view-oluwole.html" > View </a> </button>
-                                                            <button class="btn btn-warning btn-fill small-btn"> <a href="#"> Delete </a> </button>
+                                                             <a href="{{ route('approved-show', $document) }}" class="btn btn-default btn-fill small-btn"> View </a>
+                                                            <a href="#" class="btn btn-warning btn-fill small-btn"> Delete </a>
                                                         </td>
                                                     
                                                    

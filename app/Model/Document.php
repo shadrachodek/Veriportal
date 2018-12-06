@@ -33,6 +33,10 @@ class Document extends Model
         return $this->hasOne('App\Model\Payment', 'document_id', 'document_id');
     }
 
+    public function files(){
+        return $this->hasMany('App\Model\FileStorage', 'ownby', 'document_id');
+    }
+
     public function owner(){
         return $this->belongsTo('App\Model\Owner', 'owner_id', 'owner_id');
     }
