@@ -7,6 +7,8 @@ use App\Http\Resources\BatchResource;
 use App\Http\Resources\Document\DocumentResource;
 use App\Model\Batch;
 use App\Model\Document;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,8 +32,43 @@ class BatchController extends Controller
         return BatchResource::collection( $batch );
     }
 
-    public function BatchStatusProcessor(Request $request, Batch $batch){
-        return $batch;
+    public function BatchStatusProcessor(Request $request, $batch){
+
+        $request->validate([
+            'status' => 'required|string|max:255',
+            'message' => 'bail',
+            'createdAt' => 'required|date|max:255',
+        ],
+            [
+                'status.required' => 'Status is require!'
+
+            ]);
+
+        try {
+            $batch = Batch::whereBatchId($batch)->firstOrFail();
+        }
+        catch (ModelNotFoundException  $exception) {
+            return back()->withError('Batch not found by ID '. $batch)->withInput();
+        }
+
+        $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;
+        $statusText = strtoupper($request->get('status'));
+
+        Document::whereBatchId($batch)->update([
+            'approved_status' => $status ,
+            'approved_by' => 2,
+            'approved_at' => $request->get('createdAt'),
+            'status' => $statusText,
+            'message' => $request->get('message'),
+            'updated_at' => Carbon::now()
+        ]);
+        $batch->update([
+            'approved_at' => Carbon::now(),
+            'status' => "Proccessed",
+            'updated_at' => Carbon::now()
+        ]);
+
+        return \response($batch->batch_id . " Process Successfully Updated");
     }
 
     /**
