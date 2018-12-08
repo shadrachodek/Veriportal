@@ -37,7 +37,6 @@ class BatchController extends Controller
 
         $request->validate([
             'status' => 'required|string|max:255',
-            'message' => 'bail',
             'createdAt' => 'required|date|max:255',
         ],
             [
@@ -55,7 +54,7 @@ class BatchController extends Controller
         $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;
         $statusText = strtoupper($request->get('status'));
 
-        Document::where('batch_id',$batch)->update([
+        Document::whereBatchId($batch->batch_id)->update([
             'approved_status' => $status,
             'approved_by' => 2,
             'approved_at' => $request->get('createdAt'),
