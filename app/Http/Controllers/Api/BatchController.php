@@ -62,7 +62,7 @@ class BatchController extends Controller
             'status' => $statusText,
             'message' => $request->get('message'),
             'updated_at' => Carbon::now()
-        ]);
+        ])->get();
         $batch->update([
             'approved_at' => Carbon::now(),
             'status' => "Processed",
