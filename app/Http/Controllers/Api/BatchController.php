@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
 
 class BatchController extends Controller
 {
@@ -68,7 +69,11 @@ class BatchController extends Controller
             'updated_at' => Carbon::now()
         ]);
 
-        return \response($batch->batch_id . " Process Successfully Updated");
+        return response([
+            'message' => "Process Successfully Updated",
+            'data' => $batch->batch_id
+        ], Response::HTTP_CREATED);
+
     }
 
     /**
