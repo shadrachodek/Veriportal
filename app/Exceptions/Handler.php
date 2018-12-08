@@ -3,9 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
-use App\Exceptions\ExceptionTrait;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\Response;
 
 class Handler extends ExceptionHandler
 {
