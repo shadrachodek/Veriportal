@@ -55,14 +55,15 @@ class BatchController extends Controller
         $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;
         $statusText = strtoupper($request->get('status'));
 
-        Document::whereBatchId($batch)->update([
-            'approved_status' => $status ,
+        Document::where('batch_id',$batch)->update([
+            'approved_status' => $status,
             'approved_by' => 2,
             'approved_at' => $request->get('createdAt'),
             'status' => $statusText,
             'message' => $request->get('message'),
             'updated_at' => Carbon::now()
-        ])->get();
+        ]);
+
         $batch->update([
             'approved_at' => Carbon::now(),
             'status' => "Processed",
