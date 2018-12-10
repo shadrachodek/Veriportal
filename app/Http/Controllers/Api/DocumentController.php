@@ -19,6 +19,10 @@ use Illuminate\Http\Response;
 
 class DocumentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -123,7 +127,7 @@ class DocumentController extends Controller
             ]);
 
             if (!$document->set_for_approval_status) {
-                return new DocumentNotSetForApproval;
+                throw new DocumentNotSetForApproval;
             }
 
         $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;

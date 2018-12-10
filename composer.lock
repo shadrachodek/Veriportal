@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c0f7cb4d7a7021909941d74f5b1dd81",
+    "content-hash": "c9d4b58947fb3495238ad08618f68c93",
     "packages": [
         {
             "name": "darkaonline/l5-swagger",
@@ -2753,16 +2753,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "2.28",
+            "version": "2.28.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "e4c3801008c2b4d1002b6b8c624a6a216d32f4f8"
+                "reference": "1b5a0631f77d72f06a8949b9e065ba0804ec93a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/e4c3801008c2b4d1002b6b8c624a6a216d32f4f8",
-                "reference": "e4c3801008c2b4d1002b6b8c624a6a216d32f4f8",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/1b5a0631f77d72f06a8949b9e065ba0804ec93a3",
+                "reference": "1b5a0631f77d72f06a8949b9e065ba0804ec93a3",
                 "shasum": ""
             },
             "require": {
@@ -2814,7 +2814,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2018-11-30T07:29:54+00:00"
+            "time": "2018-12-07T16:59:39+00:00"
         },
         {
             "name": "swagger-api/swagger-ui",
