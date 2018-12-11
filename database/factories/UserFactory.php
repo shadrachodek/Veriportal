@@ -15,6 +15,7 @@ use Keygen\Keygen;
 
 $factory->define(App\Model\User::class, function (Faker $faker) {
     return [
+        'id' => 1,
         'first_name' => "Shadrach",
         'last_name' => "Odekhiran",
         'email' => "shadymedy@gmail.com",
@@ -27,3 +28,4 @@ $factory->define(App\Model\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+

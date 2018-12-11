@@ -31,7 +31,7 @@ class SignatureController extends Controller
     {
         if (!$request->user()->signature) {
             return response([
-                'message' => 'No Signature Found',
+                'message' => null . ' No Signature Found',
             ], Response::HTTP_NO_CONTENT);
         }
 
@@ -57,7 +57,8 @@ class SignatureController extends Controller
      */
     public function store(Request $request)
     {
-        Signature::updateOrCreate(['user_id'=>$request->user()->id], ['file' => $request->file, 'user_id', $request->user()->id]);
+        Signature::updateOrCreate(['id'=>$request->user()->signature->id, 'user_id'=>$request->user()->id],
+            ['file' => $request->file, 'user_id', $request->user()->id]);
         return response([
             'data' =>  'successfully'
         ], Response::HTTP_CREATED);
@@ -65,7 +66,7 @@ class SignatureController extends Controller
 
     public function show(Owner $owner)
     {
-        return new OwnerResource( $owner );
+
     }
 
     public function edit(Owner $owner)
@@ -80,10 +81,10 @@ class SignatureController extends Controller
     }
 
 
-    public function destroy(Owner $owner)
+    public function destroy(Signature $signature)
     {
 
-        $owner->delete();
+        $signature->delete();
         return response([
             'data' => null
         ], Response::HTTP_NO_CONTENT);
