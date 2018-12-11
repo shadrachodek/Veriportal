@@ -28,6 +28,10 @@ class Document extends Model
         return $this->morphTo();
     }
 
+    public function setForApprovalOwner() {
+        return $this->documentable()->where('set_for_approval_status', 1);
+    }
+
 
     public function payment(){
         return $this->hasOne('App\Model\Payment', 'document_id', 'document_id');
