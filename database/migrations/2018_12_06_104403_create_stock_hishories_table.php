@@ -17,6 +17,7 @@ class CreateStockHishoriesTable extends Migration
             $table->increments('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->string('activity');
+            $table->string('warehouse_type');
             $table->unsignedInteger('quantity');
             $table->timestamps();
         });

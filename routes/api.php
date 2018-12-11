@@ -22,7 +22,7 @@ Route::prefix('v1')->group(function () {
   //  Route::get('documents/{document_id}/set-for-approval', 'DocumentController@setForApproval')->name('set.for.approval');
     Route::apiResource('/owners', 'Api\OwnerController');
 
-    Route::apiResource('/owners', 'Api\OwnerController');
+  //  Route::apiResource('/owners', 'Api\OwnerController');
 
     Route::prefix('owners')->group(function () {
 

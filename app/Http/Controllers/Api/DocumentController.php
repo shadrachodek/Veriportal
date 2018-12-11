@@ -14,7 +14,6 @@ use App\Model\DocumentList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Response;
 
 
 class DocumentController extends Controller
@@ -27,7 +26,8 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        return DocumentCollection::collection( Document::all() );
+        return "jfj";
+       // return DocumentCollection::collection( Document::all() );
     }
 
     /**
