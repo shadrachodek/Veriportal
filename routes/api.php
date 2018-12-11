@@ -18,6 +18,9 @@ Route::prefix('v1')->group(function () {
         return $request->user();
     });
 
+    Route::apiResource('signature', 'Api\SignatureController');
+
+
     Route::apiResource('/documents', 'Api\DocumentController');
   //  Route::get('documents/{document_id}/set-for-approval', 'DocumentController@setForApproval')->name('set.for.approval');
     Route::apiResource('/owners', 'Api\OwnerController');

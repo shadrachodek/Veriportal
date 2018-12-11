@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\PhotoPassport;
+use App\Model\Signature;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Keygen\Keygen;
@@ -65,7 +67,7 @@ class OwnerController extends Controller
 
             ]);
 
-        Owner::create([
+        $owner = Owner::create([
             'owner_id' => Keygen::numeric(10)->generate(),
             'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
@@ -82,7 +84,7 @@ class OwnerController extends Controller
             'email_address' => $request->email_address,
         ]);
 
-        return redirect()->route('owner.index');
+        return redirect()->route('photo-signature', compact('owner'));
     }
 
     /**
@@ -151,4 +153,52 @@ class OwnerController extends Controller
 
         // return redirect()->route('doc.doctype', $owner->owner_id);
     }
+
+    public function photoSignature(Owner $owner)
+    {
+        return view('back.owner.photo-signature', compact('owner'));
+    }
+
+    public function photo(Request $request, $owner)
+    {
+
+        if($request->hasfile('photo'))
+        {
+            $photo = $request->file('photo');
+            $extension = $photo->getClientOriginalExtension();
+            $filename  = $owner . "-". time() . '-photo.' . $extension;
+            $photo->storeAs('public/passport', $filename);
+
+                // save to database
+                $fileImage = new PhotoPassport();
+                $fileImage->file = $filename;
+                $fileImage->owner_id = $owner;
+                $fileImage->save();
+
+        }
+        return redirect()->back();
+    }
+
+    public function signature(Request $request, $owner)
+    {
+
+
+        if($request->hasfile('signature'))
+        {
+            $signature= $request->file('signature');
+            $extension = $signature->getClientOriginalExtension();
+            $filename  = $owner . "-". time() . '-signature.' . $extension;
+            $signature->storeAs('public/signature', $filename);
+
+            // save to database
+            $fileImage = new Signature();
+            $fileImage->file = $filename;
+            $fileImage->owner_id = $owner;
+            $fileImage->save();
+        }
+
+        return redirect()->back();
+    }
+
+
 }

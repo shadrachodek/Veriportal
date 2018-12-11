@@ -41,4 +41,8 @@ class User extends Authenticatable
     {
         return 'user_id';
     }
+
+    public function signature(){
+        return $this->hasOne(Signature::class);
+    }
 }

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Stock;
+use App\Model\DocumentList;
+use App\Model\Stock;
+use App\Model\Warehouse;
+use Keygen\Keygen;
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -14,7 +17,9 @@ class StockController extends Controller
      */
     public function index()
     {
-        return view('back.stock.index');
+        $stocks = Stock::all();
+        $document = DocumentList::All();
+        return view('back.stock.index', compact('stocks', 'document'));
     }
 
     /**
@@ -35,7 +40,38 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'storage' => 'required|string|max:255',
+            'production' => 'required|string|max:255',
+            'documentType' => 'required|string|max:255',
+        ],
+            [
+                'name.required' => 'Item Name is require!',
+                'storage.required' => 'Storage is require!',
+                'production.required' => 'Storage is require!',
+            ]);
+
+        $status = 0;
+        if ($request->status == 'on'){
+            $status = 1;
+        }
+
+        $warehouse = Warehouse::create([
+            'warehouse_id' => Keygen::numeric(10)->generate(),
+            'storage' => $request->storage,
+            'production' => $request->production,
+        ]);
+
+        $stock = Stock::create([
+            'stock_id' => Keygen::numeric(10)->generate(),
+            'name' => $request->name,
+            'warehouse_id' => $warehouse->id,
+            'status' => $status,
+            'document_list_id' => $request->documentType,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -46,7 +82,7 @@ class StockController extends Controller
      */
     public function show(Stock $stock)
     {
-        //
+        return view('back.stock.show', compact('stock'));
     }
 
     /**

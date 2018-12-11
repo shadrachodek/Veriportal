@@ -68,7 +68,7 @@
             <div class="collapse" id="formsDropdown">
                 <ul class="nav">
                     <li>
-                        <a href="{{ route('stock-management.index')  }}">
+                        <a href="{{ route('stock.index')  }}">
                             <i class="fa fa-bars"></i>
                             <span class="sidebar-normal"> Items </span>
                         </a>

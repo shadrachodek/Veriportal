@@ -17,7 +17,7 @@ $factory->define(App\Model\User::class, function (Faker $faker) {
     return [
         'first_name' => "Shadrach",
         'last_name' => "Odekhiran",
-        'email' => "shadrach.odekhiran@verisys.ng",
+        'email' => "shadymedy@gmail.com",
         'city' => "Lagos",
         'phone' => "08020545961",
         'status' => true,

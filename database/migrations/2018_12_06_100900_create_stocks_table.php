@@ -13,15 +13,29 @@ class CreateStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('stocks', function (Blueprint $table) {
+        Schema::create('warehouses', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('stock_id');
-            $table->string('name');
-            $table->unsignedBigInteger('document_list_id')->index();
-            $table->unsignedBigInteger('warehouse_id')->index();
-            $table->unsignedInteger('status')->index();
+            $table->unsignedBigInteger('warehouse_id');
+            $table->string('production');
+            $table->string('storage');
             $table->timestamps();
         });
+
+            Schema::create('stocks', function (Blueprint $table) {
+                $table->increments('id');
+                $table->unsignedBigInteger('stock_id');
+                $table->string('name');
+                $table->integer('document_list_id')->unsigned()->index();
+                $table->integer('warehouse_id')->unsigned()->index();
+                $table->unsignedInteger('status');
+
+
+                $table->foreign('warehouse_id')->references('id')->on('warehouses');
+                $table->foreign('document_list_id')->references('id')->on('document_lists');
+
+                $table->timestamps();
+            });
+
     }
 
     /**
@@ -31,6 +45,7 @@ class CreateStocksTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('warehouses');
         Schema::dropIfExists('stocks');
     }
 }

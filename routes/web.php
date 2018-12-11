@@ -16,13 +16,16 @@
 
 Route::resource('/user-management', 'UserController');
 Route::resource('/owner', 'OwnerController');
+Route::get('/owner/{owner}/photo-signature', 'OwnerController@photoSignature')->name('photo-signature');
+Route::post('/owner/{owner}/photo', 'OwnerController@photo')->name('photo');
+Route::post('/owner/{owner}/signature', 'OwnerController@signature')->name('signature');
 Route::get('/total-document-owners', 'DashboardController@totalDocumentOwners');
 
 
 //Documents
 Route::resource('/document', 'DocumentController');
 Route::resource('/print-job', 'PrintJobController');
-Route::resource('/stock-management', 'StockController');
+Route::resource('/stock', 'StockController');
 Route::get('{owner}/select-document-type', 'DocumentController@documentType')->name('documentType');
 Route::get('{owner}/{type}/document', 'DocumentController@selectedDocument')->name('selectedDocument');
 Route::get('document/{document_id}/set-for-approval', 'DocumentController@setForApproval')->name('set.for.approval');

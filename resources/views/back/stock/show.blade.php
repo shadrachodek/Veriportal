@@ -5,15 +5,25 @@
     <div class="main-panel">
 
         @include('layouts.partial.topbar')
-
         <div class="main-content anchor-styling stock-styling">
             <div class="container-fluid">
 
                     <div class="row">
 
-                        <div class="col-md-12">
+                        <div class="col-md-6">
 
                                 <h4 class="title">Stock Management -Item View</h4>
+                        </div>
+
+                        <div class="col-md-6 text-right">
+                            <p>STATUS</p>
+                            <input type="checkbox" checked data-toggle="toggle" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger">
+                            <div class="bootstrap-switch-container pull-right" style="width: 122px;">
+                                <span class="bootstrap-switch-handle-on bootstrap-switch-info" style="width: 50px;"></span>
+                                <span class="bootstrap-switch-label" style="width: 30px;">&nbsp;</span>
+                                <span class="bootstrap-switch-handle-off bootstrap-switch-info" style="width: 100px;"></span>
+                                <input type="checkbox" checked="Disabled" data-toggle="switch" data-on-color="info" data-off-color="info" data-on-text="Active" data-off-text="Disabled">
+                            </div>
                         </div>
                         
                         
@@ -32,7 +42,7 @@
                                         <div class="left-side-print">
 
                                                 <p> ItemId</p>
-                                                <h5 class=""> 56188762</h5>
+                                                <h5 class=""> {{ $stock->stock_id }} </h5>
                             
                                         </div>
                                 </div>
@@ -42,7 +52,7 @@
                                         <div class="right-side-print">
 
                                                 <p> Date Created</p>
-                                                <h5 class=""> 10 September 2018 </h5>
+                                                <h5 class=""> {{ $stock->created_at }}</h5>
                             
                                         </div>
 
@@ -56,7 +66,7 @@
 
                                             <div class="">
                                                     <p>Item NAme</p>
-                                                    <h5 class=""> Cofo PVC Matt</h5>
+                                                    <h5 class=""> {{ $stock->name }} </h5>
                                             </div>
                                     </div>
 
@@ -64,7 +74,7 @@
 
                                             <div class="right-side-print">
                                                     <p> DAte Last Updated</p>
-                                                    <h5 class=""> 10 September 2018</h5>
+                                                    <h5 class=""> {{ $stock->updated_at }} </h5>
                                             </div>
                                     </div>
 
@@ -101,7 +111,7 @@
 
                                             <div class="left-side-print">
                                                     <p> Available Quantity</p>
-                                                    <h5 class=""> 345 </h5>
+                                                    <h5 class=""> {{ $stock->warehouse->production }} </h5>
                                             </div>
                                     </div>
 
@@ -109,7 +119,7 @@
 
                                             <div class="right-side-print">
                                                     <p> Available Quantity</p>
-                                                    <h5 class=""> 3445 </h5>
+                                                    <h5 class=""> {{ $stock->warehouse->storage }}  </h5>
                                             </div>
                                     </div>
                             </div>
@@ -208,7 +218,9 @@
                                             <thead>
                                                 <tr>
                                                     <th> Date </th>
+                                                    <th> User</th>
                                                     <th> Activity </th>
+                                                    <th> Warehouse Type </th>
                                                     <th> Quantity</th>
                                                    
                                                   
@@ -220,7 +232,9 @@
                                                 <tr>
 
                                                     <td>10 June 2018</td>
+                                                    <td>Akinade</td>
                                                     <td>Stock Update  </td>
+                                                    <td>Production</td>
                                                     <td>120</td>
                                                    
                                                    
@@ -230,7 +244,9 @@
                                                 <tr>
                                                     
                                                      <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
+                                                     <td>Funmi</td>
+                                                    <td>Stock Update </td>
+                                                    <td> Storage</td>
                                                     <td>120</td>
                                                    
                                                                                                         
@@ -238,95 +254,14 @@
                                                 <tr>
                                                     
                                                      <td>10 June 2018</td>
+                                                     <td>Akin</td>
                                                     <td>Stock Update  </td>
+                                                    <td> Storage </td>
                                                     <td>120</td>
                                                    
                                                                                                            
                                                     </tr>
-
-                                                <tr>
-                                                    
-                                                     <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
-                                                    <td>120</td>
-                                                   
-                                                                                                        
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                     <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
-                                                    <td>120</td>
-                                                   
-                                                                                                        
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                     <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
-                                                    <td>120</td>
-                                                   
-                                                                                                       
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                     <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
-                                                    <td>120</td>
-                                                   
-                                                                                                        
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                    <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
-                                                    <td>120</td>
-                                                       
-                                                    
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                    <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
-                                                    <td>120</td>
-                                                   
-                                                                                                       
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                    <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
-                                                    <td>120</td>
-                                                       
-                                                                                                            
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                     <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
-                                                    <td>120</td>
-                                                   
-                                                                                                       
-                                                </tr>
-
-
-                                                <tr>
-                                                    
-                                                     <td>10 June 2018</td>
-                                                    <td>Stock Update  </td>
-                                                    <td>120</td>
-                                                   
-                                                                                                           
-                                                </tr>
-
-                                                
+                                                                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -358,8 +293,8 @@
 
 
                                             <div class="stock-pop-info">
-                                                    <p> Item Id</p>
-                                                    <h5 class=""> 56188762</h5>
+                                                    <p> Item Name</p>
+                                                    <h5 class=""> COFO PVC MATT </h5>
                                             </div>
 
                                                 <div class="form-group">
@@ -376,7 +311,7 @@
 
                                         <div class="col-md-4 col-md-offset-4">
                                             <div class="text-center">
-                                                <button class="btn btn-default btn-fill small-btn btn-block">Update</button>
+                                                <button class="btn btn-default btn-fill small-btn btn-block">Submit</button>
                            
 
              </div>
@@ -411,8 +346,8 @@
                                     <div class="col-md-12">
 
                                             <div class="stock-pop-info">
-                                                    <p> Item Id</p>
-                                                    <h5 class=""> 56188762</h5>
+                                                    <p> Item Name</p>
+                                                    <h5 class=""> COFO PVC MATT</h5>
                                             </div>
                                            
                                             <div class="form-group">
@@ -428,7 +363,7 @@
                                                    
                                                             <div class="col-md-6">
         
-                                                                <p> Quantity Currently Available </p>
+                                                                <p>Current Available Quantity </p>
                                                                 
                                                             </div>
         
@@ -466,7 +401,7 @@
                                                        
                                                                 <div class="col-md-6">
             
-                                                                    <p> Quantity Currently Available </p>
+                                                                    <p>  Current Available Quantity </p>
                                                                     
                                                                 </div>
             
@@ -489,7 +424,7 @@
 
                                     <div class="col-md-4 col-md-offset-4">
                                         <div class="text-center">
-                                            <button class="btn btn-default btn-fill small-btn btn-block">Update</button>
+                                            <button class="btn btn-default btn-fill small-btn btn-block">Submit</button>
                        
 
          </div>
