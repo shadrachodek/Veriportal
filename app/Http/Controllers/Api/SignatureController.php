@@ -30,14 +30,10 @@ class SignatureController extends Controller
     public function index(Request $request)
     {
         if (!$request->user()->signature) {
-            return response([
-                'message' => null . ' No Signature Found',
-            ], Response::HTTP_NO_CONTENT);
+            return  response("no");
         }
 
-        return response([
-            'data' => $request->user()->signature->file,
-        ], Response::HTTP_CREATED);
+        return response("yes");
     }
     /**
      * Show the form for creating a new resource.
@@ -65,9 +61,11 @@ class SignatureController extends Controller
         ], Response::HTTP_CREATED);
     }
 
-    public function show(Owner $owner)
+    public function show(Request $request)
     {
-
+        return response([
+            'data' => $request->user()->signature->file,
+        ], Response::HTTP_CREATED);
     }
 
     public function edit(Owner $owner)
