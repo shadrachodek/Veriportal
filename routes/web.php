@@ -16,6 +16,11 @@
 
 Route::resource('/user-management', 'UserController');
 Route::resource('/owner', 'OwnerController');
+Route::get('/setting/user-roles', 'SettingController@UserRoles')->name('setting.user.roles');
+Route::get('/setting/user-new-roles', 'SettingController@UserNewRole')->name('setting.user.new.role');
+Route::get('/setting/user-edit-roles/{role}', 'SettingController@UserEditRolePermission')->name('setting.user.edit.roles');
+Route::post('/setting/user-store-role/{role}/edit', 'SettingController@UserEditRolePermissionStore')->name('setting.user.store.role');
+Route::resource('/setting', 'SettingController');
 Route::get('/owner/{owner}/photo-signature', 'OwnerController@photoSignature')->name('photo-signature');
 Route::post('/owner/{owner}/photo', 'OwnerController@photo')->name('photo');
 Route::post('/owner/{owner}/signature', 'OwnerController@signature')->name('signature');
@@ -29,9 +34,7 @@ Route::resource('/stock', 'StockController');
 Route::get('{owner}/select-document-type', 'DocumentController@documentType')->name('documentType');
 Route::get('{owner}/{type}/document', 'DocumentController@selectedDocument')->name('selectedDocument');
 Route::get('document/{document_id}/set-for-approval', 'DocumentController@setForApproval')->name('set.for.approval');
-
 Route::view('select-owner-for-document-registration', 'back.document.select-owner-to-reg-doc')->name('select-owner-for-doc-reg');
-
 Route::post('document/{owner_id}/certificate-of-occupancy', 'CofoController@store')->name('cofo.store');
 
 Route::post('owner-that-need-document', 'OwnerController@getOwner')->name('owner-that-need-document');

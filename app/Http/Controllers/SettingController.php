@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Spatie\Permission\Models\Role;
 
-class UserController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +20,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
-        $userCount = User::all()->count();
-        return view('back.user.index', compact('users', 'userCount'));
+        return view('back.setting.index');
     }
 
     /**
@@ -30,18 +28,27 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function UserRoles()
     {
-        $roles = Role::all()->pluck('name');
-        return view('back.user.create', compact('roles'));
+        $roles = Role::all();
+        return view('back.setting.user.index', compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+    public function UserNewRole(){
+        return view('back.setting.user.create');
+    }
+
+    public function UserEditRolePermission(Role $role){
+        $permissions = collect($role->permissions->pluck('name'));
+        return $permissions;
+        return view('back.setting.user.edit', compact('role', 'permissions'));
+    }
+
+    public function UserEditRolePermissionStore(Request $request, Role $role){
+        return $request->all();
+       // return view('setting.user.store.roles');
+    }
+
     public function store(Request $request)
     {
 

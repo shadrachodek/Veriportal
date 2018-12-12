@@ -71,7 +71,7 @@ class BatchController extends Controller
 
         return response([
             'message' => "Process Successfully Updated",
-            'data' => $batch->batch_id
+            'status' => $batch->status
         ], Response::HTTP_CREATED);
 
     }

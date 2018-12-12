@@ -114,7 +114,7 @@
             </a>
         </li>
         <li>
-            <a href="setting.html">
+            <a href="{{ route('setting.index') }}">
                 <i class="pe-7s-config"></i>
                 <p>Settings
 

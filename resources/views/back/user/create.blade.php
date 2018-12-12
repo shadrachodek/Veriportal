@@ -11,7 +11,7 @@
         <div class="main-content">
             <div class="container-fluid">
 
-                    <h4 class="title">New Owner Registration</h4>
+                    <h4 class="title">New User Registration</h4>
 
                 <div class="row card card-inner-spacer card-inner-top card-inner-bottom">
                     @if ($errors->any())
@@ -86,7 +86,13 @@
             <div class="form-group">
                 <label>Role</label>
                 <div>
-                    <input type="text" value="{{ old('role') }}" name="role" placeholder="Enter Role" class="form-control" />
+                    <select name="role" class="selectpicker bottom-buffer"  data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                        @foreach($roles as $role)
+                            <option> {{ title_case($role) }}</option>
+                        @endforeach
+
+                    </select>
+
                     @if ($errors->has('role'))
                         <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('role') }}</strong>
