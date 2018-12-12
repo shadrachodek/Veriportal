@@ -28,6 +28,8 @@ class DocumentController extends Controller
     public function index()
     {
        return DocumentCollection::collection( Document::where('set_for_approval_status', 1)->get() );
+
+
     }
 
     /**
@@ -182,13 +184,29 @@ class DocumentController extends Controller
 
     public function AllApprovedDocument(){
 
-        $approvedDocument = ApprovedDocument::collection(Document::whereApprovedStatus(1)->get());
+        $document = Document::all()->reject(function ($document) {
+            return $document->set_for_approval_status == false;
+        })
+            ->map(function ($document) {
+                $document->approved_status = true;
+                return $document;
+            });
+
+        $approvedDocument = ApprovedDocument::collection($document);
         return $approvedDocument;
     }
 
     public function AllDeniedDocument(){
+        $document = Document::all()->reject(function ($document) {
+            return $document->set_for_approval_status == false;
+        })
+            ->map(function ($document) {
+                $document->approved_status = false;
+                return $document;
+            });
 
-        $deniedDocument = DeniedDocument::collection(Document::whereApprovedStatus(0)->get());
+
+        $deniedDocument = DeniedDocument::collection($document);
         return $deniedDocument;
 
     }

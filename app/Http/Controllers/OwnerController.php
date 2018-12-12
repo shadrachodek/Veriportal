@@ -181,8 +181,6 @@ class OwnerController extends Controller
 
     public function signature(Request $request, $owner)
     {
-
-
         if($request->hasfile('signature'))
         {
             $signature= $request->file('signature');

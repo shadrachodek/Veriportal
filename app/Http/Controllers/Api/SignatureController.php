@@ -57,7 +57,8 @@ class SignatureController extends Controller
      */
     public function store(Request $request)
     {
-        Signature::updateOrCreate(['id'=>$request->user()->signature->id, 'user_id'=>$request->user()->id],
+       // return $request->user()->signature;
+        Signature::updateOrCreate(['user_id'=>$request->user()->id],
             ['file' => $request->file, 'user_id', $request->user()->id]);
         return response([
             'data' =>  'successfully'
