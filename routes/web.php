@@ -16,11 +16,27 @@
 
 Route::resource('/user-management', 'UserController');
 Route::resource('/owner', 'OwnerController');
-Route::get('/setting/user-roles', 'SettingController@UserRoles')->name('setting.user.roles');
-Route::get('/setting/user-new-roles', 'SettingController@UserNewRole')->name('setting.user.new.role');
-Route::get('/setting/user-edit-roles/{role}', 'SettingController@UserEditRolePermission')->name('setting.user.edit.roles');
-Route::post('/setting/user-store-role/{role}/edit', 'SettingController@UserEditRolePermissionStore')->name('setting.user.store.role');
-Route::resource('/setting', 'SettingController');
+
+Route::prefix('setting')->group(function () {
+    Route::get('roles/view', 'SettingController@UserRoles')->name('setting.roles');
+    Route::get('new.role-permissions', 'SettingController@UserNewRole')->name('setting.new.role-permissions');
+    Route::post('new.role-permission', 'SettingController@UserNewRolePermissionStore')->name('setting.create.role.permission');
+    Route::get('user-permission-roles/{role}/view_update', 'SettingController@UserEditRolePermission')->name('setting.role.view.update');
+    Route::post('user-store-role/{role}/edit', 'SettingController@UserEditRolePermissionStore')->name('setting.store.role.permission');
+    Route::get('user-store-role/{role}/delete', 'SettingController@UserDeleteRolePermissionStore')->name('setting.delete.role.permission');
+    Route::get('/', 'SettingController@index')->name('setting.index');
+});
+
+Route::prefix('stock')->group(function () {
+    Route::get('materials-request', 'StockController@MaterialRequest')->name('stock.materials.request');
+    Route::get('receive-item', 'StockController@ReceiveItem')->name('stock.receive.item');
+    Route::post('material-request', 'StockController@MaterialRequestStore')->name('stock.material.request');
+    Route::post('materials-request/{material_request_id}', 'StockController@MaterialRequestApproval')->name('stock.materials.request.approval');
+});
+
+Route::resource('stock', 'StockController');
+
+
 Route::get('/owner/{owner}/photo-signature', 'OwnerController@photoSignature')->name('photo-signature');
 Route::post('/owner/{owner}/photo', 'OwnerController@photo')->name('photo');
 Route::post('/owner/{owner}/signature', 'OwnerController@signature')->name('signature');
@@ -30,7 +46,7 @@ Route::get('/total-document-owners', 'DashboardController@totalDocumentOwners');
 //Documents
 Route::resource('/document', 'DocumentController');
 Route::resource('/print-job', 'PrintJobController');
-Route::resource('/stock', 'StockController');
+
 Route::get('{owner}/select-document-type', 'DocumentController@documentType')->name('documentType');
 Route::get('{owner}/{type}/document', 'DocumentController@selectedDocument')->name('selectedDocument');
 Route::get('document/{document_id}/set-for-approval', 'DocumentController@setForApproval')->name('set.for.approval');

@@ -66,7 +66,14 @@
                         <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Lga / Lcda</label>
-                                    <input type="text" value="{{ old('lga_lcda') }}" name="lga_lcda" placeholder="Enter Lga / Lcda" class="form-control" />
+                                    <div>
+                                        <select name="lga_lcda" class="selectpicker bottom-buffer"  data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                            @foreach($lgas as $lga)
+                                                <option> {{ $lga }}</option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
                                 </div>
                         </div>
                         <div class="col-md-4">
@@ -83,24 +90,24 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-            <div class="form-group">
-                <label>Role</label>
-                <div>
-                    <select name="role" class="selectpicker bottom-buffer"  data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                        @foreach($roles as $role)
-                            <option> {{ title_case($role) }}</option>
-                        @endforeach
+                            <div class="form-group">
+                                <label>Role</label>
+                                <div>
+                                    <select name="role" class="selectpicker bottom-buffer"  data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                        @foreach($roles as $role)
+                                            <option> {{ title_case($role) }}</option>
+                                        @endforeach
 
-                    </select>
+                                    </select>
 
-                    @if ($errors->has('role'))
-                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('role') }}</strong>
-                                                </span>
-                    @endif
-                </div>
-            </div>
-        </div>
+                                    @if ($errors->has('role'))
+                                        <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $errors->first('role') }}</strong>
+                                                                </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Username</label>

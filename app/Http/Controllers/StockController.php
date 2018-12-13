@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\MaterialRequest;
 use App\Model\DocumentList;
 use App\Model\Stock;
 use App\Model\Warehouse;
+use App\Model\ReceiveItem;
 use Keygen\Keygen;
 use Illuminate\Http\Request;
 
@@ -117,5 +119,21 @@ class StockController extends Controller
     public function destroy(Stock $stock)
     {
         //
+    }
+
+    public function MaterialRequest(){
+        $materialRequests = MaterialRequest::all();
+        return view('back.stock.material-request', compact('materialRequests'));
+    }
+
+    public function MaterialRequestStore(Request $request){
+        return $request->all();
+        $materialRequests = MaterialRequest::all();
+        return view('back.stock.material-request', compact('materialRequests'));
+    }
+
+    public function ReceiveItem(){
+        $receiveItem = ReceiveItem::all();
+        return view('back.stock.receive-item', compact('receiveItem'));
     }
 }

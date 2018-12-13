@@ -107,18 +107,6 @@
         demo.initDashboardPageCharts();
         demo.initVectorMap();
 
-        $.notify({
-            icon: 'pe-7s-bell',
-            message: "Welcome"
-
-        },{
-            type: 'warning',
-            timer: 4000
-        });
-
-
-
-
     });
 </script>
 
@@ -143,5 +131,12 @@
 
 <!-- Include this after the sweet alert js file -->
 @include('sweet::alert')
+
+<script>
+    $(function () {
+        // flash auto hide
+        $('#flash-msg .alert').not('.alert-danger, .alert-important').delay(6000).slideUp(500);
+    })
+</script>
 
 </html>

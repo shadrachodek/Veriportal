@@ -74,13 +74,13 @@
                         </a>
                     </li>
                     <li >
-                        <a href="stock-management-material-request.html">
+                        <a href="{{ route('stock.materials.request') }}">
                             <i class="fa fa-hourglass"></i>
                             <span class="sidebar-normal"> Material Request </span>
                         </a>
                     </li>
                     <li>
-                        <a href="stock-management-receive-item.html">
+                        <a href="{{ route('stock.receive.item') }}">
                             <i class="fa fa-arrow-down"></i>
                             <span class="sidebar-normal"> Receive Items </span>
                         </a>

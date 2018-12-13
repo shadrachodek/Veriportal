@@ -3,6 +3,9 @@
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Model\PaymentType;
+use App\Model\Lga;
+use App\Model\User;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
@@ -53,6 +56,23 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'view roles']);
         Permission::create(['name' => 'create roles']);
 
+        // payment type
+        PaymentType::create(['name' => 'GTB', 'type' => 'Bank Transfer']);
+        PaymentType::create(['name' => 'First Bank', 'type' => 'Pos']);
+        PaymentType::create(['name' => 'Office', 'type' => 'Cash']);
+
+        // Lga
+        $imoLga = ["Aboh-Mbaise", "Ahiazu-Mbaise", "Ehime-Mbano", "Ezinihitte", "Ideato North", "Ideato South",
+            "Ihitte/Uboma", "Ikeduru", "Isiala Mbano", "Isu", "Mbaitoli", "Mbaitoli", "Ngor-Okpala",
+            "Njaba", "Nwangele", "Nkwerre", "Obowo", "Oguta", "Ohaji/Egbema", "Okigwe", "Orlu", "Orsu",
+            "Oru East", "Oru West", "Owerri-Municipal", "Owerri North", "Owerri West", ];
+        foreach ($imoLga as $lga){
+            Lga::create(['name' => $lga]);
+        }
+
+
+
+
         // create roles and assign created permissions
 
         // this can be done as separate statements
@@ -74,5 +94,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $role = Role::create(['name' => 'super-approval']);
         $role->givePermissionTo(['view documents', 'super documents']);
+
+        $user = User::find(1);
+        $user->assignRole(1);
     }
 }

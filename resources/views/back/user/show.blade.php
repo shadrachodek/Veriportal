@@ -99,7 +99,7 @@
 
                                             <div class="col-md-12">
                                                 <h5>Role</h5>
-                                                <h3>{{ $user->phone }}</h3>
+                                                <h3>{{ @$user->roles[0]->name }}</h3>
                 
                                             </div>
                 

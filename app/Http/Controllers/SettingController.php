@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Keygen\Keygen;
 use App\Model\User;
 use Illuminate\Support\Facades\Hash;
@@ -39,14 +40,33 @@ class SettingController extends Controller
     }
 
     public function UserEditRolePermission(Role $role){
-        $permissions = collect($role->permissions->pluck('name'));
-        return $permissions;
+        $permissions = collect($role->permissions)->mapWithKeys(function ($prems) {
+            return [$prems['id'] => $prems['name']];
+        });
         return view('back.setting.user.edit', compact('role', 'permissions'));
     }
 
+    public function UserNewRolePermissionStore(Request $request){
+
+        $role = Role::create(['name' => $request->role]);
+        $role->syncPermissions($request->permissions);
+
+        return redirect()->route('setting.role.view.update', compact('role'))->with('info', title_case( $role->name ) . " Role Created!");
+    }
+
     public function UserEditRolePermissionStore(Request $request, Role $role){
-        return $request->all();
-       // return view('setting.user.store.roles');
+        $role->syncPermissions($request->permissions);
+
+        return redirect()->back()->with('success', title_case( $role->name ) . " Role Updated!");
+    }
+
+    public function UserDeleteRolePermissionStore(Role $role){
+        if (collect($role->permissions)->isNotEmpty()){
+            return redirect()->back()->with('error',"You can not delete Role that have permissions, Remove all Permission before delete");
+        }
+        $role->delete();
+        return redirect()->back()->with('info', $role->name . " Role Deleted!");
+
     }
 
     public function store(Request $request)

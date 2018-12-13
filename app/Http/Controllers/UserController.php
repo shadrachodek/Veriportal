@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Lga;
 use Illuminate\Http\Request;
 use Keygen\Keygen;
 use App\Model\User;
@@ -33,7 +34,8 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all()->pluck('name');
-        return view('back.user.create', compact('roles'));
+        $lgas = Lga::all()->pluck('name');
+        return view('back.user.create', compact('roles', 'lgas'));
     }
 
     /**
@@ -69,6 +71,7 @@ class UserController extends Controller
             'password' => Hash::make($request->get('password')),
         ]);
         $role = $request->get('role');
+        $user->assignRole($role);
         return redirect()->route('user-management.index');
     }
 

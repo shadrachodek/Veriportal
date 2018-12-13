@@ -139,7 +139,7 @@
                                                         <div class="bootstrap-switch-container" style="width: 122px;">
                                                             <span class="bootstrap-switch-label" style="width: 30px;">&nbsp;</span>
                                                             <span class="bootstrap-switch-handle-off bootstrap-switch-info" style="width: 100px;"></span>
-                                                            <input type="checkbox" name="status" checked="" data-toggle="switch" data-on-color="info" data-off-color="info" data-on-text="Active" data-off-text="Inactive">
+                                                            <input type="checkbox" name="status" checked="" data-toggle="switch" data-on-color="info" data-off-color="info" data-on="Ready" data-on-text="Active" data-off-text="Inactive">
                                                         </div>
 
                                                     </div>
@@ -180,18 +180,18 @@
                                             <div class="stock-pop-header">
                                                 <h4> New Material Request </h4>
                                             </div>
+                                            <form method="post" action="{{ route('stock.material.request') }}">
+                                                @csrf
                                             <div class="card-body">
 
                                                 <div class="col-md-12">
 
                                                     <div class="form-group">
                                                         <label>Select Item Required</label>
-                                                        <select name="item-required" class="selectpicker" data-title="" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-
-                                                            <option value="id">200</option>
-                                                            <option value="ms">500</option>
-                                                            <option value="ms">1000</option>
-                                                            ...
+                                                        <select name="item_required" class="selectpicker" data-title="" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                                            @foreach($stocks as $stock)
+                                                            <option value="{{$stock->id}}">{{$stock->name}}</option>
+                                                            @endforeach
                                                         </select>
 
                                                         <div class="row sub-info">
@@ -204,19 +204,16 @@
 
                                                             <div class="col-md-6 right-info">
 
-                                                                <p> 200 </p>
+                                                                <p> {{ @$stock->warehouse->production }} </p>
 
                                                             </div>
 
                                                         </div>
 
                                                     </div>
-
-
-
                                                     <div class="form-group">
                                                         <label>Quantity Required</label>
-                                                        <input type="email"  class="form-control">
+                                                        <input type="number"  class="form-control" name="quantity_required">
                                                     </div>
 
 
@@ -228,13 +225,14 @@
 
                                                 <div class="col-md-4 col-md-offset-4">
                                                     <div class="text-center">
-                                                        <button class="btn btn-default btn-fill small-btn btn-block">Update</button>
+                                                        <button class="btn btn-default btn-fill small-btn btn-block">Submit Request</button>
 
 
                                                     </div>
                                                 </div>
 
                                             </div>
+                                            </form>
 
 
                                         </div>
