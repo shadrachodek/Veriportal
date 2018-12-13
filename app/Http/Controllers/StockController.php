@@ -43,7 +43,7 @@ class StockController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:stocks',
             'storage' => 'required|string|max:255',
             'production' => 'required|string|max:255',
             'documentType' => 'required|string|max:255',
@@ -73,7 +73,7 @@ class StockController extends Controller
             'document_list_id' => $request->documentType,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', $stock->name . " with Item ID: " . $stock->stock_id . " successfuly created");
     }
 
     /**
@@ -122,14 +122,19 @@ class StockController extends Controller
     }
 
     public function MaterialRequest(){
-        $materialRequests = MaterialRequest::all();
+        $materialRequests = MaterialRequest::with('stock')->get();
         return view('back.stock.material-request', compact('materialRequests'));
     }
 
     public function MaterialRequestStore(Request $request){
-        return $request->all();
-        $materialRequests = MaterialRequest::all();
-        return view('back.stock.material-request', compact('materialRequests'));
+    //    return $request->all();
+        MaterialRequest::create([
+            'request_id' => Keygen::numeric(4)->generate(),
+            'request_quantity' => $request->quantity_required,
+            'requester' => $request->user()->id,
+            'stock_id' => $request->item_required
+        ]);
+        return redirect()->route('stock.materials.request');
     }
 
     public function ReceiveItem(){

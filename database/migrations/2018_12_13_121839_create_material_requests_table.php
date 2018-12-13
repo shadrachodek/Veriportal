@@ -17,7 +17,7 @@ class CreateMaterialRequestsTable extends Migration
             $table->increments('id');
             $table->unsignedBigInteger('request_id');
             $table->unsignedBigInteger('request_quantity');
-            $table->unsignedBigInteger('approved_quantity');
+            $table->unsignedBigInteger('approved_quantity')->nullable();
             $table->string('status')->default('pending');
             $table->integer('stock_id')->unsigned()->index();
             $table->integer('requester')->unsigned()->index();

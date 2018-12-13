@@ -159,7 +159,7 @@ class DocumentController extends Controller
 
         return response([
             'message' => "Process Successfully Updated",
-            'status' => $document->status
+            'status' => $batch->status
         ], Response::HTTP_CREATED);
     }
 

@@ -18,4 +18,8 @@ class Stock extends Model
     public function warehouse(){
         return $this->hasOne(Warehouse::class, 'id');
     }
+
+    public function materials(){
+        return $this->hasMany(MaterialRequest::class);
+    }
 }

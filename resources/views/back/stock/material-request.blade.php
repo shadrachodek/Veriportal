@@ -11,7 +11,6 @@
 
                 <div class="row ">
 
-                   
 
                             <h4 class="title">Stock Management</h4>
                     
@@ -95,38 +94,22 @@
                                                     
                                                 </tr>
                                             </thead>
-                                           
                                             <tbody>
+                                            @foreach( $materialRequests as $material )
                                                 <tr>
 
-                                                    <td>10 JUNE 2018 </td>
-                                                    <td>51783748</td>
-                                                    <td> COFO PVC MATT  </td>
-                                                    <td> 125</td>
-                                                    <td> Pending</td>
+                                                    <td> {{ $material->created_at }}</td>
+                                                    <td> {{ $material->request_id }}</td>
+                                                    <td> {{ $material->stock->name }} </td>
+                                                    <td> {{ $material->request_quantity }} </td>
+                                                    <td> {{ $material->status }} </td>
                                                     <td class="text-right">
                                                             <a class="btn btn-default btn-fill small-btn " href="#ModalCenter-1" data-toggle="modal" data-target="#ModalCenter-1">View </a> 
                                                             <a class="btn btn-warning btn-fill small-btn " href="#">      Delete </a>
                                                     </td>
                                                    
                                                 </tr>
-
-                                                <tr>
-                                                    
-                                                        <td>10 JUNE 2018 </td>
-                                                        <td>51783748</td>
-                                                        <td> COFO PVC MATT  </td>
-                                                        <td> 125</td>
-                                                        <td> Pending</td>
-                                                        <td class="text-right">
-                                                                <a class="btn btn-default btn-fill small-btn " href="#ModalCenter-1" data-toggle="modal" data-target="#ModalCenter-1">View </a> 
-                                                                <a class="btn btn-warning btn-fill small-btn " href="#">      Delete </a>
-                                                        </td>
-                                                    
-                                                </tr>
-                                               
-
-                                                
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
