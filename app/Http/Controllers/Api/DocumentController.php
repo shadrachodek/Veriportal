@@ -108,12 +108,12 @@ class DocumentController extends Controller
     }
 
     public function getAllSetForApprovalDocuments(){
+
         $document = Document::all()->reject(function ($document) {
-            return $document->set_for_approval_status == false;
+            return $document->set_for_approval_status == null;
         })
-            ->map(function ($document) {
-                $document->approved_status == null;
-                return $document;
+            ->filter(function ($document) {
+                return $document->approved_status == null;
             });
 
         $documents = DocumentResource::collection($document);
@@ -192,11 +192,10 @@ class DocumentController extends Controller
     public function AllApprovedDocument(){
 
         $document = Document::all()->reject(function ($document) {
-            return $document->set_for_approval_status == false;
+            return $document->set_for_approval_status == null;
         })
-            ->map(function ($document) {
-                $document->approved_status = true;
-                return $document;
+            ->filter(function ($document) {
+                return $document->approved_status == true;
             });
 
         $approvedDocument = ApprovedDocument::collection($document);
@@ -205,13 +204,11 @@ class DocumentController extends Controller
 
     public function AllDeniedDocument(){
         $document = Document::all()->reject(function ($document) {
-            return $document->set_for_approval_status == false;
+            return $document->set_for_approval_status == null;
         })
-            ->map(function ($document) {
-                $document->approved_status = false;
-                return $document;
+            ->filter(function ($document) {
+                return $document->approved_status == false;
             });
-
 
         $deniedDocument = DeniedDocument::collection($document);
         return $deniedDocument;
