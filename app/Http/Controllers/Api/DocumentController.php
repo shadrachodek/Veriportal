@@ -108,8 +108,15 @@ class DocumentController extends Controller
     }
 
     public function getAllSetForApprovalDocuments(){
+        $document = Document::all()->reject(function ($document) {
+            return $document->set_for_approval_status == false;
+        })
+            ->map(function ($document) {
+                $document->approved_status = null;
+                return $document;
+            });
 
-        $documents = DocumentResource::collection( Document::whereSetForApprovalStatus(1)->get());
+        $documents = DocumentResource::collection($document);
         return $documents;
     }
 
