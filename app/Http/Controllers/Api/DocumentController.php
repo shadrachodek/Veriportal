@@ -112,7 +112,7 @@ class DocumentController extends Controller
             return $document->set_for_approval_status == false;
         })
             ->map(function ($document) {
-                $document->approved_status = null;
+                $document->approved_status == null;
                 return $document;
             });
 
