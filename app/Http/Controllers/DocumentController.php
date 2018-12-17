@@ -120,8 +120,16 @@ class DocumentController extends Controller
             $document->set_for_approval_status = true;
             $document->created_at = Carbon::now();
             $document->save();
+
+            $batchStatus = "Partially Processed";
+            if($batch->number_of_document < 1){
+                $batchStatus = "Awaiting";
+            }
+
+
             $batch::whereId($batch->id)->update([
-                'number_of_document' => $batch->number_of_document + 1
+                'number_of_document' => $batch->number_of_document + 1,
+                'status' => $batchStatus
             ]);
         }
         catch (ModelNotFoundException  $exception) {

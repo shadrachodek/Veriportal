@@ -15,7 +15,7 @@ Relation::morphMap([
 class Document extends Model
 {
     protected $fillable = [
-        'document_id', 'mode', 'batch_id', 'owner_id', 'print_status', 'reprint_counter', 'set_for_approval_by', 'set_for_approval_status', 'set_for_approval_at', 'approved_by', 'approved_status', 'message', 'approved_at', 'status', 'documentable_id', 'documentable_type', 'updated_at'
+        'document_id', 'mode', 'batch_id', 'owner_id', 'print_status', 'can_print', 'reprint_counter', 'set_for_approval_by', 'set_for_approval_status', 'set_for_approval_at', 'approved_by', 'approved_status', 'message', 'approved_at', 'status', 'documentable_id', 'documentable_type', 'updated_at'
     ];
 
     public function getRouteKeyName()

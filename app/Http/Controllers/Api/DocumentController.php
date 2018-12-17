@@ -137,19 +137,22 @@ class DocumentController extends Controller
             }
 
         $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;
-        $statusText = strtoupper($request->get('status'));
+        $statusText = ucfirst($request->get('status'));
         $document->update([
             'approved_status' => $status ,
             'approved_by' => 2,
             'approved_at' => $request->get('createdAt'),
             'status' => $statusText,
+            'can_print' => $status,
             'message' => $request->get('message'),
             'updated_at' => Carbon::now()
         ]);
 
         $batch = Batch::whereBatchId($document->batch_id)->firstOrFail();
+        $checkDocApproval = Document::whereBatchId($batch->batch_id)->where('approved_status', null)->count();
+
         $batchStatus = "Partially Processed";
-        if($batch->batch_max == $batch->number_of_document){
+        if($batch->batch_max == $batch->number_of_document || $checkDocApproval == 0){
             $batchStatus = "Processed";
         }
         $batch->update([

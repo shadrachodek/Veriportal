@@ -20,6 +20,7 @@ class CreateDocumentsTable extends Migration
             $table->unsignedBigInteger('batch_id')->unsigned()->index()->nullable();
             $table->unsignedBigInteger('owner_id')->unsigned()->index();
             $table->boolean('print_status')->default(false);
+            $table->boolean('can_print')->default(false);
             $table->unsignedBigInteger('reprint_counter')->default(0);
             $table->integer('set_for_approval_by')->index()->nullable();
             $table->boolean('set_for_approval_status')->default(false);

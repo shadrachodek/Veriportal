@@ -33,6 +33,7 @@ Route::prefix('v1')->group(function () {
       //  Route::apiResource('/{owner}/documents', 'Api\OwnerDocumentController');
     });
 
+    Route::get('document-ready-for-print', 'Api\PrintController@index');
     Route::get('set-for-approval-documents', 'Api\DocumentController@getAllSetForApprovalDocuments');
     Route::get('document-like/{document_id}/', 'Api\DocumentController@getDocumentLike');
     Route::get('batch-like/{batch_id}/', 'Api\BatchController@getBatchLike');
@@ -49,6 +50,5 @@ Route::prefix('v1')->group(function () {
 
     Route::get('document/{document_id}/detail', 'Api\DocumentController@getDocumentById');
     Route::post('document/status/update ', 'Api\DocumentController@callback');
-
 
 });
