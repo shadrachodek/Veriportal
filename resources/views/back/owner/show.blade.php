@@ -157,8 +157,12 @@
                                         <div class="col-md-2">
 
                                                 <div class="avata">
-                    
+                                                    @if($owner->photo)
+                                                    <img class="img border-gray " src="{{ asset('storage/passport/'. $owner->photo->file) }}" alt="photo">
+                                                        @else
+                                                         <a href="{{ route('photo-signature', $owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Photo </a>
 
+                                                    @endif
                                                 </div>
                     
                                         </div>
@@ -174,18 +178,18 @@
 
                                         
                                                 </div>
-                                                
-                                                <div class="col-md-2">
-                                                </div>
-
-
-                                                <div class="col-md-4">
+                                                @if($owner->signature)
+                                                <div class="col-md-4  data-cap-white">
 
                                                     <div class="signature">
-                                                                
-                                                </div>   
+                                                        <img src="{{ asset('storage/signature/'. $owner->signature->file) }}" alt="owner's signature">
 
-                                            </div>
+                                                    </div>
+
+                                                </div>
+                                                @else
+                                                    <a href="{{ route('photo-signature', $owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Signature </a>
+                                                @endif
                                         </div>
 
                             </div> <!-- Profile picture and signature ends here-->

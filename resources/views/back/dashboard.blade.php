@@ -29,10 +29,11 @@
 
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                         </div>
+                        <example-component></example-component>
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="content">
@@ -50,7 +51,7 @@
 
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -71,15 +72,15 @@
 
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                         </div>
                     </div>
 
-               
+
                 <div class="row">
-                    
+
 
                     <div class="col-md-12">
                         <div class="card">
@@ -102,8 +103,8 @@
                                         </select>
                                     </div>
 
-                               
-                                
+
+
                             </div>
                             <div class="content">
                                 <div id="chartHours" class="ct-chart"></div>
@@ -128,7 +129,7 @@
         </div>
 
 
-        
+
 
     </div>
 </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhotoPassportsTable extends Migration
+class CreateCertificatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePhotoPassportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('photo_passports', function (Blueprint $table) {
+        Schema::create('certificates', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('owner_id')->unsigned();
-            $table->string('file');
+            $table->longText('document');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreatePhotoPassportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photo_passports');
+        Schema::dropIfExists('certificates');
     }
 }

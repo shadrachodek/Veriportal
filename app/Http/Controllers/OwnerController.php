@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\PhotoPassport;
+use App\Model\OwnerPassport;
+use App\Model\OwnerSignature;
 use App\Model\Signature;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -170,13 +171,13 @@ class OwnerController extends Controller
             $photo->storeAs('public/passport', $filename);
 
                 // save to database
-                $fileImage = new PhotoPassport();
+                $fileImage = new OwnerPassport();
                 $fileImage->file = $filename;
                 $fileImage->owner_id = $owner;
                 $fileImage->save();
 
         }
-        return redirect()->back();
+        return redirect()->route('owner.show', compact('owner'));
     }
 
     public function signature(Request $request, $owner)
@@ -189,13 +190,13 @@ class OwnerController extends Controller
             $signature->storeAs('public/signature', $filename);
 
             // save to database
-            $fileImage = new Signature();
+            $fileImage = new OwnerSignature();
             $fileImage->file = $filename;
             $fileImage->owner_id = $owner;
             $fileImage->save();
         }
 
-        return redirect()->back();
+        return redirect()->route('owner.show', compact('owner'));
     }
 
 

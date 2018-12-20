@@ -17,7 +17,8 @@ Route::prefix('v1')->group(function () {
     Route::middleware('auth:api')->get('/user', function (Request $request) {
         return $request->user();
     });
-
+    Route::get('certificate', 'Api\SignatureController@certificate');
+    Route::get('set-certificate', 'Api\SignatureController@setCertificate');
     Route::apiResource('signature', 'Api\SignatureController');
 
 

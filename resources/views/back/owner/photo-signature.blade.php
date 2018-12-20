@@ -15,6 +15,7 @@
 				<div class="row card card-inner-spacer ">
 
 					<!-- take photograph starts here Here -->
+					@if(!$owner->photo)
 					<form action="{{ route('photo', $owner->owner_id) }}" method="post" enctype="multipart/form-data">
 						@csrf
 						<div class="col-md-6">
@@ -40,6 +41,8 @@
 
 					</div>
 					</form>
+					@endif
+					@if(!$owner->signature)
 					<form action="{{ route('signature', $owner->owner_id) }}" method="post" enctype="multipart/form-data">
 						@csrf
 						<div class="col-md-6">
@@ -65,8 +68,7 @@
 
 					</div>
 					</form>
-
-
+					@endif
 
 
 

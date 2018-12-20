@@ -21,6 +21,14 @@ class Owner extends Model
         return $this->hasMany('App\Model\Document', 'owner_id', 'owner_id');
     }
 
+    public function photo(){
+        return $this->hasOne('App\Model\OwnerPassport', 'owner_id', 'owner_id');
+    }
+
+    public function signature(){
+        return $this->hasOne('App\Model\OwnerSignature', 'owner_id', 'owner_id');
+    }
+
     public function getFullname(){
         return $this->first_name . " " . $this->last_name;
     }

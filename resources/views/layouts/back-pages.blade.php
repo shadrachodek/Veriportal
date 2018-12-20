@@ -14,6 +14,9 @@
     <meta name="viewport" content="width=device-width" />
 
 
+
+
+
     <!-- Bootstrap core CSS     -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
 
