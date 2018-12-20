@@ -19,6 +19,7 @@ Route::prefix('v1')->group(function () {
     });
     Route::get('certificate', 'Api\SignatureController@certificate');
     Route::get('set-certificate', 'Api\SignatureController@setCertificate');
+    Route::get('get-signature', 'Api\SignatureController@getSignature');
     Route::apiResource('signature', 'Api\SignatureController');
 
 

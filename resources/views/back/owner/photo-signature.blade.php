@@ -46,10 +46,8 @@
 					<form action="{{ route('signature', $owner->owner_id) }}" method="post" enctype="multipart/form-data">
 						@csrf
 						<div class="col-md-6">
-
 						<div class="file-upload">
 							<button class="file-upload-btn" type="button" onclick="$('.sig-upload-input').trigger( 'click' )">Add Signature</button>
-
 							<div class="sig-upload-wrap">
 								<input class="sig-upload-input" name="signature" type='file' onchange="readURL(this);" accept="image/*" />
 								<div class="drag-text">

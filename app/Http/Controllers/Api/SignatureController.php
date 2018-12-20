@@ -17,10 +17,10 @@ use Illuminate\Http\Request;
 class SignatureController extends Controller
 {
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth:api');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
 
 
     /**
@@ -62,8 +62,13 @@ class SignatureController extends Controller
         ], Response::HTTP_CREATED);
     }
 
-    public function show(Request $request)
+    public function getSignature(Request $request)
     {
+        if (!$request->user()->signature){
+            return response([
+                'error' => "No Signature"
+            ], Response::HTTP_NO_CONTENT);
+        }
         return response([
             'data' => $request->user()->signature->file,
         ], Response::HTTP_CREATED);
