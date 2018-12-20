@@ -62,15 +62,16 @@ class SignatureController extends Controller
         ], Response::HTTP_CREATED);
     }
 
-    public function getSignature(Request $request)
+    public function getSignature()
     {
-        if (!$request->user()->signature){
+        $signature = Signature::find(1)->file();
+        if (!$signature){
             return response([
                 'error' => "No Signature"
             ], Response::HTTP_NO_CONTENT);
         }
         return response([
-            'data' => $request->user()->signature->file,
+            'data' => $signature,
         ], Response::HTTP_CREATED);
     }
 
