@@ -102,7 +102,7 @@ class DocumentController extends Controller
         //
     }
 
-    public function setForApproval($document_id){
+    public function setForApproval(Request $request, $document_id){
         try{
             $batch = Batch::where('number_of_document', '<', Batch::MAX_DOCUMENT)->firstOrFail();
         } catch (ModelNotFoundException  $exception) {
@@ -114,7 +114,7 @@ class DocumentController extends Controller
 
             $document = Document::whereDocumentId($document_id)->firstOrFail();
             $document->status = 'Awaiting';
-            $document->set_for_approval_by = 1;
+            $document->set_for_approval_by = $request->user()->id;
             $document->batch_id = $batch->batch_id;
             $document->set_for_approval_at = Carbon::now();
             $document->set_for_approval_status = true;

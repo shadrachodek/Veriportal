@@ -20,6 +20,10 @@ use Illuminate\Http\Response;
 class DocumentController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -140,7 +144,7 @@ class DocumentController extends Controller
         $statusText = ucfirst($request->get('status'));
         $document->update([
             'approved_status' => $status ,
-            'approved_by' => 2,
+            'approved_by' => $request->user()->id,
             'approved_at' => $request->get('createdAt'),
             'status' => $statusText,
             'can_print' => $status,
