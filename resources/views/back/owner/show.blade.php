@@ -158,7 +158,7 @@
 
                                                 <div class="avata">
                                                     @if($owner->photo)
-                                                    <img class="img border-gray " src="{{ asset('storage/passport/'. $owner->photo->file) }}" alt="photo">
+                                                    <img class="img border-gray " src="{{ asset('storage/passport/'.$owner->photo->file) }}" alt="photo">
                                                         @else
                                                          <a href="{{ route('photo-signature', $owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Photo </a>
 
@@ -182,7 +182,7 @@
                                                 <div class="col-md-4  data-cap-white">
 
                                                     <div class="signature">
-                                                        <img src="{{ asset('storage/signature/'. $owner->signature->file) }}" alt="owner's signature">
+                                                        <img src="{{ asset('storage/signature/'.$owner->signature->file) }}" alt="owner's signature">
 
                                                     </div>
 
