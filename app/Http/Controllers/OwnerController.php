@@ -168,7 +168,7 @@ class OwnerController extends Controller
             $photo = $request->file('photo');
             $extension = $photo->getClientOriginalExtension();
             $filename  = $owner . "-". time() . '-photo.' . $extension;
-            $photo->storeAs('passport/', $filename);
+            $photo->storeAs('public/passport/', $filename);
 
                 // save to database
                 $fileImage = new OwnerPassport();
