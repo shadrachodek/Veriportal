@@ -20,7 +20,7 @@
                                     <div class="row icon-resizer">
 
                                         <div class="col-md-6 col-sm-6">
-                                            <h5 class="pull-left"> 2,262 </h5>
+                                            <h5 class="pull-left bounce"> {{ $totalDocumentOwners }} </h5>
                                         </div>
 
                                         <div class="col-md-6 col-sm-6">
@@ -33,7 +33,6 @@
                                 </div>
                             </div>
                         </div>
-                        <example-component></example-component>
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="content">
@@ -42,7 +41,7 @@
                                     <div class="row">
 
                                         <div class="col-md-6 col-sm-6">
-                                            <h5 class="pull-left"> 4,320 </h5>
+                                            <h5 class="pull-left">{{ $newDocmentReg }}</h5>
                                         </div>
 
                                         <div class="col-md-6 col-sm-6">
@@ -63,7 +62,7 @@
                                     <div class="row">
 
                                         <div class="col-md-6 col-sm-6">
-                                            <h5 class="pull-left"> 700 </h5>
+                                            <h5 class="pull-left"> {{ $docmentOwnershipTransfer }} </h5>
                                         </div>
 
                                         <div class="col-md-6 col-sm-6">
@@ -84,29 +83,8 @@
 
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="row card-inner-spacer">
-                                <div class="col-md-2 col-sm-12 pull-left">
-
-                                    <select name="select-document" class="selectpicker" data-title="Documents Created" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                        <option value="id">Bahasa Indonesia</option>
-                                        <option value="ms">Bahasa Melayu</option>
-                                        ...
-                                    </select>
-                                </div>
-
-                                <div class="col-md-2 col-sm-12 pull-right">
-
-                                        <select name="select-duration" class="selectpicker" data-title="Last 6 Months" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                            <option value="id">Bahasa Indonesia</option>
-                                            <option value="ms">Bahasa Melayu</option>
-                                            ...
-                                        </select>
-                                    </div>
-
-
-
-                            </div>
                             <div class="content">
+                                <canvas id="line-chart" width="500" height="150"></canvas>
                                 <div id="chartHours" class="ct-chart"></div>
                             </div>
                             <div class="footer">
@@ -127,18 +105,68 @@
 
             </div>
         </div>
-
-
-
-
     </div>
 </div>
 
+
+
+
     @push('scripts')
+
         <script type="text/javascript">
-            $.get("/total-document-owners", function(data, status){
-                alert("Data: " + data + "\nStatus: " + status);
+            new Chart(document.getElementById("line-chart"), {
+                type: 'line',
+                data: {
+                    labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+                    datasets: [{
+                        data: [86,114,106,106,107,111,133,221,783,2478],
+                        label: "Documents List",
+                        borderColor: "#3e95cd",
+                        fill: false
+                    }, {
+                        data: [168,170,178,190,203,276,408,547,675,734],
+                        label: "Documents Approved",
+                        borderColor: "#3cba9f",
+                        fill: false
+                    }, {
+                        data: [40,20,10,16,24,38,74,167,508,784],
+                        label: "Documents Declined",
+                        borderColor: "#e8c3b9",
+                        fill: false
+                    }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'World population per region (in millions)'
+                    }
+                }
             });
+
+
+
+            // var totalDocmentOwners;
+            // $.get("/total-document-owners", function(data, status){
+            //     totalDocmentOwners  = data ;
+            // });
+            // $.getJSON("/tasks", function(data, status) {
+            //     totalDocmentOwners = data;
+            // });
+            //
+            // function AppViewModel() {
+            //     var self = this;
+            //     self.totalDocmentOwners = ko.observable({});
+            //     self.newDocmentReg = ko.observable(0);
+            //     self.docmentOwnershipTransfer = ko.observable(0);
+            //
+            //     $.get("/total-document-owners", function(data, status) {
+            //         self.totalDocmentOwners(data);
+            //     });
+            // }
+            //
+            // // Activates knockout.js
+            // ko.applyBindings(new AppViewModel());
         </script>
     @endpush
 

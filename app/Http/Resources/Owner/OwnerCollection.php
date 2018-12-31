@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Support\Facades\Storage;
 
 class OwnerCollection extends Resource
 {
@@ -29,8 +30,8 @@ class OwnerCollection extends Resource
             'telephone' => $this->telephone,
             'mobile' => $this->mobile,
             'emailAddress' => $this->email_address,
-            'createdAt' => $this->created_at,
-            'updatedAt' => $this->updated_at,
+            "passport" =>  $this->passport ? storage_path('passport/'.$this->passport->file) : null,
+            "signature" =>  $this->signature ? $this->signature->file : null,
         ];
     }
 }

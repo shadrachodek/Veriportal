@@ -29,9 +29,11 @@ class OwnerResource extends JsonResource
             'telephone' => $this->telephone,
             'mobile' => $this->mobile,
             'emailAddress' => $this->email_address,
-            'createdAt' => $this->created_at,
-            'updatedAt' => $this->updated_at,
+            "passport" =>  $this->passport ? $this->passport->file : null,
+            "signature" =>  $this->signature ? $this->signature->file : null,
             'documents' => $this->documents
+
+
         ];
     }
 }

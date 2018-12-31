@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Document;
 use App\Model\Owner;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('back.dashboard');
+        $totalDocumentOwners =  Owner::all()->count();
+        $newDocmentReg =  Document::whereMode('New Registration')->count();
+        $docmentOwnershipTransfer =  Document::whereMode('Transfer')->count();
+        return view('back.dashboard', compact('totalDocumentOwners', 'newDocmentReg', 'docmentOwnershipTransfer'));
     }
 
     /**
