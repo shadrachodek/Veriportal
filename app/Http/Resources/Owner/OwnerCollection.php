@@ -30,7 +30,7 @@ class OwnerCollection extends Resource
             'telephone' => $this->telephone,
             'mobile' => $this->mobile,
             'emailAddress' => $this->email_address,
-            "passport" =>  $this->passport ? Storage::getFacadeRoot('passport/'.$this->passport->file) : null,
+            "passport" =>  $this->passport ? Storage::url('passport/'.$this->passport->file) : null,
             "signature" =>  $this->signature ? $this->signature->file : null,
         ];
     }
