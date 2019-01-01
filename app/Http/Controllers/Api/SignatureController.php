@@ -84,8 +84,8 @@ class SignatureController extends Controller
             ], Response::HTTP_NO_CONTENT);
         }
         return response([
-            $certificate->document,
-            $certificate->type,
+            "file" => $certificate->document,
+            "type" => $certificate->type,
         ], Response::HTTP_CREATED);
     }
 
