@@ -77,14 +77,15 @@ class SignatureController extends Controller
 
     public function certificate()
     {
-        $certificate = Certificate::orderBy('created_at', 'desc')->first()->document;
+        $certificate = Certificate::orderBy('created_at', 'desc')->first();
         if (!$certificate){
             return response([
                 'data' => "No Certificate"
             ], Response::HTTP_NO_CONTENT);
         }
         return response([
-            $certificate,
+            $certificate->document,
+            $certificate->type,
         ], Response::HTTP_CREATED);
     }
 
