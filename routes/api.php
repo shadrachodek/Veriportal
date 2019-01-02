@@ -52,5 +52,6 @@ Route::prefix('v1')->group(function () {
 
     Route::get('document/{document_id}/detail', 'Api\DocumentController@getDocumentById');
     Route::post('document/status/update ', 'Api\DocumentController@callback');
+    Route::get('get-document-graph-info', 'Api\DocumentController@documentGraph');
 
 });

@@ -24,7 +24,7 @@ return [
 
         /*
          * Wild card will add "%" in between every characters of the keyword.
-         * SQL: column LIKE "%k%e%y%w%o%r%d%"
+         * SQL: column LIKE "%k%e%y%w%o%r%GraphComponent.vue%"
          */
         'use_wildcards' => false,
     ],

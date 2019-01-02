@@ -35,49 +35,6 @@
                              
                                     <h5 class="sub-title">{{ $ownerCount }} Document Owners</h5>
 
-                                <div class="row">
-
-                                            <div class="col-md-15 col-sm-3"> 
-                            
-                                                <div class="form-group">
-                                                    <input type="text" value="" name="unique-id" placeholder="Unique ID#" class="form-control" />
-                                                </div> 
-                                            </div>
-                    
-                                            <div class="col-md-15 col-sm-3"> 
-                                                
-                                                <select name="lga" class="selectpicker" data-title="LGA" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                                    <option value="id">Bahasa Indonesia</option>
-                                                    <option value="ms">Bahasa Melayu</option>
-                                                ...
-                                                </select> 
-                    
-                                            </div>
-                                            <div class="col-md-15 col-sm-3"> 
-                    
-                                                <select name="occupation" class="selectpicker" data-title="Occupation" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                                            <option value="id">Bahasa Indonesia</option>
-                                                            <option value="ms">Bahasa Melayu</option>
-                                                        ...
-                                                </select>
-                       
-                                            </div>
-                                            <div class="col-md-15 col-sm-3">
-                                                
-                                                    <select name="marital-status" class="selectpicker" data-title="Marital Staus" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                                            <option value="id">Bahasa Indonesia</option>
-                                                            <option value="ms">Bahasa Melayu</option>
-                                                        ...
-                                                    </select>
-                                            
-                                            </div>
-                                            <div class="col-md-15 col-sm-3"> 
-                                                
-                                                    <button class="btn btn-default btn-fill btn-block">Submit</button>
-                                            
-                                            </div>
-
-                                </div>
 
 
 

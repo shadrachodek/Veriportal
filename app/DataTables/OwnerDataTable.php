@@ -21,13 +21,13 @@ class OwnerDataTable extends DataTable
                 <a href="owner/'.$owner->owner_id.'" class="btn btn-default btn-fill small-btn"> View</a>
                 <a href="owner/'.$owner->owner_id.'" class="btn btn-warning btn-fill small-btn">Delete</a>
                 ';
-            })
+            });
           //  ->editColumn('action', "<a href='{{ route('owner.show',['id'=>$id]) }}' >hhh</a>")
-          ->filter(function ($query) {
-              if (request()->has('owner_id')) {
-                  $query->where('owner_id', 'like', "%{request('name')}%");
-              }
-          });
+//          ->filter(function ($query) {
+//              if (request()->has('owner_id')) {
+//                  $query->where('owner_id', 'like', "%{request('name')}%");
+//              }
+//          });
     }
 
     /**
@@ -52,7 +52,13 @@ class OwnerDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->addAction(['width' => '30px'])
-                    ->parameters([]);
+                    ->parameters([
+                        'paging' => true,
+                        'searching' => true,
+                        'info' => true,
+                        'searchDelay' => 350,
+                        'drawCallback' => 'function() { alert("Table Draw Callback") }',
+                    ]);
     }
 
     /**

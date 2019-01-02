@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
-
+use Carbon\Carbon;
 
 
 Relation::morphMap([
@@ -21,6 +21,16 @@ class Document extends Model
     public function getRouteKeyName()
     {
         return 'document_id';
+    }
+
+    // scope query to record created this year
+    public function scopeThisYear($query){
+        return $query->where('created_at', '>=', Carbon::now()->firstOfYear());
+    }
+
+    public function scopeApprovedThisYear($query){
+        return $query->where('approved_status', '=', 1)
+            ->where('created_at', '>=', Carbon::now()->firstOfYear());
     }
 
     public function documentable()

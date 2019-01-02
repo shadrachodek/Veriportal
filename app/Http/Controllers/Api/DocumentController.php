@@ -22,7 +22,7 @@ class DocumentController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api');
+      //  $this->middleware('auth:api');
     }
     /**
      * Display a listing of the resource.
@@ -220,5 +220,22 @@ class DocumentController extends Controller
         $deniedDocument = DeniedDocument::collection($document);
         return $deniedDocument;
 
+    }
+
+    public function documentGraph(){
+        $documentCreated =  Document::thisYear()
+            ->selectRaw(DB::raw("MONTHNAME(created_at) as month, count(*) as total"))
+            ->groupBy("month")
+            ->pluck('month', 'total');
+
+        $documentApproved =  Document::ApprovedThisYear()
+            ->selectRaw(DB::raw("MONTHNAME(created_at) as month, count(*) as total"))
+            ->groupBy(DB::raw('MONTHNAME(created_at) DESC'))
+            ->get();
+
+        return [
+            'created' => $documentCreated,
+            'approved' => $documentApproved
+        ];
     }
 }

@@ -6,7 +6,6 @@
  */
 
 require('./bootstrap');
-
 window.Vue = require('vue');
 
 /**
@@ -17,7 +16,11 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('graph-component', require('./components/GraphComponent.vue').default);
+Vue.component('owner-component', require('./components/TotalDocumentOwner.vue').default);
+Vue.component('new-reg-component', require('./components/NewDocumentReg.vue').default);
+Vue.component('transfer-component', require('./components/OwnershipTransfer.vue').default);
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))

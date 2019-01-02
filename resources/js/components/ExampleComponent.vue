@@ -1,13 +1,20 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-default">
-                    <div class="card-header">Example Component</div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="content">
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
+                <canvas id="line-chart" width="500" height="150"></canvas>
+                <div id="chartHours" class="ct-chart"></div>
+            </div>
+            <div class="footer">
+                <div class="legend">
+                    <i class="fa fa-circle text-info"></i> Documents List
+                    <i class="fa fa-circle text-danger"></i> Documents Approved
+                    <i class="fa fa-circle text-warning"></i> Documents Declined
+                </div>
+                <hr>
+                <div class="stats">
+                    <i class="fa fa-history"></i> Updated 3 minutes ago
                 </div>
             </div>
         </div>

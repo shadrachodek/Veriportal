@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Document;
 use App\Model\Owner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -25,7 +26,19 @@ class DashboardController extends Controller
         $totalDocumentOwners =  Owner::all()->count();
         $newDocmentReg =  Document::whereMode('New Registration')->count();
         $docmentOwnershipTransfer =  Document::whereMode('Transfer')->count();
-        return view('back.dashboard', compact('totalDocumentOwners', 'newDocmentReg', 'docmentOwnershipTransfer'));
+
+//        $documentCreated = DB::table('documents')
+//        ->select(DB::raw("COUNT(*) as count ,  MONTHNAME(created_at) as month"))
+//                ->groupBy(DB::raw("created_at"))
+//            ->get();
+
+        $documentCreated = Document::thisYear()
+            ->selectRaw(DB::raw("MONTHNAME(created_at) as month, count(*) as total"))
+            ->groupBy("month")
+            ->get('month', 'total');
+
+
+        return view('back.dashboard', compact('totalDocumentOwners', 'newDocmentReg', 'docmentOwnershipTransfer', 'documentCreated'));
     }
 
     /**
