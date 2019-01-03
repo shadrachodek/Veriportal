@@ -170,7 +170,7 @@
                                    
                                 </div>
                                 
-                                <div class="col-md-9 {{ $document->status == 'Awaiting' ?  'comm-pending' : 'set-for-approval' }}">
+                                <div class="col-md-9 {{ $document->status == 'Awaiting' ?  'awaiting-approval' : $document->status == 'Approved' ? 'approved' : 'pending-approval' }}">
                                         <h4>{{ $document->status }}</h4>
                                 </div>
         
