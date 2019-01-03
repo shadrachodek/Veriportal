@@ -50,7 +50,7 @@ class DocumentDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->addAction(['width' => '80px'])
-                    ->parameters($this->getBuilderParameters());
+                    ->parameters();
     }
 
     /**
