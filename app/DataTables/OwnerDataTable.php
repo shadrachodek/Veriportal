@@ -54,7 +54,7 @@ class OwnerDataTable extends DataTable
                     ->addAction(['width' => '30px'])
                     ->parameters([
                         'paging' => true,
-                        'searching' => true,
+                        'searching' => false,
                         'info' => true,
                         'searchDelay' => 350,
                         'drawCallback' => '',

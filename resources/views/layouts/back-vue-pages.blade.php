@@ -24,7 +24,7 @@
 
     <!--  Light Bootstrap Dashboard core CSS    -->
     <link href="{{ asset('css/light-bootstrap-dashboard.css') }}" rel="stylesheet"/>
-
+    <link href="{{ asset('css/pe-icon-7-stroke.css') }}" rel="stylesheet" /><!-- Custom Css Here -->
     <!--  Custom CSS    -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 

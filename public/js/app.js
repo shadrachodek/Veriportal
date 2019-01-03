@@ -1947,9 +1947,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['totalDoc'],
   data: function data() {
     return {
-      totalDocument: 5
+      totalDocument: this.totalDoc
     };
   },
   methods: {}

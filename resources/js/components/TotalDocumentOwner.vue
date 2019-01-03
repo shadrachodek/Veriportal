@@ -19,9 +19,10 @@
 </template>
 <script>
     export default {
+        props: ['totalDoc'],
         data() {
             return {
-                totalDocument: 5
+                totalDocument: this.totalDoc
             }
         },
         methods: {
