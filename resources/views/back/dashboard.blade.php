@@ -17,7 +17,7 @@
                                     <p class="text-muted">Total Document Owners</p>
                                     <div class="row icon-resizer">
                                         <div class="col-md-6 col-sm-6">
-                                            <h5 class="pull-left bounce"> {{ 600 }}</h5>
+                                            <h5 class="pull-left bounce"> {{ $totalDocumentOwners }}</h5>
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                             <i class="pe-7s-copy-file pull-right"></i>
@@ -32,7 +32,7 @@
                                     <p class="text-muted">New Document Registration</p>
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6">
-                                            <h5 class="pull-left"> {{ 66 }}</h5>
+                                            <h5 class="pull-left"> {{ $newDocmentReg }}</h5>
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                             <i class="pe-7s-copy-file pull-right"></i>
@@ -47,7 +47,7 @@
                                     <p class="text-muted">Document Ownership Transfer</p>
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6">
-                                            <h5 class="pull-left"> {{ 5 }} </h5>
+                                            <h5 class="pull-left"> {{ $ownershipTransfer }} </h5>
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                             <i class="pe-7s-copy-file pull-right"></i>
