@@ -5,7 +5,6 @@
     <div class="main-panel">
 
    @include('layouts.partial.topbar')
-
         <div class="main-content" id="app">
             <div class="container-fluid">
 

@@ -5,7 +5,7 @@
         <div class="row">
 
             <div class="col-md-6 col-sm-6">
-                <h5 class="pull-left"> 4 </h5>
+                <h5 class="pull-left"> {{ 5 }} </h5>
             </div>
 
             <div class="col-md-6 col-sm-6">
@@ -22,7 +22,6 @@
         data() {
             return {
                 legend: '',
-                chart: ''
             }
         },
         methods: {

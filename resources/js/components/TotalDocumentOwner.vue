@@ -5,7 +5,7 @@
         <div class="row icon-resizer">
 
             <div class="col-md-6 col-sm-6">
-                <h5 class="pull-left bounce"> 4 </h5>
+                <h5 class="pull-left bounce"> {{ totalDocument }}</h5>
             </div>
 
             <div class="col-md-6 col-sm-6">
@@ -21,8 +21,7 @@
     export default {
         data() {
             return {
-                legend: '',
-                chart: ''
+                totalDocument: 5
             }
         },
         methods: {

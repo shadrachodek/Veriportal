@@ -73,7 +73,7 @@
                                                 <td> {{$stock->name}} </td>
                                                 <td> {{$stock->warehouse->production}} </td>
                                                 <td> {{$stock->warehouse->storage}} </td>
-                                                <td> {{$stock->warehouse->updated_at}}  </td>
+                                                <td> {{$stock->warehouse->updated_at->diffForHumans()}}  </td>
                                                 <td class="text-right">
                                                     <a class="btn btn-default btn-fill small-btn " href="{{ route('stock.show', $stock->stock_id) }}">  view </a>
                                                     <a class="btn btn-warning btn-fill small-btn " href="#">      Delete </a>

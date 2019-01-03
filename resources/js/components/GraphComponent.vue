@@ -46,7 +46,7 @@
 
                 const ctx = document.getElementById("myChart").getContext('2d');
                 const myChart = new Chart(ctx, {
-                    type: 'line',
+                    type: 'bar',
                     data: {
                         labels: Object.values(data.created),
                         datasets: [

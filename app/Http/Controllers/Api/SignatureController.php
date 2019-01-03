@@ -294,7 +294,7 @@ p{
 
                                         <div class="header-right">
 
-                                            <img src="assets/img/faces/face-2.jpg" alt="User">
+                                                {{passport}}
                                                     
                                         </div>
                             </div>
@@ -343,7 +343,7 @@ p{
 
                                                         <div class="cert-right">
                                                             <div class="sign-holder">
-                                                                <img class="exe-gov-sig" src="assets/img/signature.png" alt="Executive">
+                                                                    {{signature}}
                                                                 <p  class="exe-gov-text">Executive Governor</p>
                                                             </div>
                                                         </div>

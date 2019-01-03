@@ -52,7 +52,7 @@
                                         <div class="right-side-print">
 
                                                 <p> Date Created</p>
-                                                <h5 class=""> {{ $stock->created_at }}</h5>
+                                                <h5 class=""> {{ $stock->created_at->toDateString() }}</h5>
                             
                                         </div>
 
@@ -74,7 +74,7 @@
 
                                             <div class="right-side-print">
                                                     <p> DAte Last Updated</p>
-                                                    <h5 class=""> {{ $stock->updated_at }} </h5>
+                                                    <h5 class=""> {{ $stock->updated_at->toDateString() }} </h5>
                                             </div>
                                     </div>
 
@@ -294,7 +294,7 @@
 
                                             <div class="stock-pop-info">
                                                     <p> Item Name</p>
-                                                    <h5 class=""> COFO PVC MATT </h5>
+                                                    <h5 class=""> {{ $stock->name }} </h5>
                                             </div>
 
                                                 <div class="form-group">
@@ -347,7 +347,7 @@
 
                                             <div class="stock-pop-info">
                                                     <p> Item Name</p>
-                                                    <h5 class=""> COFO PVC MATT</h5>
+                                                    <h5 class=""> {{ $stock->name }} </h5>
                                             </div>
                                            
                                             <div class="form-group">

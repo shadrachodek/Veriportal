@@ -1811,7 +1811,7 @@ var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/cha
     render: function render(data) {
       var ctx = document.getElementById("myChart").getContext('2d');
       var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
           labels: Object.values(data.created),
           datasets: [{
@@ -1910,8 +1910,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      legend: '',
-      chart: ''
+      legend: ''
     };
   },
   methods: {}
@@ -1950,8 +1949,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      legend: '',
-      chart: ''
+      totalDocument: 5
     };
   },
   methods: {}
@@ -69170,27 +69168,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "content" }, [
+    _c("p", { staticClass: "text-muted" }, [
+      _vm._v("New Document Registration")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6 col-sm-6" }, [
+        _c("h5", { staticClass: "pull-left" }, [_vm._v(" " + _vm._s(6))])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("p", { staticClass: "text-muted" }, [
-        _vm._v("New Document Registration")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6 col-sm-6" }, [
-          _c("h5", { staticClass: "pull-left" }, [_vm._v("4")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 col-sm-6" }, [
-          _c("i", { staticClass: "pe-7s-copy-file pull-right" })
-        ])
-      ])
+    return _c("div", { staticClass: "col-md-6 col-sm-6" }, [
+      _c("i", { staticClass: "pe-7s-copy-file pull-right" })
     ])
   }
 ]
@@ -69215,27 +69213,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "content" }, [
+    _c("p", { staticClass: "text-muted" }, [
+      _vm._v("Document Ownership Transfer")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6 col-sm-6" }, [
+        _c("h5", { staticClass: "pull-left" }, [_vm._v(" " + _vm._s(5) + " ")])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("p", { staticClass: "text-muted" }, [
-        _vm._v("Document Ownership Transfer")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6 col-sm-6" }, [
-          _c("h5", { staticClass: "pull-left" }, [_vm._v(" 4 ")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 col-sm-6" }, [
-          _c("i", { staticClass: "pe-7s-copy-file pull-right" })
-        ])
-      ])
+    return _c("div", { staticClass: "col-md-6 col-sm-6" }, [
+      _c("i", { staticClass: "pe-7s-copy-file pull-right" })
     ])
   }
 ]
@@ -69260,25 +69258,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "content" }, [
+    _c("p", { staticClass: "text-muted" }, [_vm._v("Total Document Owners")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row icon-resizer" }, [
+      _c("div", { staticClass: "col-md-6 col-sm-6" }, [
+        _c("h5", { staticClass: "pull-left bounce" }, [
+          _vm._v(" " + _vm._s(_vm.totalDocument))
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("p", { staticClass: "text-muted" }, [_vm._v("Total Document Owners")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row icon-resizer" }, [
-        _c("div", { staticClass: "col-md-6 col-sm-6" }, [
-          _c("h5", { staticClass: "pull-left bounce" }, [_vm._v(" 4 ")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 col-sm-6" }, [
-          _c("i", { staticClass: "pe-7s-copy-file pull-right" })
-        ])
-      ])
+    return _c("div", { staticClass: "col-md-6 col-sm-6" }, [
+      _c("i", { staticClass: "pe-7s-copy-file pull-right" })
     ])
   }
 ]

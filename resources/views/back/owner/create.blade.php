@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                         <label>Date of Birth</label>
                                         <div class="form-group">
-                                        <input id="datetimepicker" type="text" class="form-control datetimepicker" name="date_of_birth" placeholder="Select Date" value="{{ old('date_of_birth') }}">
+                                        <input id="datetimepicker" type="text" class="form-control datetimepicker" name="date_of_birth" placeholder="Select Date of Birth" value="{{ old('date_of_birth') }}">
                                         </div>
                                 </div>
     
@@ -73,7 +73,7 @@
     
                                 <div class="form-group">
                                         <label>Marital Status</label>
-                                        <select name="marital_status" class="selectpicker" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                        <select name="marital_status" class="selectpicker" data-title="Single Marital Status" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
                                             @foreach($maritalStatus as $status)
                                                 <option>{{ $status }}</option>
                                             @endforeach
@@ -85,13 +85,8 @@
                         <div class="col-md-4">
     
                                 <div class="form-group">
-                                        <label>Occupation</label>
-                                        <select name="occupation" class="selectpicker" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-
-                                            @foreach($occupations as $occupation)
-                                                <option>{{ $occupation }}</option>
-                                            @endforeach
-                                         </select>
+                                    <label>Occupation</label>
+                                    <input type="text" value="{{ old('occupation') }}" name="occupation" placeholder="Enter Occupation" class="form-control" />
                                 </div>
                             
                         </div>
@@ -119,7 +114,7 @@
     
                                 <div class="form-group">
                                         <label>LGA/LCDA</label>
-                                        <input type="text" value="{{ old('lga_lcda') }}" name="lga_lcda" placeholder="Enter Middle Name" class="form-control" />
+                                        <input type="text" value="{{ old('lga_lcda') }}" name="lga_lcda" placeholder="Enter LGA/LCDA" class="form-control" />
                                 </div>
                             
                         </div>
@@ -128,7 +123,7 @@
     
                                 <div class="form-group">
                                         <label>Nearest Bus-Stop</label>
-                                        <input type="text" value="{{ old('nearest_bus_stop') }}" name="nearest_bus_stop" placeholder="Enter Last Name" class="form-control" />
+                                        <input type="text" value="{{ old('nearest_bus_stop') }}" name="nearest_bus_stop" placeholder="Enter Nearest Bus-Stop" class="form-control" />
                                 </div>
                             
                         </div>
@@ -138,7 +133,7 @@
 
                                 <div class="form-group">
                                         <label>Telephone</label>
-                                        <input type="text" value="{{ old('telephone') }}" name="telephone" placeholder="Enter City" class="form-control" />
+                                        <input type="text" value="{{ old('telephone') }}" name="telephone" placeholder="Enter Telephone" class="form-control" />
                                 </div>
     
                         </div>
@@ -147,7 +142,7 @@
     
                                 <div class="form-group">
                                         <label>Mobile</label>
-                                        <input type="text" value="{{ old('mobile') }}" name="mobile" placeholder="Enter Middle Name" class="form-control" />
+                                        <input type="text" value="{{ old('mobile') }}" name="mobile" placeholder="Enter Mobile" class="form-control" />
                                 </div>
                             
                         </div>
@@ -156,7 +151,7 @@
     
                                 <div class="form-group">
                                         <label>Email Address</label>
-                                        <input type="email" value="{{ old('email_address') }}" name="email_address" placeholder="Enter Last Name" class="form-control" />
+                                        <input type="email" value="{{ old('email_address') }}" name="email_address" placeholder="Enter Email Address" class="form-control" />
                                 </div>
                             
                         </div>
