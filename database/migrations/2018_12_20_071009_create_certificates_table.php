@@ -15,7 +15,7 @@ class CreateCertificatesTable extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type')->default('cofo');
+            $table->string('type')->default('Certificate of Occupancy');
             $table->longText('document');
             $table->timestamps();
         });

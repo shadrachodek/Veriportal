@@ -15,11 +15,13 @@
                 <div class="row card card-inner-top card-inner-bottom modifier">
 
                     <div class="col-md-6 col-sm-12">
+                            <div style="float: right; margin-top: -35px"> {!! QrCode::size(350)->generate(
 
-                        <div class="img-holder">
-                        <img src="{{ asset('/img/blog-3.jpg') }}">
-                        </div>
+                        "Registration Mode: " . $document->mode . "\nDocument ID: " . $document->document_id . "\nCreated Date: " . $document->created_at->toFormattedDateString() . "\nPayment Status: " .
+                        $document->payment->status . "\nStatus: " . $document->status
 
+                            ); !!}
+                            </div>
                     </div>
 
                     <div class="col-md-6 col-sm-12">
@@ -43,7 +45,7 @@
 
                     <div class="col-md-12 text-center top-buffer-2">
 						
-                        <button class="btn btn-default btn-fill btn-wd" onclick="demo.showSwal('success-message')"> Print slip </button>
+                        <button type="submit" class="btn btn-default btn-fill btn-wd" onclick="demo.showSwal('success-message')" > Print slip </button>
                 </div>
                         
                 </div>

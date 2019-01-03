@@ -93,3 +93,7 @@ $this->post('logout', 'UserController@logout')->name('logout');
 // Registration Routes...
 //$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
+Route::get('qr-code', function () {
+    return \SimpleSoftwareIO\QrCode\Facades\QrCode::size(500)->generate('Welcome to kerneldev.com!');
+});
+
