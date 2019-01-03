@@ -57,7 +57,7 @@ class OwnerDataTable extends DataTable
                         'searching' => true,
                         'info' => true,
                         'searchDelay' => 350,
-                        'drawCallback' => 'function() { alert("Table Draw Callback") }',
+                        'drawCallback' => '',
                     ]);
     }
 
