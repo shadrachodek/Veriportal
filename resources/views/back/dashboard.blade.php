@@ -13,7 +13,7 @@
                     <div class="row icon-resizer">
                         <div class="col-md-4">
                             <div class="card">
-                                <owner-component :totalDoc="9"></owner-component>
+                                <owner-component :totalDoc="{{ 300 }}"></owner-component>
                             </div>
                         </div>
                         <div class="col-md-4">
