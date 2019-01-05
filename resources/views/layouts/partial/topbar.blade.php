@@ -53,7 +53,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
                         <p class="">
-                            {{ Auth::user()->username }}
+                            {{ Auth::user()->fullName() }}
                             <b class="caret"></b>
                         </p>
 
@@ -96,7 +96,11 @@
 
                     </ul>
                 </li>
-                <img class="photo" src="{{ asset('img/default-avatar.png') }}" />
+                <div class="photo">
+
+                    <span>{{ Auth::user()->avatarIcon() }}</span>
+
+                </div>
             </ul>
 
 

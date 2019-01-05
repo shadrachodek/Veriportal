@@ -13,6 +13,11 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+//    public function __construct()
+//    {
+//        $this->middleware('auth')->except('logout, login');
+//    }
+
     /**
      * Display a listing of the resource.
      *

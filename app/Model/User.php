@@ -45,4 +45,12 @@ class User extends Authenticatable
     public function signature(){
         return $this->hasOne(Signature::class);
     }
+
+    public function fullName(){
+        return $this->first_name .' '. $this->last_name;
+    }
+
+    public function avatarIcon(){
+        return $this->first_name[0] .''. $this->last_name[0];
+    }
 }
