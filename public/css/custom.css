@@ -472,22 +472,22 @@ h5 {
   padding: 10px 0px;
   text-align: center;
 }
-.comm-approval .comm-pending {
+.comm-approval .pending-approval {
   background: #787878;
   padding: 0px;
 }
-.comm-approval .comm-pending h4 {
+.comm-approval .pending-approval h4 {
   color: #fff;
   font-size: 16px;
   font-weight: 400;
   margin: 0px;
   padding: 10px 0px 10px 20px;
 }
-.comm-approval .set-for-approval {
+.comm-approval .approved {
   background: #1F6003;
   padding: 0px;
 }
-.comm-approval .set-for-approval h4 {
+.comm-approval .approved h4 {
   color: #fff;
   font-size: 16px;
   font-weight: 400;
@@ -505,11 +505,11 @@ h5 {
   margin: 0px;
   padding: 10px 0px 10px 20px;
 }
-.comm-approval .comm-declined {
+.comm-approval .declined {
   background: #FB404B;
   padding: 0px;
 }
-.comm-approval .comm-declined h4 {
+.comm-approval .declined h4 {
   color: #fff;
   font-size: 16px;
   font-weight: 400;
@@ -844,4 +844,13 @@ h5 {
 /*  Form-control  */
 div.dataTables_wrapper div.dataTables_filter {
   margin-top: -80px;
+}
+div.dataTables_wrapper div.dataTables_filter input {
+  width: 300px;
+}
+div.dataTables_wrapper div.dataTables_info {
+  padding-top: 40px;
+}
+div.dataTables_wrapper div.dataTables_paginate {
+  padding-top: 30px;
 }

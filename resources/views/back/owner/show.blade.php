@@ -150,53 +150,42 @@
 <!--*****************************************************************************************************************-->
                                 <!-- Profile picture and signature starts here-->
 
-
                             <div class="doc-view-footer card-inner-spacer pop-out-footer">
 
-                                
-                                        <div class="col-md-2">
 
-                                                <div class="avata">
-                                                    @if($owner->photo)
-                                                    <img class="img border-gray " src="{{ $owner->photo->file }}" alt="photo">
-                                                        @else
-                                                         <a href="{{ route('photo-signature', $owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Photo </a>
+                                <div class="col-md-2">
+                                    @if($owner->photo)
+                                    <div class="avata">
 
-                                                    @endif
+                                            <img class="img border-gray " src="{{ $owner->photo->file }}" alt="photo">
+                                    </div>
+                                        @else
+                                            <a href="{{ route('photo-signature', $owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Photo </a>
+                                    @endif
+                                </div>
+
+                                <div class="col-md-10 ">
+
+                                    <div class="row no-gutter">
+
+                                        <div class="col-md-8 col-md-offset-2 ">
+                                            @if($owner->signature)
+                                            <div class="signature data-cap-white">
+                                                <img src="{{ url('storage/signature/'.$owner->signature->file) }}" alt="owner's signature">
+
+                                            </div>
+                                            @else
+                                                <div class="pull-right">
+                                                <a href="{{ route('photo-signature', $owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Signature </a>
                                                 </div>
-                    
+                                            @endif
                                         </div>
+                                    </div>
 
-                                        <div class="col-md-10 ">
-
-                                            <div class="row no-gutter">
-
-                                                <div class="col-md-2">
-                                                </div>
-                
-                                                <div class="col-md-4 ">
-
-                                        
-                                                </div>
-                                                @if($owner->signature)
-                                                <div class="col-md-4  data-cap-white">
-
-                                                    <div class="signature">
-                                                        <img src="{{ url('storage/signature/'.$owner->signature->file) }}" alt="owner's signature">
-
-                                                    </div>
-
-                                                </div>
-                                                @else
-                                                    <a href="{{ route('photo-signature', $owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Signature </a>
-                                                @endif
-                                        </div>
-
-                            </div> <!-- Profile picture and signature ends here-->
-                            </div> 
+                                </div> <!-- Profile picture and signature ends here-->
                         </div>
 <!-- ************************************************Approval button starts Here******************************************************************** -->
-                           
+                        </div>
                         
 
                 </div><!-- Left Panel ends here-->

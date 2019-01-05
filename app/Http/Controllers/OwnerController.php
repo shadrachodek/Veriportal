@@ -40,7 +40,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        $maritalStatus = collect(['Single', 'Married', 'Divorce']);
+        $maritalStatus = collect(['Single', 'Married', 'Divorce', 'Seperated']);
         $occupations = collect(['Accountant', 'Civil Service', 'Engineer']);
         return view('back.owner.create', compact('maritalStatus', 'occupations'));
     }

@@ -156,7 +156,42 @@
                                                 <div class="signature">
 
                                         </div>
-                            </div> <!-- Profile picture and signature ends here-->
+                            </div>
+                                <!-- Profile picture and signature ends here-->
+                                <div class="doc-view-footer card-inner-spacer pop-out-footer">
+
+
+                                    <div class="col-md-2">
+                                        @if($document->owner->photo)
+                                            <div class="avata">
+
+                                                <img class="img border-gray " src="{{ $document->owner->photo->file }}" alt="photo">
+                                            </div>
+                                        @else
+                                            <a href="{{ route('photo-signature', $document->owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Photo </a>
+                                        @endif
+                                    </div>
+
+                                    <div class="col-md-10 ">
+
+                                        <div class="row no-gutter">
+
+                                            <div class="col-md-8 col-md-offset-2 ">
+                                                @if($document->owner->signature)
+                                                    <div class="signature data-cap-white">
+                                                        <img src="{{ url('storage/signature/'.$document->owner->signature->file) }}" alt="owner's signature">
+
+                                                    </div>
+                                                @else
+                                                    <div class="pull-right">
+                                                        <a href="{{ route('photo-signature', $document->owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Signature </a>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- Profile picture and signature ends here-->
+                                </div>
                             </div> 
                         </div>
 <!-- ************************************************Approval button starts Here******************************************************************** -->
@@ -170,7 +205,15 @@
                                    
                                 </div>
                                 
-                                <div class="col-md-9 {{ $document->status == 'Awaiting' ?  'awaiting-approval' : $document->status == 'Approved' ? 'approved' : 'pending-approval' }}">
+                                <div class="col-md-9
+                                        @if ($document->status == 'Approved' )
+                                            {{ 'awaiting-approval'  }}
+                                        @elseif ($document->status == 'Awaiting' )
+                                            {{ 'awaiting-approval'  }}
+                                        @else
+                                            {{ 'pending-approval'  }}
+                                        @endif
+                                        ">
                                         <h4>{{ $document->status }}</h4>
                                 </div>
         

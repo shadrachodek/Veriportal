@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                         <label>Marital Status</label>
                                         <select name="marital_status" class="selectpicker" data-title="Single Marital Status" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                            @foreach($maritalStatus as $status)
+                                        @foreach($maritalStatus as $status)
                                                 <option>{{ $status }}</option>
                                             @endforeach
                                             </select>

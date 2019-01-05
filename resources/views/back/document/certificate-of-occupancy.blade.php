@@ -113,10 +113,9 @@
 
                                 <div class="form-group">
                                     <label>Purpose of Use</label>
-                                    <select name="purpose_of_use" class="selectpicker" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-
-                                        <option value="id">Capentery</option>
-                                        <option value="ms">Lawyer</option>
+                                    <select name="purpose_of_use" class="selectpicker" data-title="Select Purpose of Use" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                        <option value="Commercial">Commercial</option>
+                                        <option value="Residential">Residential</option>
 
                                         ...
                                     </select>
@@ -134,13 +133,7 @@
 
                                 <div class="form-group">
                                     <label>Commencement Year</label>
-                                    <select name="commencement_year" class="selectpicker" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-
-                                        <option value="id">Capentery</option>
-                                        <option value="ms">Lawyer</option>
-
-                                        ...
-                                    </select>
+                                    <input type="text" value="{{ old('commencement_year') }}" name="commencement_year" class="form-control" />
                                 </div>
 
                             </div>
@@ -150,10 +143,13 @@
                                 <div class="form-group">
 
                                     <label>Development period</label>
-                                    <select name="development_period" class="selectpicker" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-
-                                        <option value="id">Capentery</option>
-                                        <option value="ms">Lawyer</option>
+                                    <select name="development_period" class="selectpicker" data-title="Select Development period" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                        <option value="3 Months">3 Months</option>
+                                        <option value="6 Months">6 Months</option>
+                                        <option value="1 Year">1 Year</option>
+                                        <option value="2 Years">2 Years</option>
+                                        <option value="3 Years">3 Years</option>
+                                        <option value="4 Years">4 Years</option>
 
                                         ...
                                     </select>
@@ -195,13 +191,7 @@
                                 <div class="form-group">
 
                                     <label>Term</label>
-                                    <select name="term" class="selectpicker"  data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-
-                                        <option value="id">Capentery</option>
-                                        <option value="ms">Lawyer</option>
-
-                                        ...
-                                    </select>
+                                    <input type="term" value="{{ old('term') }}" name="term" class="form-control" />
                                 </div>
 
                             </div>
@@ -211,14 +201,8 @@
 
                                 <div class="form-group">
                                     <label>Revision Period</label>
-                                    <select name="revision_period" class="selectpicker" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-
-                                        <option value="id">Capentery</option>
-                                        <option value="ms">Lawyer</option>
-
-                                        ...
-                                    </select>
-                                </div>
+                                    <input type="revision_period" value="{{ old('revision_period') }}" name="term" class="form-control" />
+                               </div>
 
                             </div>
 

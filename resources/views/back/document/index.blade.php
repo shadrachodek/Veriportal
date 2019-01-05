@@ -106,18 +106,20 @@
     @push('scripts')
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#datatables').DataTable({
+                table = $('#datatables').DataTable({
                     "pagingType": "full_numbers",
                     "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                     responsive: true,
                     "autoWidth": false,
+                    autoFill: true,
                     language: {
                         search: "_INPUT_",
                         searchPlaceholder: "Search with Name or Document ID",
                     }
                 });
+           //     table.removeClass("input-sm").addClass("form-control").css({ "font-size": "14px"});
+            });
 
-                });
         </script>
     @endpush
 @endsection
