@@ -17,7 +17,6 @@
     <!--  Custom CSS    -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!--     Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -37,7 +36,7 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="orange" data-image="./assets/img/full-screen-image-3.jpg">
+    <div class="sidebar" data-color="orange">
 
        @yield('content')
     </div>
@@ -70,29 +69,19 @@
 <!--  Checkbox, Radio, Switch and Tags Input Plugins -->
 <script src="{{ asset('js/bootstrap-switch-tags.min.js') }}"></script>
 
-<!--  Charts Plugin -->
+<!--  Charts Plugin
 <script src="{{ asset('js/chartist.min.js') }}"></script>
-
+-->
 <!--  Notifications Plugin    -->
 <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
 
 <!-- Sweet Alert 2 plugin -->
 <script src="{{ asset('js/sweetalert2.js') }}"></script>
 
-<!-- Vector Map plugin -->
-<script src="{{ asset('js/jquery-jvectormap.js') }}"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
 <!-- Wizard Plugin    -->
 <script src="{{ asset('js/jquery.bootstrap.wizard.min.js') }}"></script>
 
 <!--  Datatable Plugin    -->
-<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-
-<!--  Full Calendar Plugin    -->
-<script src="{{ asset('js/fullcalendar.min.js') }}"></script>
 
 <!-- Light Bootstrap Dashboard Core javascript and methods -->
 <script src="{{ asset('js/light-bootstrap-dashboard.js') }}"></script>
@@ -106,18 +95,21 @@
 
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<script src="{{ asset('js/signature_pad.min.js') }}"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 
 
 
 
 
 <script type="text/javascript">
-    $(document).ready(function(){
-
-        demo.initDashboardPageCharts();
-        demo.initVectorMap();
-
-    });
+    // $(document).ready(function(){
+    //
+    //     demo.initDashboardPageCharts();
+    //     demo.initVectorMap();
+    //
+    // });
 </script>
 
 <script type="text/javascript">

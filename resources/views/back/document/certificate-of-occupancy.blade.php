@@ -201,7 +201,7 @@
 
                                 <div class="form-group">
                                     <label>Revision Period</label>
-                                    <input type="revision_period" value="{{ old('revision_period') }}" name="term" class="form-control" />
+                                    <input type="revision_period" value="{{ old('revision_period') }}" name="revision_period" class="form-control" />
                                </div>
 
                             </div>

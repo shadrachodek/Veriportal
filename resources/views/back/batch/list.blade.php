@@ -41,7 +41,7 @@
                                        
                                         <div class="col-md-4 text-right"> 
                                                 
-                                            <button class="btn tweaked-margin btn-success btn-fill small-btn "><i class="fa fa-check"></i><a href="#exampleModalCenter" data-toggle="modal" data-target="#exampleModalCenter">Approve Batch </a></button>
+                                            <button class="btn tweaked-margin btn-success btn-fill small-btn "><i class="fa fa-check"></i><a href="#signaturePad" data-toggle="modal" data-target="#signaturePad">Approve Batch </a></button>
                                             <button class="btn btn-warning btn-fill small-btn "><i class="fa fa-times"></i><a href="#ModalCenter-2" data-toggle="modal" data-target="#ModalCenter-2">Decline Batch</a></button>
                                             
                                         </div>
@@ -95,26 +95,27 @@
 
 
 <!-- Modal approve-->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="signaturePad" tabindex="-1" role="dialog" aria-labelledby="signaturePadTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     
       
         <div class="row">
                 <div class=" col-md-8 col-md-offset-2">
-                                
-                        <div class="card text-center">
+                    <form method="post">
+                        @csrf
+                        <div class="card text-center msg">
                              <div class="card-header">
                                    <h5> Sign Below </h5> 
                              </div>
                             <div class="card-body">
-                              
-                               
-                                
+                                <canvas id="signature-pad" class="signature-pad" width=612 height=180></canvas>
                             </div>
-                             <div class="card-footer text-muted">
-                                    <button class="btn btn-default btn-fill btn-block"><a href="document-batches-view-approve-sign.html"> Submit </a></button>
+                             <div class="signature-pad--footer">
+                                 <button name="signature" id="save-png" type="submit" class="btn btn-default btn-fill"> Submit</button>
+                                 <button class="btn btn-warning btn-fill" id="clear">Clear</button>
                             </div>
                         </div>
+                    </form>
                 </div>
         </div>
     </div>
@@ -167,4 +168,60 @@
     </div>
 </div>
 
+    @push('scripts')
+        <script type="text/javascript">
+            let canvas = document.querySelector("canvas");
+            let signaturePad = new SignaturePad(canvas);
+
+            document.getElementById('save-png').addEventListener('click', function (e) {
+                e.preventDefault();
+                if (signaturePad.isEmpty()) {
+                    return alert("Please provide a signature first.");
+                }
+
+                let data = signaturePad.toDataURL('image/png');
+                $.ajax({
+                    type: "POST",
+                    url: "/api/v1/signature",
+                    data: "jsjsjs",
+                    success: function(response){
+                        console.log(response)
+                    },
+                });
+                    // $.post("/api/v1/signature", {suggest: 'jdjd'}, function(result){
+                    //     $(".msg").html(result);
+                    // });
+            //    console.log(data);
+             //   window.open(data);
+            });
+
+            document.getElementById('clear').addEventListener('click', function (event) {
+
+                signaturePad.clear();
+                event.preventDefault();
+            }, false);
+
+
+
+            $(document).ready(function() {
+                table = $('#datatables').DataTable({
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    responsive: true,
+                    "autoWidth": false,
+                    searching: false,
+                    autoFill: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search with Name or Document ID",
+                    }
+                });
+                //     table.removeClass("input-sm").addClass("form-control").css({ "font-size": "14px"});
+            });
+
+
+        </script>
+    @endpush
+
 @endsection
+
