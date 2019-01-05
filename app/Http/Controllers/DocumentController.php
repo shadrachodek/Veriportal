@@ -20,10 +20,11 @@ class DocumentController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(DocumentDataTable $dataTable)
+    public function index()
     {
         $documentCount = Document::all()->count();
-        return $dataTable->render('back.document.index', compact('documentCount'));
+        $documents = Document::all();
+        return view('back.document.index', compact('documentCount','documents'));
     }
 
     public function documentType(Owner $owner){

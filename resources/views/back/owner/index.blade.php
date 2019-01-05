@@ -39,9 +39,44 @@
 
 
                                 <div class="content">
-                                    
+
                                     <div class="fresh-datatables">
-                                            {!! $dataTable->table(["style"=>"width:100%"], true) !!}
+                                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                            <thead>
+                                            <tr>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>City</th>
+                                                <th>LGA</th>
+                                                <th>Date of Birth</th>
+                                                <th>Occupation</th>
+                                                <th>Marital Status</th>
+                                                <th>Telephone</th>
+                                                <th class="text-right">Actions</th>
+
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            @foreach($owners as $owner)
+                                                <tr>
+                                                    <td>{{ $owner->first_name }}</td>
+                                                    <td>{{ $owner->last_name }}</td>
+                                                    <td>{{ $owner->city }}</td>
+                                                    <td>{{ $owner->lga_lcda }}</td>
+                                                    <td>{{ $owner->date_of_birth }}</td>
+                                                    <td>{{ $owner->occupation }}</td>
+                                                    <td>{{ $owner->marital_status }}</td>
+                                                    <td>{{ $owner->telephone }}</td>
+                                                    <td class="text-right">
+                                                        <button class="btn btn-default btn-fill small-btn"> <a href="{{ route('owner.show', $owner->owner_id) }}"> View </a> </button>
+                                                    </td>
+
+                                                </tr>
+                                            @endforeach
+
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div><!-- end content-->
                             </div><!--  end card  -->
@@ -64,7 +99,20 @@
 </div>
 
     @push('scripts')
-        {!! $dataTable->scripts() !!}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatables').DataTable({
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search with Name or Document ID",
+                    }
+                });
+
+            });
+        </script>
     @endpush
 
 @endsection

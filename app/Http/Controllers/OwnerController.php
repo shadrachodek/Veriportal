@@ -24,13 +24,13 @@ class OwnerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(OwnerDataTable $dataTable)
+    public function index()
     {
-       // $owners = Owner::all();
+       $owners = Owner::all();
         //return redirect()->route('owner.index');
         //return view('back.owner.index', compact('owners'));
         $ownerCount = Owner::all()->count();
-        return $dataTable->render('back.owner.index', compact('ownerCount'));
+        return view('back.owner.index', compact('ownerCount', 'owners'));
     }
 
     /**

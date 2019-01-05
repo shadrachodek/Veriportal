@@ -3,32 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Certificate Issuing and Fulfilement System</title>
-
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-
-
-
-
-
-    <!-- Bootstrap core CSS     -->
+        <!-- Bootstrap core CSS     -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
-
     <!--  Light Bootstrap Dashboard core CSS    -->
     <link href="{{ asset('css/light-bootstrap-dashboard.css') }}" rel="stylesheet"/>
-
     <!--  Custom CSS    -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
-
-
-
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!--     Fonts and icons     -->
@@ -36,6 +20,17 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset('css/pe-icon-7-stroke.css') }}" rel="stylesheet" /><!-- Custom Css Here -->
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+
 </head>
 <body>
 
@@ -92,7 +87,6 @@
 <script src="{{ asset('js/jquery.bootstrap.wizard.min.js') }}"></script>
 
 <!--  Datatable Plugin    -->
-<script src="{{ asset('js/bootstrap-table.js') }}"></script>
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 
 <!--  Full Calendar Plugin    -->
@@ -106,6 +100,12 @@
 <script src="{{ asset('js/knockout-3.4.2.js') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+
 
 
 
