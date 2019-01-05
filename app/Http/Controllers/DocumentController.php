@@ -27,6 +27,7 @@ class DocumentController extends Controller
         return view('back.document.index', compact('documentCount','documents'));
     }
 
+
     public function documentType(Owner $owner){
         $documentType = DocumentList::all();
         return view('back.document.select-doctype', compact('documentType', 'owner'));

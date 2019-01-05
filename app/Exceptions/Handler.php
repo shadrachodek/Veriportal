@@ -49,8 +49,20 @@ class Handler extends ExceptionHandler
     {
 
         if ( $request->expectsJson() ) {
-            $this->apiException( $request, $exception );
+            switch ($exception->getStatusCode()) {
+                case 404:
+                    return response()->json(['message' => 'Invalid request or url.'], 404);
+                    break;
+                case '500':
+                    return response()->json(['message' => 'Server error. Please contact admin.'], 500);
+                    break;
+                default:
+                    return $this->apiException( $request, $exception );
+                    break;
+            }
         }
+
+
         return parent::render( $request, $exception );
     }
 }

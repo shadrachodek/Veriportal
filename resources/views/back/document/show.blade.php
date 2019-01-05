@@ -187,19 +187,16 @@
                                    
                                 </div>
                                 
-                                <div class="col-md-9
-                                        @if ($document->status == 'Approved' )
-                                            {{ 'approved'  }}
-                                        @elseif ($document->status == 'Awaiting' )
-                                            {{ 'awaiting-approval'  }}
-                                        @else
-                                            {{ 'pending-approval'  }}
-                                        @endif
+                                <div class="col-md-9 @if ($document->status == 1)
+                                {{ 'approved'  }}
+                                @elseif ($document->status == 'Awaiting' )
+                                {{ 'awaiting-approval'  }}
+                                @else
+                                {{ 'pending-approval'  }}
+                                @endif
                                         ">
                                     <h4>{{ $document->status }}</h4>
                                 </div>
-        
-                               
                         </div>
 
                         <div class="row top-buffer bottom-buffer">
