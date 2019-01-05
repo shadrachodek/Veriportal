@@ -41,7 +41,7 @@
                                 <div class="content">
 
                                     <div class="fresh-datatables">
-                                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                        <table id="datatables" class="order-column table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                             <thead>
                                             <tr>
                                                 <th>Name</th>
@@ -98,10 +98,11 @@
                 $('#datatables').DataTable({
                     "pagingType": "full_numbers",
                     "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    "autoWidth": false,
                     responsive: true,
                     language: {
                         search: "_INPUT_",
-                        searchPlaceholder: "Search with Name or Document ID",
+                        searchPlaceholder: "Search...",
                     }
                 });
 

@@ -110,6 +110,7 @@
                     "pagingType": "full_numbers",
                     "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                     responsive: true,
+                    "autoWidth": false,
                     language: {
                         search: "_INPUT_",
                         searchPlaceholder: "Search with Name or Document ID",
