@@ -8,6 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Certificate Issuing and Fulfilement System</title>
         <!-- Bootstrap core CSS     -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <!--  Light Bootstrap Dashboard core CSS    -->
     <link href="{{ asset('css/light-bootstrap-dashboard.css') }}" rel="stylesheet"/>
@@ -21,8 +24,7 @@
     <link href="{{ asset('css/pe-icon-7-stroke.css') }}" rel="stylesheet" /><!-- Custom Css Here -->
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet" />
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
 
 
 

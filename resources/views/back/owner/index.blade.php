@@ -44,14 +44,11 @@
                                         <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                             <thead>
                                             <tr>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>City</th>
+                                                <th>Name</th>
                                                 <th>LGA</th>
                                                 <th>Date of Birth</th>
                                                 <th>Occupation</th>
                                                 <th>Marital Status</th>
-                                                <th>Telephone</th>
                                                 <th class="text-right">Actions</th>
 
                                             </tr>
@@ -60,14 +57,11 @@
                                             <tbody>
                                             @foreach($owners as $owner)
                                                 <tr>
-                                                    <td>{{ $owner->first_name }}</td>
-                                                    <td>{{ $owner->last_name }}</td>
-                                                    <td>{{ $owner->city }}</td>
+                                                    <td>{{ $owner->first_name . " " . $owner->last_name  }}</td>
                                                     <td>{{ $owner->lga_lcda }}</td>
                                                     <td>{{ $owner->date_of_birth }}</td>
                                                     <td>{{ $owner->occupation }}</td>
                                                     <td>{{ $owner->marital_status }}</td>
-                                                    <td>{{ $owner->telephone }}</td>
                                                     <td class="text-right">
                                                         <button class="btn btn-default btn-fill small-btn"> <a href="{{ route('owner.show', $owner->owner_id) }}"> View </a> </button>
                                                     </td>
