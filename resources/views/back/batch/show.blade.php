@@ -21,7 +21,7 @@
                             <div class="card-inner-spacer bottom-buffer">
                                <!-- ********first row******** -->
                                 <div class="row border-bottom">
-
+                                    <h2> Bio-Data </h2>
                                         <div class="col-md-3">
                                             <h5>First Name</h5>
                                             <h3>{{ $document->owner->first_name }}</h3>
