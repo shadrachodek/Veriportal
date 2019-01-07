@@ -14,6 +14,13 @@ Relation::morphMap([
 
 class Document extends Model
 {
+    const APPROVED = 10;
+    const DECLINE = 1;
+   // const APPROVED = 1;
+   // const APPROVED = 1;
+
+
+
     protected $fillable = [
         'document_id', 'mode', 'batch_id', 'owner_id', 'print_status', 'can_print', 'reprint_counter', 'set_for_approval_by', 'set_for_approval_status', 'set_for_approval_at', 'approved_by', 'approved_status', 'message', 'approved_at', 'status', 'documentable_id', 'documentable_type', 'updated_at'
     ];

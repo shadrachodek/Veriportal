@@ -153,6 +153,8 @@ class DocumentController extends Controller
         ]);
 
         $batch = Batch::whereBatchId($document->batch_id)->firstOrFail();
+
+        // get the total remaining document that are yet to be process in a batch
         $checkDocApproval = Document::whereBatchId($batch->batch_id)->where('approved_status', null)->count();
 
         $batchStatus = "Partially Processed";
@@ -224,13 +226,13 @@ class DocumentController extends Controller
 
     public function documentGraph(){
         $documentCreated =  Document::thisYear()
-            ->selectRaw(DB::raw("MONTHNAME(created_at) as month, count(*) as total"))
-            ->groupBy("month")
-            ->pluck('month', 'total');
+            ->selectRaw(DB::raw("DAYNAME(created_at) as day, count(*) as total"))
+            ->groupBy("day")
+            ->pluck('day', 'total');
 
         $documentApproved =  Document::ApprovedThisYear()
-            ->selectRaw(DB::raw("MONTHNAME(created_at) as month, count(*) as total"))
-            ->groupBy(DB::raw('MONTHNAME(created_at) DESC'))
+            ->selectRaw(DB::raw("DAYNAME(created_at) as day, count(*) as total"))
+            ->groupBy(DB::raw('DAYNAME(created_at) DESC'))
             ->get();
 
         return [
