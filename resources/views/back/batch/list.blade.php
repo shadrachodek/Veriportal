@@ -179,11 +179,11 @@
                     return alert("Please provide a signature first.");
                 }
 
-                let data = signaturePad.toDataURL('image/png');
+                let data = signaturePad.toDataURL('image/jpeg');
                 $.ajax({
                     type: "POST",
                     url: "/api/v1/signature",
-                    data: "jsjsjs",
+                    data: data,
                     success: function(response){
                         console.log(response)
                     },

@@ -32,7 +32,7 @@ class Document extends Model
 
     // scope query to record created this year
     public function scopeThisYear($query){
-        return $query->where('created_at', '>=', Carbon::now()->firstOfYear());
+        return $query->where('created_at', '>=', Carbon::now()->firstOfQuarter());
     }
 
     public function scopeApprovedThisYear($query){

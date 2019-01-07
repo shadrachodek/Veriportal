@@ -54,13 +54,13 @@ class SignatureController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+      //  return $request->data;
        // return $request->user()->signature;
         Signature::updateOrCreate(['user_id'=>$request->user()->id],
             ['file' => $request->file, 'user_id', $request->user()->id]);
         return response([
             'data' =>  'successfully'
-        ], Response::HTTP_CREATED);
+        ], Response::HTTP_CREATED );
     }
 
     public function getSignature()
@@ -69,16 +69,16 @@ class SignatureController extends Controller
         if (!$signature){
             return response([
                 'data' => "No Signature"
-            ], Response::HTTP_NO_CONTENT);
+            ], Response::HTTP_NO_CONTENT );
         }
         return response([
             'data' => $signature->file,
-        ], Response::HTTP_CREATED);
+        ], Response::HTTP_CREATED );
     }
 
     public function certificate()
     {
-        $certificate = Certificate::orderBy('created_at', 'desc')->first();
+        $certificate = Certificate::orderBy( 'created_at', 'desc' )->first();
         if (!$certificate){
             return response([
                 'data' => "No Certificate"

@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
 
         factory(App\Model\DocumentList::class, 1)
             ->create();
-        factory(App\Model\User::class, 1)
-            ->create();
+    //    factory(App\Model\User::class, 1)
+    //        ->create();
 
 
 
-        $this->call(RolesAndPermissionsSeeder::class);
+     //   $this->call(RolesAndPermissionsSeeder::class);
     }
 }

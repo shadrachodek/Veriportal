@@ -1,10 +1,9 @@
 <template>
-
     <div class="col-md-12">
         <div class="card">
             <div class="row card-inner-spacer">
                 <div class="col-md-2 col-sm-12 pull-left">
-                    <select name="select-document" class="selectpicker" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                    <select name="select-document" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
                         <option value="id" selected>Documents Created</option>
                         <option value="id">Documents Approved</option>
                         <option value="ms">Documents Denied</option>

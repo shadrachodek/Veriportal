@@ -226,8 +226,8 @@ class DocumentController extends Controller
 
     public function documentGraph(){
         $documentCreated =  Document::thisYear()
-            ->selectRaw(DB::raw("DAYNAME(created_at) as day, count(*) as total"))
-            ->groupBy("day")
+            ->selectRaw(DB::raw("MONTHNAME(created_at) as day, count(*) as total"))
+            ->groupBy('day')
             ->pluck('day', 'total');
 
         $documentApproved =  Document::ApprovedThisYear()

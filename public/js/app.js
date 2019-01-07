@@ -1785,7 +1785,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
 
 /* harmony default export */ __webpack_exports__["default"] = ({

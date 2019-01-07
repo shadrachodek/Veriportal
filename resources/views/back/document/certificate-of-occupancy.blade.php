@@ -210,42 +210,42 @@
 
                         <!-- ****************************************************************************************************** -->
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <form method="post" class="file-uploader" action="" enctype="multipart/form-data">
-                                    <div class="file-uploader__message-area">
-                                        <p>Select a file to upload</p>
-                                    </div>
-                                    <div class="file-chooser">
-                                        <input class="file-chooser__input" type="file">
-                                    </div>
-                                    <input class="file-uploader__submit-button" type="submit" value="Upload">
-                                </form>
-                            </div>
-
-                            {{--<div class="col-md-6">--}}
-
-                                {{--<div class="form-group">--}}
-                                    {{--<p class="space-bottom"> Attach Document</p>--}}
-
-                                    {{--<div class="input-group control-group increment" >--}}
-                                        {{--<input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">--}}
-                                        {{--<div class="input-group-btn">--}}
-                                            {{--<button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>--}}
-                                        {{--</div>--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-md-4">--}}
+                                {{--<form method="post" class="file-uploader" action="" enctype="multipart/form-data">--}}
+                                    {{--<div class="file-uploader__message-area">--}}
+                                        {{--<p>Select a file to upload</p>--}}
                                     {{--</div>--}}
-
-                                    {{--<div class="clone hide">--}}
-                                        {{--<div class="control-group input-group" style="margin-top:10px">--}}
-                                            {{--<input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">--}}
-                                            {{--<div class="input-group-btn">--}}
-                                                {{--<button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
+                                    {{--<div class="file-chooser">--}}
+                                        {{--<input class="file-chooser__input" type="file">--}}
                                     {{--</div>--}}
-
-                                {{--</div>--}}
+                                    {{--<input class="file-uploader__submit-button" type="submit" value="Upload">--}}
+                                {{--</form>--}}
                             {{--</div>--}}
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <p class="space-bottom"> Attach Document</p>
+
+                                    <div class="input-group control-group increment" >
+                                        <input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="clone hide">
+                                        <div class="control-group input-group" style="margin-top:10px">
+                                            <input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
 
 
