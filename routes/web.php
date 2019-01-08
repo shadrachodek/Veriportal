@@ -70,6 +70,7 @@ Route::get('approved/{document}/show', 'DocumentController@approvedShow')->name(
 Route::get('declined-documents', 'DocumentController@declineDocuments')->name('declined-document');
 Route::get('declined/{document}/show', 'DocumentController@declinedShow')->name('declined-show');
 Route::get('document/{document}/preview', 'DocumentController@previewDocument')->name('preview-document');
+Route::get('document/{document}/pdf-download', 'DocumentController@PdfDownload')->name('pdf-download');
 
 
 Route::get('/', function(){

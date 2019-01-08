@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use App\DataTables\DocumentDataTable;
 use App\Model\Document;
@@ -151,6 +152,7 @@ class DocumentController extends Controller
     }
 
     public function approvedShow(Document $document){
+
         return view('back.document.approved-show', compact('document'));
     }
 
@@ -159,7 +161,14 @@ class DocumentController extends Controller
     }
 
     public function previewDocument(Document $document){
-        return view('back.document.preview', compact('document'));
+        $pdf = PDF::loadView('back.document.preview', $document);
+        $pdfDoc = $pdf->download($document->owner->first_name.'-document.pdf');
+        return view('back.document.preview', compact('document', 'pdfDoc'));
+    }
+
+    public function PdfDownload(Document $document){
+        $pdf = PDF::loadView('back.document.preview', $document);
+        return $pdf->download($document->owner->first_name.'-document.pdf');
     }
 
 
