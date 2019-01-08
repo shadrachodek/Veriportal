@@ -12,9 +12,17 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
+use phpDocumentor\Reflection\Types\Null_;
 
 class BatchController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -52,14 +60,24 @@ class BatchController extends Controller
         }
 
         $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;
-        $statusText = strtoupper($request->get('status'));
+       // $statusText = strtoupper($request->get('status'));
+
+        $updateStatusCode = Document::DECLINED[1];
+        $updateStatusText = Document::DECLINED[0];
+        $message = $request->get('message');
+        if ($status == 1){
+            $updateStatusCode = Document::APPROVED[1];
+            $updateStatusText = Document::APPROVED[0];
+            $message = null;
+        }
 
         Document::whereBatchId($batch->batch_id)->update([
-            'approved_status' => $status,
-            'approved_by' => 2,
+            'approved_status' => $updateStatusCode,
+            'approved_by' => $request->user()->id,
             'approved_at' => $request->get('createdAt'),
-            'status' => $statusText,
-            'message' => $request->get('message'),
+            'status' => $updateStatusText,
+            'can_print' => $status,
+            'message' => $message,
             'updated_at' => Carbon::now()
         ]);
 
@@ -145,7 +163,7 @@ class BatchController extends Controller
 
     public function allAwaitingDocumentOnABatch($batch){
 
-        $documentUnderBatch = DocumentResource::collection(Document::whereBatchId($batch)->whereSetForApprovalStatus(true)->get());
+        $documentUnderBatch = DocumentResource::collection(Document::whereBatchId($batch)->whereApprovedStatus(Document::AWAITING[1])->get());
         return $documentUnderBatch;
     }
 }

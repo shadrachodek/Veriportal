@@ -145,8 +145,8 @@ class DocumentController extends Controller
 
     public function approveDocuments(){
 
-        $documents = Document::where('approved_status', 1)->get();
-        $approvedCount = Document::where('approved_status', 1)->count();
+        $documents = Document::where('approved_status', Document::APPROVED[1])->get();
+        $approvedCount = Document::where('approved_status', Document::APPROVED[1])->count();
         return view('back.document.approved', compact('documents', 'approvedCount'));
     }
 
@@ -165,8 +165,8 @@ class DocumentController extends Controller
 
     public function declineDocuments(){
 
-        $documents = Document::where('approved_status', 0)->get();
-        $declinedCount = Document::where('approved_status', 0)->count();
+        $documents = Document::where('approved_status', Document::DECLINED[1])->get();
+        $declinedCount = Document::where('approved_status', Document::DECLINED[1])->count();
         return view('back.document.declined', compact('documents','declinedCount'));
     }
 
