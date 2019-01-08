@@ -161,9 +161,7 @@ class DocumentController extends Controller
     }
 
     public function previewDocument(Document $document){
-        $pdf = PDF::loadView('back.document.preview', $document);
-        $pdfDoc = $pdf->download($document->owner->first_name.'-document.pdf');
-        return view('back.document.preview', compact('document', 'pdfDoc'));
+        return view('back.document.preview', compact('document'));
     }
 
     public function PdfDownload(Document $document){
