@@ -68994,7 +68994,6 @@ var staticRenderFns = [
         _c(
           "select",
           {
-            staticClass: "selectpicker",
             attrs: {
               name: "select-document",
               "data-style": "btn-default btn-block",
