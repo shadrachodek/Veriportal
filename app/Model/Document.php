@@ -14,10 +14,11 @@ Relation::morphMap([
 
 class Document extends Model
 {
-    const APPROVED = 10;
-    const DECLINE = 1;
-   // const APPROVED = 1;
-   // const APPROVED = 1;
+    const APPROVED = ['Approved', 1];
+    const DECLINED = ['Declined', 2];
+    const AWAITING = ['Awaiting Approval', 3];
+    const PENDING =  ['Pending Approval', 5];
+
 
 
 
@@ -78,5 +79,9 @@ class Document extends Model
 
     public function batch(){
         return $this->belongsTo('App\Model\Batch', 'batch_id', 'batch_id');
+    }
+
+    public function isApproved() {
+        return self::$approved == 1;
     }
 }

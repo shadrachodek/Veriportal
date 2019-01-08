@@ -115,7 +115,8 @@ class DocumentController extends Controller
         try {
 
             $document = Document::whereDocumentId($document_id)->firstOrFail();
-            $document->status = 'Awaiting';
+            $document->status = Document::PENDING[0];
+            $document->approved_status = Document::PENDING[1];
             $document->set_for_approval_by = $request->user()->id;
             $document->batch_id = $batch->batch_id;
             $document->set_for_approval_at = Carbon::now();

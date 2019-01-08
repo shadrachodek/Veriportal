@@ -31,7 +31,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-       return DocumentCollection::collection( Document::where('set_for_approval_status', 1)->get() );
+       return DocumentCollection::collection( Document::where('set_for_approval_status', Document::$pending[1])->get() );
 
 
     }

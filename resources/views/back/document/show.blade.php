@@ -187,12 +187,12 @@
                                    
                                 </div>
                                 
-                                <div class="col-md-9 @if ($document->status == 1)
-                                {{ 'approved'  }}
-                                @elseif ($document->status == 'Awaiting' )
-                                {{ 'awaiting-approval'  }}
+                                <div class="col-md-9 @if ($document->approved_status == $document::APPROVED[1])
+                                {{ $document::APPROVED[0]  }}
+                                @elseif ($document->approved_status == $document::AWAITING[1] )
+                                {{ $document::AWAITING[0] }}
                                 @else
-                                {{ 'pending-approval'  }}
+                                {{ $document::APPROVED[1] }}
                                 @endif
                                         ">
                                     <h4>{{ $document->status }}</h4>
