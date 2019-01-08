@@ -191,6 +191,8 @@
                                 {{ 'approved'  }}
                                 @elseif ($document->approved_status == $document::AWAITING[1] )
                                 {{ 'awaiting-approval'  }}
+                                @elseif ($document->approved_status == $document::DECLINED[1] )
+                                {{ 'declined'  }}
                                 @else
                                 {{ 'pending-approval'  }}
                                 @endif
