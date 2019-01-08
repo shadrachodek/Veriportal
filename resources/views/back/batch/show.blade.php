@@ -303,7 +303,7 @@
 
                 </div><!-- right Panel endshere-->
 
-
+                    {{ $allDocumentInBatch->links() }}
                 <div class="col-md-3 col-md-offset-3">
 
                         <a class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block" href="{{ $allDocumentInBatch->nextPageUrl() }}"><i class="fa fa-angle-left"></i> Back</a>

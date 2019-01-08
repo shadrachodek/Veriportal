@@ -42,9 +42,9 @@ class BatchController extends Controller
 
         try{
             $batch = Document::whereDocumentId($document)->value('batch_id');
-            $allDocumentInBatch = Document::whereBatchId($batch)->paginate(1);
-            $document = Document::whereDocumentId($document)->firstOrFail();
-           // return $allDocumentInBatch;
+            $allDocumentInBatch = Document::whereBatchId($batch)->simplePaginate(1);
+            $document = Document::whereBatchId($batch)->whereDocumentId($document)->get()->simplePaginate(1);
+         //   return $allDocumentInBatch;
 
         } catch (ModelNotFoundException  $exception) {
             return back()->withError('Batch not found by ID '. $document)->withInput();
