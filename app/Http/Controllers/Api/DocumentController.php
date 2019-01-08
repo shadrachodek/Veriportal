@@ -117,7 +117,7 @@ class DocumentController extends Controller
             return $document->set_for_approval_status == null;
         })
             ->filter(function ($document) {
-                return $document->approved_status == null;
+                return $document->approved_status == Document::AWAITING[1];
             });
 
         $documents = DocumentResource::collection($document);
@@ -161,7 +161,7 @@ class DocumentController extends Controller
         $batch = Batch::whereBatchId($document->batch_id)->firstOrFail();
 
         // get the total remaining document that are yet to be process in a batch
-        $checkDocApproval = Document::whereBatchId($batch->batch_id)->where('approved_status', null)->count();
+        $checkDocApproval = Document::whereBatchId($batch->batch_id)->where('approved_status', Document::PENDING[1])->count();
 
         $batchStatus = "Partially Processed";
         if($batch->batch_max == $batch->number_of_document || $checkDocApproval == 0){
@@ -191,7 +191,7 @@ class DocumentController extends Controller
 
     public function getDocumentById($document){
 
-        $document = ApprovedDocument::collection( Document::where('document_id', $document)->where('approved_status', '!=', null)->get());
+        $document = ApprovedDocument::collection( Document::where('document_id', $document)->where('approved_status', '!=', Document::PENDING[1])->get());
         return $document;
     }
 
@@ -210,7 +210,7 @@ class DocumentController extends Controller
             return $document->set_for_approval_status == null;
         })
             ->filter(function ($document) {
-                return $document->approved_status == true;
+                return $document->approved_status == Document::APPROVED[1];
             });
 
         $approvedDocument = ApprovedDocument::collection($document);
@@ -222,7 +222,7 @@ class DocumentController extends Controller
             return $document->set_for_approval_status == null;
         })
             ->filter(function ($document) {
-                return $document->approved_status == false;
+                return $document->approved_status == Document::DECLINED[1];
             });
 
         $deniedDocument = DeniedDocument::collection($document);
