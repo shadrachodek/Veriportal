@@ -31,7 +31,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-       return DocumentCollection::collection( Document::where('set_for_approval_status', Document::$pending[1])->get() );
+       return DocumentCollection::collection( Document::where('approved_status', Document::PENDING[1])->get() );
 
 
     }
@@ -141,12 +141,18 @@ class DocumentController extends Controller
             }
 
         $status = strtolower($request->get('status')) == 'approved' ? 1 : 0;
-        $statusText = ucfirst($request->get('status'));
+        $updateStatusCode = Document::DECLINED[1];
+        $updateStatusText = Document::DECLINED[0];
+        if ($status == 1){
+            $updateStatusCode = Document::APPROVED[1];
+            $updateStatusText = Document::APPROVED[0];
+         }
+
         $document->update([
-            'approved_status' => $status ,
+            'approved_status' => $updateStatusCode ,
             'approved_by' => $request->user()->id,
             'approved_at' => $request->get('createdAt'),
-            'status' => $statusText,
+            'status' => $updateStatusText,
             'can_print' => $status,
             'message' => $request->get('message'),
             'updated_at' => Carbon::now()
