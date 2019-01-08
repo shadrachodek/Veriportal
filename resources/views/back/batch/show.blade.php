@@ -5,7 +5,7 @@
     <div class="main-panel">
 
         @include('layouts.partial.topbar')
-
+        {{ dd( $document->links() ) }}
         <div class="main-content">
             <div class="container-fluid">
 
@@ -14,7 +14,7 @@
                 <div class="row modal-modifier doc-view">
 
                     <!-- Left Panel Starts here-->
-                    
+
                     <div class="col-md-6">
                         <div class="card ">
 
@@ -303,7 +303,7 @@
 
                 </div><!-- right Panel endshere-->
 
-                    {{ $allDocumentInBatch->links() }}
+                    {{ dd( $document->links ) }}
                 <div class="col-md-3 col-md-offset-3">
 
                         <a class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block" href="{{ $allDocumentInBatch->nextPageUrl() }}"><i class="fa fa-angle-left"></i> Back</a>

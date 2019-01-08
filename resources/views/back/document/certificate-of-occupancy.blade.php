@@ -224,17 +224,14 @@
                             {{--</div>--}}
 
                             <div class="col-md-6">
-
                                 <div class="form-group">
                                     <p class="space-bottom"> Attach Document</p>
-
                                     <div class="input-group control-group increment" >
                                         <input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">
                                         <div class="input-group-btn">
                                             <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                                         </div>
                                     </div>
-
                                     <div class="clone hide">
                                         <div class="control-group input-group" style="margin-top:10px">
                                             <input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">
@@ -247,34 +244,17 @@
                                 </div>
                             </div>
                         </div>
-
-
-
                         <div class="row top-buffer-3">
-
                             <div class="col-md-6">
-
-
                             </div>
-
                             <div class="col-md-6 ">
-
                                 <button type="submit" class=" pull-right btn btn-default btn-fill btn-wd mg-top"> Save & Continue </button>
-
                             </div>
-
                         </div>
-
-                    </div>
                 </form>
-
-
             </div>
         </div>
-
         <!-- Main Content starts Here -->
-        
-
     </div>
 </div>
     @push('scripts')
