@@ -77,6 +77,10 @@ Route::get('/', function(){
     return view('auth.login');
 });
 
+Route::get('/report', function(){
+    return view('back.report.index');
+})->name('report');
+
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 

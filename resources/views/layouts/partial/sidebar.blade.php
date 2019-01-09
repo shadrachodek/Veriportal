@@ -101,7 +101,7 @@
         </li>
 
         <li>
-            <a href="reports.html">
+            <a href="{{ route('report') }}">
                 <i class="pe-7s-graph3"></i>
                 <p>Reports</p>
             </a>
