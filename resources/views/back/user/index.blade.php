@@ -109,7 +109,7 @@
                                                    
                                                     <td class=" text-right">
                                                             <a class="btn btn-default btn-fill small-btn " href="{{ route('user-management.show', $user) }}"> View </a>
-                                                            <a class="btn btn-warning btn-fill small-btn " href="#">   Delete </a>
+
                                                     </td>
                                                    
                                                 </tr>

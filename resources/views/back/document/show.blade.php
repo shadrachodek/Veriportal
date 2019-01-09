@@ -365,7 +365,7 @@
                         @foreach( $document->files as $file)
                             <div class="col-xs-12 col-md-4 col-md-12 ">
                                 
-                              <a href="#" class="thumbnail">
+                              <a target="_blank" href="{{ \Illuminate\Support\Facades\URL::to('storage/document/'.$file->filename) }}" class="thumbnail">
                                 <img src="{{ asset('storage/document/'.$file->filename) }}">
 
                                 <h5>View</h5>

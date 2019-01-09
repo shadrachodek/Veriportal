@@ -10,7 +10,7 @@
         <div class="main-content">
             <div class="container-fluid">
 
-                <div class="row"> <h4 class="title"> Document Transfer</h4> </div>
+                <div class="row"> <h4 class="title"> Document Registration</h4> </div>
 
                 <div class="row card card-inner-top card-inner-bottom modifier">
 
@@ -44,8 +44,7 @@
                     </div>
 
                     <div class="col-md-12 text-center top-buffer-2">
-						
-                        <button type="submit" class="btn btn-default btn-fill btn-wd" onclick="demo.showSwal('success-message')" > Print slip </button>
+                        <button type="submit" class="btn btn-default btn-fill btn-wd" onclick="window.print()" > Print slip </button>
                 </div>
                         
                 </div>
