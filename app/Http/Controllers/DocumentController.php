@@ -166,7 +166,7 @@ class DocumentController extends Controller
 
     public function PdfDownload(Document $document){
        // return $document;
-        $pdf = PDF::loadView('welcome1');
+        $pdf = PDF::loadView('back.document.download', compact('document'));
         return $pdf->download('document.pdf');
     }
 
