@@ -291,7 +291,7 @@
 
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h5>Dimension Area (SQM)</h5>
-                                    <h3>{{ $document->documentable->documentable_type }}</h3>
+                                    <h3>{{ $document->documentable->dimension }}</h3>
     
                                 </div>
     
@@ -365,7 +365,7 @@
                         @foreach( $document->files as $file)
                             <div class="col-xs-12 col-md-4 col-md-12 ">
                                 
-                              <a target="_blank" href="{{ \Illuminate\Support\Facades\URL::to('storage/document/'.$file->filename) }}" class="thumbnail">
+                              <a target="_parent" href="{{ \Illuminate\Support\Facades\URL::to('storage/document/'.$file->filename) }}" class="thumbnail">
                                 <img src="{{ asset('storage/document/'.$file->filename) }}">
 
                                 <h5>View</h5>

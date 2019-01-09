@@ -24,6 +24,7 @@ class ApprovalDocumentResource extends JsonResource
             "setApprovalBy" => $this->set_for_approval_by,
             "setApprovalOn" => $this->set_for_approval_at,
             "approvalStatus" => $this->set_for_approval_status,
+            'documentType' => $this->documentable_type,
             'batch' => new BatchResource( $this->batch ),
             'owner' => new OwnerResource( $this->owner ),
             'document' => $this->documentable,
