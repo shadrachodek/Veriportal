@@ -121,7 +121,9 @@ class DocumentController extends Controller
                 return $document->approved_status == Document::AWAITING[1];
             });
 
+
         $documents = ApprovalDocumentResource::collection($document);
+
         return $documents;
     }
 
