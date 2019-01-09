@@ -3,7 +3,6 @@
 namespace App\Http\Resources\Document;
 
 use App\Http\Resources\BatchResource;
-use App\Http\Resources\OwnerDocumentResource;
 use App\Http\Resources\OwnerResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -25,7 +24,7 @@ class DocumentApprovalResource extends JsonResource
             'status' => $this->status,
             'documentType' => $this->documentable_type,
             'batch' => new BatchResource( $this->batch ),
-            'owner' => new OwnerDocumentResource( $this->owner ),
+            'owner' => new OwnerResource( $this->owner ),
             'document' => $this->documentable,
 
         ];

@@ -24,7 +24,7 @@ class DocumentResource extends JsonResource
             'status' => $this->status,
             'documentType' => $this->documentable_type,
             'batch' => new BatchResource( $this->batch ),
-            'owner' => new OwnerDocumentResource( $this->owner ),
+            'owner' => new OwnerResource( $this->owner ),
             'document' => $this->documentable,
 
         ];
