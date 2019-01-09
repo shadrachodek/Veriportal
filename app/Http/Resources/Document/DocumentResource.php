@@ -4,6 +4,8 @@ namespace App\Http\Resources\Document;
 
 use App\Http\Resources\BatchResource;
 use App\Http\Resources\OwnerDocumentResource;
+use App\Http\Resources\OwnerResource;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DocumentResource extends JsonResource
