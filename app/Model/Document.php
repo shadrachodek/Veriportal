@@ -63,6 +63,10 @@ class Document extends Model
         return $this->belongsTo('App\Model\Owner', 'owner_id', 'owner_id');
     }
 
+    public function getOwnerPassport(){
+        return $this->owner->photo;
+    }
+
 
 
     public function user(){

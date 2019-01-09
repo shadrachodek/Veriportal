@@ -52,9 +52,9 @@
                                                 </div>
 
                                                 <div class="col-md-3">
-
-                                                        <img src="{{ asset('/img/faces/face-2.jpg') }}" alt="User">
-                                                    
+                                                    @if ($document->getOwnerPassport())
+                                                        <img src="{{ $document->getOwnerPassport()->file }}" alt="{{ $document->owner->getFullname() }}">
+                                                    @endif
                                                 </div>
                                             </div>
 

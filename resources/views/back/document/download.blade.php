@@ -235,9 +235,9 @@
         </div>
 
         <div class="header-right">
-            <img src="{{ asset('img/faces/face-2.jpg') }}" alt="User">
-
-
+            @if ($document->getOwnerPassport())
+                <img src="{{$document->getOwnerPassport()->file}}">
+            @endif
         </div>
     </div>
 
