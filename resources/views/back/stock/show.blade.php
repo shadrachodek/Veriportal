@@ -11,22 +11,15 @@
                     <div class="row">
 
                         <div class="col-md-6">
-
                                 <h4 class="title">Stock Management -Item View</h4>
                         </div>
 
                         <div class="col-md-6 text-right">
                             <p>STATUS</p>
-                            <input type="checkbox" checked data-toggle="toggle" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger">
-                            <div class="bootstrap-switch-container pull-right" style="width: 122px;">
-                                <span class="bootstrap-switch-handle-on bootstrap-switch-info" style="width: 50px;"></span>
-                                <span class="bootstrap-switch-label" style="width: 30px;">&nbsp;</span>
-                                <span class="bootstrap-switch-handle-off bootstrap-switch-info" style="width: 100px;"></span>
-                                <input type="checkbox" checked="Disabled" data-toggle="switch" data-on-color="info" data-off-color="info" data-on-text="Active" data-off-text="Disabled">
+                            <div id="no-space">
+                                <input type="checkbox" checked data-toggle="toggle" style="no-space" data-on="Active" data-off="Disabled" data-onstyle="success btn-small btn-fill" data-offstyle="danger btn-small btn-fill">
                             </div>
                         </div>
-                        
-                        
                     </div>
 
 

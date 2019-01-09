@@ -180,6 +180,7 @@
                 }
 
                 let data = signaturePad.toDataURL('image/jpeg');
+                console.log(data);
                 $.ajax({
                     type: "POST",
                     url: "/api/v1/signature",
