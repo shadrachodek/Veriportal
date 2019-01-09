@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Signature;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\DataTables\DocumentDataTable;
@@ -161,7 +162,8 @@ class DocumentController extends Controller
     }
 
     public function previewDocument(Document $document){
-        return view('back.document.preview', compact('document'));
+        $signature = Signature::all()->first();
+        return view('back.document.preview', compact('document', 'signature'));
     }
 
     public function PdfDownload(Document $document){

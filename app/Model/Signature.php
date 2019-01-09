@@ -14,4 +14,8 @@ class Signature extends Model
     {
         return 'user_id';
     }
+
+    public function getSignature(){
+        return $this->where('id', 1)->get();
+    }
 }

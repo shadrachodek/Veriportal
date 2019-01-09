@@ -22,9 +22,8 @@
                         <div class="row hide-on-print">
 
                             <div class="col-md-2 text-left">
-                                <p>Document ID: {{ $document->document_id }}</p>
+                                <p>Document ID: {{$document->document_id }}</p>
                                 <h5 class="sub-title-2">Batch ID- {{ $document->batch_id }}</h5>
-
                             </div>
 
                             <div class="col-md-4 col-md-offset-6 text-right">
@@ -97,11 +96,13 @@
 
                                         <div class="cert-left">
                                             <h2>Date</h2>
-                                            <p><span class="cert-date"> {{$document->update_at}}  </span></p>
+                                            <p><span class="cert-date"> {{$document->approved_at}}  </span></p>
                                         </div>
 
                                         <div class="cert-right">
+
                                             <div class="sign-holder">
+                                                <img src="{{ $signature->file }}">
                                                 <p class="exe-gov-text" style="text-align:center; padding-left: 0px;">Owelle Rochas Okorocha<br>Executive Governor</p>
                                             </div>
                                         </div>

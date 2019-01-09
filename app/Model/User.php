@@ -46,6 +46,10 @@ class User extends Authenticatable
         return $this->hasOne(Signature::class);
     }
 
+    public function getCurrentSignature(){
+        return $this->signature()->first();
+    }
+
     public function fullName(){
         return $this->first_name .' '. $this->last_name;
     }
