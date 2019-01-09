@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Exceptions\DocumentNotSetForApproval;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Document\ApprovalDocumentResource;
 use App\Http\Resources\Document\ApprovedDocument;
 use App\Http\Resources\Document\DeniedDocument;
 use App\Http\Resources\Document\DocumentCollection;
@@ -120,7 +121,7 @@ class DocumentController extends Controller
                 return $document->approved_status == Document::AWAITING[1];
             });
 
-        $documents = DocumentResource::collection($document);
+        $documents = ApprovalDocumentResource::collection($document);
         return $documents;
     }
 
