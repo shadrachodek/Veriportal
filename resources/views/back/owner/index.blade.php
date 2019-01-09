@@ -45,7 +45,7 @@
                                             <thead>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>LGA</th>
+                                                <th>Owner Id</th>
                                                 <th>Date of Birth</th>
                                                 <th>Occupation</th>
                                                 <th>Marital Status</th>
@@ -58,7 +58,7 @@
                                             @foreach($owners as $owner)
                                                 <tr>
                                                     <td>{{ $owner->first_name . " " . $owner->last_name  }}</td>
-                                                    <td>{{ $owner->lga_lcda }}</td>
+                                                    <td>{{ $owner->owner_id }}</td>
                                                     <td>{{ $owner->date_of_birth }}</td>
                                                     <td>{{ $owner->occupation }}</td>
                                                     <td>{{ $owner->marital_status }}</td>
