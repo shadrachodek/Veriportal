@@ -75,7 +75,6 @@
                                                 <td>{{ $document->owner->last_name }}</td>
                                                 <td class="text-right">
                                                     <a class="btn btn-default btn-fill small-btn" href="{{ route('document.show', $document->document_id) }}"> View </a>
-                                                    <a href="#" class="btn btn-warning btn-fill small-btn"> Delete </a>
                                                 </td>
 
                                             </tr>

@@ -156,26 +156,37 @@
 <!--*****************************************************************************************************************-->
                                 <!-- Profile picture and signature starts here-->
                             <div class="doc-view-footer card-inner-spacer">
+                                <div class="col-md-2">
+                                    @if($document->owner->photo)
+                                        <div class="avata">
 
-                                
-                                        <div class="col-md-2">
-
-                                                <div class="avata">
-                    
-                                                <img class="img border-gray " src="{{ asset('/img/faces/face-2.jpg') }}" alt="photo">
-                    
-                                                </div>
-                    
+                                            <img class="img border-gray " src="{{ $document->owner->photo->file }}" alt="photo">
                                         </div>
+                                    @else
+                                        <a href="{{ route('photo-signature', $document->owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Photo </a>
+                                    @endif
+                                </div>
 
-                                        <div class="col-md-8 col-md-offset-1 data-cap-white">
+                                <div class="col-md-10 ">
 
-                                                <div class="signature">
-                                                <img src="{{asset('/img/signature.png')}}" alt="owner's signature">
-                                                        
-                                        </div>            
-                            </div> <!-- Profile picture and signature ends here-->
-                            </div> 
+                                    <div class="row no-gutter">
+
+                                        <div class="col-md-8 col-md-offset-2 ">
+                                            @if($document->owner->signature)
+                                                <div class="signature data-cap-white">
+                                                    <img src="{{ url('storage/signature/'.$document->owner->signature->file) }}" alt="owner's signature">
+
+                                                </div>
+                                            @else
+                                                <div class="pull-right">
+                                                    <a href="{{ route('photo-signature', $document->owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Signature </a>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                </div> <!-- Profile picture and signature ends here-->
+                            </div>
                         </div>
                 </div><!-- Left Panel ends here-->
 

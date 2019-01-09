@@ -72,7 +72,7 @@
 
                                                     <td class="text-right">
                                                              <a class="btn btn-default btn-fill small-btn" href="{{ route('declined-show', $document->document_id) }}" > View </a>
-                                                             <a class="btn btn-warning btn-fill small-btn" href="#"> Delete </a>
+
                                                         </td>
 
                                                 </tr>

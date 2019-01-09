@@ -71,7 +71,7 @@
 
                                                     <td class="text-right">
                                                              <a href="{{ route('approved-show', $document) }}" class="btn btn-default btn-fill small-btn"> View </a>
-                                                            <a href="#" class="btn btn-warning btn-fill small-btn"> Delete </a>
+
                                                         </td>
                                                     
                                                    

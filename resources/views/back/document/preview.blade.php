@@ -10,9 +10,7 @@
             <div class="container-fluid ">
 
                 <div class="row ">
-
-                        <button class="btn bottom-buffer-2 tweaked-margin btn-success btn-fill small-btn "><i class="fa fa-angle-left"></i><a href="document-approved.html">Back to Approved List</a></button>
-                    
+                    <a class="btn bottom-buffer-2 tweaked-margin btn-success btn-fill small-btn" href="{{ route('approved-document') }}"><i class="fa fa-angle-left"></i>Back to Approved List</a>
                 </div>
 
                     <div class="row"> 
