@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Document\ApprovedDocument;
 use App\Http\Resources\Document\DeniedDocument;
 use App\Http\Resources\Document\DocumentCollection;
+use App\Http\Resources\Document\DocumentReadyForPrint;
 use App\Http\Resources\Document\DocumentResource;
 use App\Model\Document;
 use App\Model\Batch;
@@ -28,7 +29,7 @@ class PrintController extends Controller
 
     public function index()
     {
-       return DocumentCollection::collection( Document::where('can_print', true)->get() );
+       return DocumentReadyForPrint::collection( Document::where('can_print', true)->get() );
 
 
     }
