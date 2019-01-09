@@ -95,7 +95,7 @@
 
                                                         <div class="col-md-6">
                                                             <p>Date</p>
-                                                            <p><span class="cert-date"> {{ $document->approved_at->toDateString }} </span></p>
+                                                            <p><span class="cert-date"> {{ $document->approved_at }} </span></p>
                                                         </div>
                                                         <div class="col-md-6 exe-gov-sig-center">
                                                             <img class="exe-gov-sig" src="{{ asset('/img/signature.png') }}" alt="Executive">
