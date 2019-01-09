@@ -102,7 +102,6 @@
                                         <div class="cert-right">
 
                                             <div class="sign-holder">
-                                                <img src="{{ $signature->file }}">
                                                 <p class="exe-gov-text" style="text-align:center; padding-left: 0px;">Owelle Rochas Okorocha<br>Executive Governor</p>
                                             </div>
                                         </div>
