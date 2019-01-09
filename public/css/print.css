@@ -1,0 +1,195 @@
+page[size="A4"] {
+    width: 21cm;
+    height: 34.7cm;
+    font-size:12px;
+}
+
+page {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    /* margin-bottom: 0.5cm; */
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+
+@media print {
+    body,
+    page {
+        box-shadow: 0;
+        font-size: 12px!important;
+    }
+    page[size="A4"] {
+        width: 22cm;
+        height: 38.7cm;
+        padding-left:-1.5cm;
+        
+    }
+
+    .hide-on-print, .btn-success{
+        display:none;
+    }
+
+
+    .cert-header {
+        width: 100%;
+        display: block;
+        clear: both;
+        margin-top: 0cm;
+        margin-bottom: 0cm;
+    }
+    .header-left {
+        width: 20%;
+        float: left;
+        margin-top: -40px!important;
+    }
+    
+    .header-middle {
+        margin-top: -1cm;
+        margin-left: 0cm;
+    }
+    p {
+        text-align: justify;
+        line-height: 0.5cm;
+    }
+    .print-list li {
+        margin-left: 20px;
+        margin-right: 10px;
+        text-align: justify;
+    }
+    .cert-left h2 {
+        padding: 0px;
+    }
+    .header-right {
+        margin-top: -1cm;
+    }
+    .header-right img {
+        margin-top: -1.5cm;
+        height: 125px;
+        float: right;
+    }
+}
+
+@media screen {
+    page[size="A4"] {
+        width: 23cm;
+        height: 37.7cm;
+        font-size: 12px;
+        padding:1.5cm;
+    }
+}
+
+ol {
+    margin: 0px;
+    padding: 0px;
+}
+
+.print-list li {
+    line-height: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+    font-size:14px;
+    text-align: justify;
+}
+
+p {
+    padding: 5px 0px;
+    font-size:14px;
+    text-align: justify;
+}
+
+{
+    width: 100%;
+}
+
+.cert-header {
+    width: 100%;
+    display: block;
+    clear: both;
+    height: 130px;
+}
+
+.header-left {
+    width: 20%;
+    float: left;
+    margin-top: -25px;
+}
+
+.header-left img {
+    height: 116px;
+}
+
+.header-middle {
+    width: 50%;
+    margin-left:8.2%;
+    display: inline-block;
+    text-align: center;
+}
+
+.header-middle h1 {
+    font-size: 20px;
+    margin: 0px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.header-middle h2 {
+    font-size: 28px;
+    font-weight: 700;
+    padding: 0px;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+.header-right {
+    width: 20%;
+    float: right;
+    margin-top: -25px;
+}
+
+.header-right img {
+    height: 116px;
+    float: right;
+}
+
+.cert-footer {
+    width: 100%;
+    display: block;
+}
+
+.cert-left {
+    width: 45%;
+    float: left;
+}
+
+.cert-left h2 {
+    padding-left: 10px;
+    font-size:14px;
+    font-weight: bold;
+    padding:0px;
+    margin:10px;
+
+}
+
+.cert-right {
+    width: 45%;
+    float: right;
+}
+
+.cert-right img {
+    height: 60px;
+    float: right;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.sign-holder {
+    float: right;
+}
+
+.cert-date,
+exe-gov-text {
+    padding: 0px!important;
+    margin: 0px;
+    text-align: center;
+}
