@@ -24,7 +24,7 @@ class ApprovalDocumentResource extends JsonResource
             'reprint' => $this->reprint_counter,
             'status' => $this->status,
             "canPrint" => $this->can_print,
-            "setApprovalBy" => $this->getFullName(),
+            "setApprovalBy" => $this->set_for_approval_by,
             "setApprovalOn" => $this->set_for_approval_at,
             "approvalStatus" => $this->set_for_approval_status,
             "approvedStatus" => $this->approved_status,
