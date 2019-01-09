@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Document;
 
 use App\Http\Resources\BatchResource;
+use App\Http\Resources\OwnerDocumentResource;
 use App\Http\Resources\OwnerResource;
 use Illuminate\Http\Resources\Json\Resource;
 
@@ -24,7 +25,7 @@ class DocumentCollection extends Resource
             'status' => $this->status,
             'documentType' => $this->documentable_type,
             'batch' => new BatchResource($this->batch),
-            'owner' => new OwnerResource($this->owner),
+            'owner' => new OwnerDocumentResource($this->owner),
             'document' => $this->documentable,
         ];
     }
