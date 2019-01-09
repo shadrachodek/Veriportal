@@ -28,8 +28,6 @@ class ApprovalDocumentResource extends JsonResource
             "setApprovalOn" => $this->set_for_approval_at,
             "approvalStatus" => $this->set_for_approval_status,
             "approvedStatus" => $this->approved_status,
-            "approvedBy" => $this->approved_by,
-            "approvedAt"=> $this->approved_at,
             'documentType' => $this->documentable_type,
             'batch' => new BatchResource( $this->batch ),
             'owner' => new OwnerResource( $this->owner ),
