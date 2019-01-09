@@ -31,7 +31,7 @@ class OwnerResource extends JsonResource
             'emailAddress' => $this->email_address,
             "passport" =>  $this->passport ? $this->passport->file : null,
             "signature" =>  $this->signature ? $this->signature->file : null,
-            'documents' => $this->documents
+          //  'documents' => $this->documents
 
 
         ];
