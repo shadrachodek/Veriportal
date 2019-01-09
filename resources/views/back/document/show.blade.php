@@ -9,10 +9,8 @@
             <div class="container-fluid">
 
                 <div class="status-check">
-
                     <p> Status</p>
                     <h5 class="title pending"> {{ $document->status }}</h5>
-
                 </div>
 
             

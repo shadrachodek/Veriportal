@@ -198,7 +198,7 @@
 
                             @foreach($owner->documents as $document)
                             <div class="row border-bottom">
-
+                            <a href="{{ route('document.show', $document->document_id) }}">
                                 <div class="col-md-6 col-sm-6 col-xs-6">
 
                                     <h4>ID</h4>
@@ -213,6 +213,7 @@
                                         <h3>{{ $document->status }} </h3>
                                     </div>
                                 </div>
+                            </a>
 
                             </div>
 

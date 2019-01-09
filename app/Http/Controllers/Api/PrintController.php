@@ -33,4 +33,13 @@ class PrintController extends Controller
 
     }
 
+    public function printedLog(Request $request)
+    {
+        Signature::updateOrCreate(['user_id'=>$request->user()->id],
+            ['file' => $request->file, 'user_id', $request->user()->id]);
+        return response([
+            'data' =>  'successfully'
+        ], Response::HTTP_CREATED );
+    }
+
 }

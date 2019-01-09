@@ -39,7 +39,7 @@
                                             </div>
 
                                        
-                                        <div class="col-md-4 text-right"> 
+                                        <div class="col-md-4 text-right hidden">
                                                 
                                             <button class="btn tweaked-margin btn-success btn-fill small-btn "><i class="fa fa-check"></i><a href="#signaturePad" data-toggle="modal" data-target="#signaturePad">Approve Batch </a></button>
                                             <button class="btn btn-warning btn-fill small-btn "><i class="fa fa-times"></i><a href="#ModalCenter-2" data-toggle="modal" data-target="#ModalCenter-2">Decline Batch</a></button>
