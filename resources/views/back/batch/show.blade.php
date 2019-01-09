@@ -5,7 +5,6 @@
     <div class="main-panel">
 
         @include('layouts.partial.topbar')
-        {{ dd( $document->links() ) }}
         <div class="main-content">
             <div class="container-fluid">
 
@@ -303,17 +302,16 @@
 
                 </div><!-- right Panel endshere-->
 
-                    {{ dd( $document->links ) }}
                 <div class="col-md-3 col-md-offset-3">
-
-                        <a class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block" href="{{ $allDocumentInBatch->nextPageUrl() }}"><i class="fa fa-angle-left"></i> Back</a>
-
+                    @if($previousValue)
+                        <a class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block" href="{{ route('batch.show', $previousValue->document_id)  }}"><i class="fa fa-angle-left"></i> Back</a>
+                    @endif
                 </div>
 
                 <div class="col-md-3 ">
-
-                        <a class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block" href="{{ $allDocumentInBatch->nextPageUrl() }}">Next <i class="fa fa-angle-right"></i></a>
-
+                        @if($nextValue)
+                        <a class="btn bottom-buffer-3 tweaked-margin btn-success btn-fill small-btn btn-block" href="{{ route('batch.show', $nextValue->document_id)  }}">Next <i class="fa fa-angle-right"></i></a>
+                        @endif
                 </div>
 
 

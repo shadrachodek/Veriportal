@@ -37,28 +37,31 @@ class BatchController extends Controller
         return view('back.batch.list', compact('batchDoc'));
     }
 
-    public function show($document)
+    public function show(Document $document)
     {
 
+     //   return $document;
         try{
-            $batch = Document::whereDocumentId($document)->value('batch_id');
-            $allDocumentInBatch = Document::whereBatchId($batch)->simplePaginate(1);
-            $document = Document::where('document_id', $document)->first();
+         //  $batch = Document::whereDocumentId($document->batch_id)->value('batch_id');
+           // $allDocumentInBatch = Document::whereBatchId($batch)->simplePaginate(1);
+          //  $document = Document::where('document_id', $document)->first();
           //  return Document::where('batch_id', $batch)->paginate(1);  //->where('document_id', $document)->first();
          //   return $allDocumentInBatch;
 
-            // get document user id
-            $previous = Document::where('document_id', '<', $document->id)->max('document_id');
+            // get document id
 
-            // get document user id
-            $next = Document::where('document_id', '>', $document->id)->min('document_id');
+          //  $previous = Document::whereBatchId($batch)->get(); //->where('id', '<', $document->id)->max('id');
 
-            return $next;
+
+            // get document id
+            $nextValue = collect(Document::where('batch_id', $document->batch_id)->get())->firstWhere('id', '>', $document->id); //->where('id', '>', $document->id)->min('id');
+            $previousValue = collect(Document::where('batch_id', $document->batch_id)->get())->firstWhere('id', '<', $document->id);
+
 
         } catch (ModelNotFoundException  $exception) {
             return back()->withError('Batch not found by ID '. $document)->withInput();
         }
      //   return $document;
-        return view('back.batch.show', compact('document', 'allDocumentInBatch'));
+        return view('back.batch.show', compact('document', 'nextValue', 'previousValue'));
     }
 }

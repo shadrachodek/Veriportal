@@ -28,7 +28,7 @@
                                         </div>
 
                                         <div class="col-md-4 col-md-offset-6 text-right">
-                                            <a href="{{ route('pdf-download', $document->document_id) }}" class="btn tweaked-margin btn-success btn-fill small-btn " data-toggle="modal" data-target="#exampleModalCenter"> View Pdf</a>
+                                            <a href="{{ route('pdf-download', $document->document_id) }}" class="btn tweaked-margin btn-success btn-fill small-btn"> View Pdf</a>
                                          
                                         </div>
 

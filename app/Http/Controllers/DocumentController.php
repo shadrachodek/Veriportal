@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\DataTables\DocumentDataTable;
 use App\Model\Document;
@@ -165,8 +165,9 @@ class DocumentController extends Controller
     }
 
     public function PdfDownload(Document $document){
-        $pdf = PDF::loadView('back.document.preview', $document);
-        return $pdf->download($document->owner->first_name.'-document.pdf');
+       // return $document;
+        $pdf = PDF::loadView('welcome1');
+        return $pdf->download('document.pdf');
     }
 
 
