@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Model\Document;
+use App\Charts\Dashboard;
 use App\Model\Owner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class DashboardController extends Controller
 {
@@ -104,5 +106,23 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showGraph(){
+        $chart = new Dashboard();
+        $document = Document::where('approved_status', 5)
+            ->selectRaw(DB::raw("MONTHNAME(created_at) as month, count(*) as total"))
+            ->groupBy(DB::raw('MONTHNAME(created_at)'))
+            ->get();
+        return $document[0];
+        $chart->labels($document->keys());
+        // $chart->dataset('My dataset 1', 'bar', $document->keys());
+        $chart->dataset('My dataset 2', 'bar', $document->values());
+
+        return view('chart-sample', compact('chart'));
+    }
+
+    public function userList(){
+        return DataTables::of(Owner::query())->make(true);
     }
 }

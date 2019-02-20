@@ -54,9 +54,7 @@ class OwnerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'middle_name' => 'required|string|max:255',
+            'full_name' => 'required|string|max:255',
             'mobile' => 'required|string|max:255',
             'telephone' => 'required|string|max:255',
             'address' => 'required|string|max:255',
@@ -69,16 +67,13 @@ class OwnerController extends Controller
             'email_address' => 'string|email|max:255',
         ],
             [
-                'first_name.required' => 'First Name is require!',
-                'last_name.required' => 'Last Name is require!'
+                'full_name.required' => 'Full Name is require!'
 
             ]);
 
         $owner = Owner::create([
             'owner_id' => Keygen::numeric(10)->generate(),
-            'first_name' => $request->first_name,
-            'middle_name' => $request->middle_name,
-            'last_name' => $request->last_name,
+            'full_name' => $request->full_name,
             'date_of_birth' => $request->date_of_birth,
             'marital_status' => $request->marital_status,
             'occupation' => $request->occupation,

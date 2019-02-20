@@ -16,19 +16,17 @@ class CreateOwnersTable extends Migration
         Schema::create('owners', function (Blueprint $table) {
             $table->increments('id');
             $table->string('owner_id');
-            $table->string('first_name');
-            $table->string('middle_name');
-            $table->string('last_name');
-            $table->date('date_of_birth');
-            $table->string('marital_status');
-            $table->string('occupation');
-            $table->text('address');
-            $table->string('city');
-            $table->string('lga_lcda');
-            $table->string('nearest_bus_stop');
-            $table->string('telephone');
-            $table->string('mobile');
-            $table->string('email_address');
+            $table->string('full_name');
+            $table->date('date_of_birth')->nullable();
+            $table->string('marital_status')->nullable();
+            $table->string('occupation')->nullable();
+            $table->text('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('lga_lcda')->nullable();
+            $table->string('nearest_bus_stop')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('email_address')->nullable();
             $table->timestamps();
         });
     }

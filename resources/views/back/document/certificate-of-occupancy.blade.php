@@ -41,7 +41,7 @@
 
                         <div class="row">
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
 
                                 <div class="form-group">
                                     <label> House/Plot Number </label>
@@ -50,11 +50,19 @@
 
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
 
                                 <div class="form-group">
                                     <label>Street Name</label>
                                     <input type="text" value="{{ old('street_name') }}" name="street_name" class="form-control" />
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" value="{{ old('city') }}" name="city" class="form-control" />
                                 </div>
 
                             </div>
@@ -69,17 +77,20 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <label> Local Government Area </label>
-                                    <input type="text" value="{{ old('lga') }}" name="lga" class="form-control" />
+                                    <label> Area </label>
+                                    <input type="text" value="{{ old('area') }}" name="area" class="form-control" />
                                 </div>
 
                             </div>
 
+
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <label>City</label>
-                                    <input type="text" value="{{ old('city') }}" name="city" class="form-control" />
+
+                                    <label> File Number </label>
+                                    <input type="text" name="file_number" value="{{ old('file_number') }}"  class="form-control">
+
                                 </div>
 
                             </div>
@@ -114,10 +125,11 @@
                                 <div class="form-group">
                                     <label>Purpose of Use</label>
                                     <select name="purpose_of_use" class="selectpicker" data-title="Select Purpose of Use" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                        <option value="Commercial">Commercial</option>
-                                        <option value="Residential">Residential</option>
+                                        <option>Public </option>
+                                        <option> Residential</option>
+                                        <option> Commercial </option>
+                                        <option> Commercial/Residential </option>
 
-                                        ...
                                     </select>
                                 </div>
 
@@ -139,28 +151,10 @@
                             </div>
 
                             <div class="col-md-4">
-
                                 <div class="form-group">
-
                                     <label>Development period</label>
-                                    <select name="development_period" class="selectpicker" data-title="Select Development period" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                        <option value="3 Months">3 Months</option>
-                                        <option value="6 Months">6 Months</option>
-                                        <option value="1 Year">1 Year</option>
-                                        <option value="2 Years">2 Years</option>
-                                        <option value="3 Years">3 Years</option>
-                                        <option value="4 Years">4 Years</option>
-                                        <option value="5 Year">5 Year</option>
-                                        <option value="6 Years">6 Years</option>
-                                        <option value="7 Years">7 Years</option>
-                                        <option value="8 Years">8 Years</option>
-                                        <option value="9 Years">9 Years</option>
-                                        <option value="10 Years">10 Years</option>
-
-                                        ...
-                                    </select>
+                                    <input type="text" value="2 Years" name="development_period" class="form-control" readonly>
                                 </div>
-
                             </div>
 
                             <div class="col-md-4">
@@ -168,7 +162,7 @@
 
                                 <div class="form-group">
                                     <label> Building Value </label>
-                                    <input type="text" value="{{ old('building_value') }}" name="building_value" class="form-control" />
+                                    <input type="number" value="{{ old('building_value') }}" name="building_value" class="form-control" />
                                 </div>
 
 
@@ -197,7 +191,7 @@
                                 <div class="form-group">
 
                                     <label>Term</label>
-                                    <input type="term" value="{{ old('term') }}" name="term" class="form-control" />
+                                    <input type="text" value="{{ old('term') }}" name="term" class="form-control" />
                                 </div>
 
                             </div>
@@ -207,7 +201,7 @@
 
                                 <div class="form-group">
                                     <label>Revision Period</label>
-                                    <input type="revision_period" value="{{ old('revision_period') }}" name="revision_period" class="form-control" />
+                                    <input type="text" value="{{ old('revision_period') }}" name="revision_period" class="form-control" />
                                </div>
 
                             </div>
@@ -215,6 +209,23 @@
                         </div>
 
                         <!-- ****************************************************************************************************** -->
+
+
+                        <div class="row">
+
+                            <div class="col-md-offset-3 col-md-6 col-md-offset-3">
+
+                                <div class="file-uploader">
+                                    <div class="file-uploader__message-area">
+                                        <p>Select a file to upload</p>
+                                    </div>
+                                    <div class="file-chooser">
+                                        <input class="file-chooser__input" type="file" name="attach_doc[]">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
 
                         {{--<div class="row">--}}
                             {{--<div class="col-md-4">--}}
@@ -229,27 +240,29 @@
                                 {{--</form>--}}
                             {{--</div>--}}
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <p class="space-bottom"> Attach Document</p>
-                                    <div class="input-group control-group increment" >
-                                        <input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
-                                        </div>
-                                    </div>
-                                    <div class="clone hide">
-                                        <div class="control-group input-group" style="margin-top:10px">
-                                            <input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                            {{--<div class="col-md-6">--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<p class="space-bottom"> Attach Document</p>--}}
+                                    {{--<div class="input-group control-group increment" >--}}
+                                        {{--<input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">--}}
+                                        {{--<div class="input-group-btn">--}}
+                                            {{--<button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="clone hide">--}}
+                                        {{--<div class="control-group input-group" style="margin-top:10px">--}}
+                                            {{--<input type="file" name="attach_doc[]" class="form-control custom-file-input" placeholder="Select to Upload documents">--}}
+                                            {{--<div class="input-group-btn">--}}
+                                                {{--<button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
 
-                                </div>
-                            </div>
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
+
+
                         <div class="row top-buffer-3">
                             <div class="col-md-6">
                             </div>
@@ -277,6 +290,120 @@
                     $(this).parents(".control-group").remove();
                 });
 
+            });
+
+        </script>
+
+        <script type="text/javascript">
+
+            (function( $ ) {
+
+                $.fn.uploader = function( options ) {
+                    var settings = $.extend({
+                        MessageAreaText: "No files selected.",
+                        MessageAreaTextWithFiles: "Attach Document:",
+                        DefaultErrorMessage: "Unable to open this file.",
+                        BadTypeErrorMessage: "We cannot accept this file type at this time.",
+                        acceptedFileTypes: ['pdf', 'jpg', 'gif', 'jpeg', 'bmp', 'tif', 'tiff', 'png', 'xps', 'doc', 'docx',
+                            'fax', 'wmp', 'ico', 'txt', 'cs', 'rtf', 'xls', 'xlsx']
+                    }, options );
+
+                    var uploadId = 1;
+                    //update the messaging
+                    $('.file-uploader__message-area p').text(options.MessageAreaText || settings.MessageAreaText);
+
+                    //create and add the file list and the hidden input list
+                    var fileList = $('<ul class="file-list"></ul>');
+                    var hiddenInputs = $('<div class="hidden-inputs hidden"></div>');
+                    $('.file-uploader__message-area').after(fileList);
+                    $('.file-list').after(hiddenInputs);
+
+                    //when choosing a file, add the name to the list and copy the file input into the hidden inputs
+                    $('.file-chooser__input').on('change', function(){
+                        var file = $('.file-chooser__input').val();
+                        var fileName = (file.match(/([^\\\/]+)$/)[0]);
+
+                        //clear any error condition
+                        $('.file-chooser').removeClass('error');
+                        $('.error-message').remove();
+
+                        //validate the file
+                        var check = checkFile(fileName);
+                        if(check === "valid") {
+
+                            // move the 'real' one to hidden list
+                            $('.hidden-inputs').append($('.file-chooser__input'));
+
+                            //insert a clone after the hiddens (copy the event handlers too)
+                            $('.file-chooser').append($('.file-chooser__input').clone({ withDataAndEvents: true}));
+
+                            //add the name and a remove button to the file-list
+                            $('.file-list').append('<li style="display: none;"><span class="file-list__name">' + fileName + '</span><button class="removal-button" data-uploadid="'+ uploadId +'"></button></li>');
+                            $('.file-list').find("li:last").show(800);
+
+                            //removal button handler
+                            $('.removal-button').on('click', function(e){
+                                e.preventDefault();
+
+                                //remove the corresponding hidden input
+                                $('.hidden-inputs input[data-uploadid="'+ $(this).data('uploadid') +'"]').remove();
+
+                                //remove the name from file-list that corresponds to the button clicked
+                                $(this).parent().hide("puff").delay(10).queue(function(){$(this).remove();});
+
+                                //if the list is now empty, change the text back
+                                if($('.file-list li').length === 0) {
+                                    $('.file-uploader__message-area').text(options.MessageAreaText || settings.MessageAreaText);
+                                }
+                            });
+
+                            //so the event handler works on the new "real" one
+                            $('.hidden-inputs .file-chooser__input').removeClass('file-chooser__input').attr('data-uploadId', uploadId);
+
+                            //update the message area
+                            $('.file-uploader__message-area').text(options.MessageAreaTextWithFiles || settings.MessageAreaTextWithFiles);
+
+                            uploadId++;
+
+                        } else {
+                            //indicate that the file is not ok
+                            $('.file-chooser').addClass("error");
+                            var errorText = options.DefaultErrorMessage || settings.DefaultErrorMessage;
+
+                            if(check === "badFileName") {
+                                errorText = options.BadTypeErrorMessage || settings.BadTypeErrorMessage;
+                            }
+
+                            $('.file-chooser__input').after('<p class="error-message">'+ errorText +'</p>');
+                        }
+                    });
+
+                    var checkFile = function(fileName) {
+                        var accepted          = "invalid",
+                            acceptedFileTypes = this.acceptedFileTypes || settings.acceptedFileTypes,
+                            regex;
+
+                        for ( var i = 0; i < acceptedFileTypes.length; i++ ) {
+                            regex = new RegExp("\\." + acceptedFileTypes[i] + "$", "i");
+
+                            if ( regex.test(fileName) ) {
+                                accepted = "valid";
+                                break;
+                            } else {
+                                accepted = "badFileName";
+                            }
+                        }
+
+                        return accepted;
+                    };
+                };
+            }( jQuery ));
+
+            //init
+            $(document).ready(function(){
+                $('.fileUploader').uploader({
+                    MessageAreaText: "No files selected. Please select a file."
+                });
             });
 
         </script>

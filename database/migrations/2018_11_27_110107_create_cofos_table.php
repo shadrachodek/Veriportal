@@ -16,18 +16,19 @@ class CreateCofosTable extends Migration
         Schema::create('cofos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('house_plot_number');
-            $table->string('street_name');
-            $table->string('lga');
-            $table->string('city');
-            $table->string('dimension');
+            $table->string('street_name')->nullable();
+            $table->string('area');
+            $table->string('city')->nullable();
+            $table->string('dimension')->nullable();
             $table->string('survey_plan_number');
             $table->string('purpose_of_use');
-            $table->string('commencement_year');
+            $table->string('commencement_year')->nullable();
             $table->string('development_period');
-            $table->string('building_value');
-            $table->string('yearly_rent_payable');
+            $table->double('building_value');
+            $table->double('yearly_rent_payable');
             $table->string('term');
-            $table->string('revision_period');
+            $table->string('revision_period')->nullable();
+            $table->string('file_number');
             $table->timestamps();
         });
     }

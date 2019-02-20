@@ -5,6 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Carbon\Carbon;
+use App\Filterable;
 
 
 Relation::morphMap([
@@ -14,6 +15,8 @@ Relation::morphMap([
 
 class Document extends Model
 {
+    use Filterable;
+
     const APPROVED = ['Approved', 1];
     const DECLINED = ['Declined', 2];
     const AWAITING = ['Awaiting Approval', 3];
@@ -55,6 +58,10 @@ class Document extends Model
         return $this->hasOne('App\Model\Payment', 'document_id', 'document_id');
     }
 
+    public function surveyPlan(){
+        return $this->hasOne('App\Model\DocumentSurveyPlan', 'document_id', 'document_id');
+    }
+
     public function files(){
         return $this->hasMany('App\Model\FileStorage', 'ownby', 'document_id');
     }
@@ -78,7 +85,7 @@ class Document extends Model
     }
 
     public function getOwnerFullName() {
-        return $this->owner->first_name. " " .$this->owner->middle_name . " " .$this->owner->last_name;
+        return $this->owner->full_name;
     }
 
     public function batch(){

@@ -16,9 +16,7 @@ class OwnerDocumentResource extends JsonResource
     {
         return [
             'ownerId' => $this->owner_id,
-            'firstName' => $this->first_name,
-            'middleName' => $this->middle_name,
-            'lastName' => $this->last_name,
+            'fullName' => $this->full_name,
             'dateOfBirth' => $this->date_of_birth,
             'maritalStatus' => $this->marital_status,
             'occupation' => $this->occupation,

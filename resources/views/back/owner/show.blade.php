@@ -34,20 +34,10 @@
                                <!-- ********first row******** -->
                                 <div class="row border-bottom">
 
-                                        <div class="col-md-3">
-                                            <h5>First Name</h5>
-                                            <h3>{{ $owner->first_name }}</h3>
+                                        <div class="col-md-9">
+                                            <h5>Full Name</h5>
+                                            <h3>{{ $owner->full_name }}</h3>
 
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <h5>Middle Name</h5>
-                                            <h3>{{ $owner->middle_name }}</h3>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <h5>Last Name</h5>
-                                            <h3>{{ $owner->last_name }}</h3>
                                         </div>
 
                                         <div class="col-md-3">
@@ -90,7 +80,7 @@
 
                                             <div class="col-md-12">
                                                 <h5>Street Address</h5>
-                                                <h3>{{ $owner->street_address }}</h3>
+                                                <h3>{{ $owner->address }}</h3>
                 
                                             </div>
                 

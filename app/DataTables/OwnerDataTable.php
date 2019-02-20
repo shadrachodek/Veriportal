@@ -38,7 +38,7 @@ class OwnerDataTable extends DataTable
      */
     public function query(Owner $model)
     {
-        return $model->newQuery()->select('owner_id', 'first_name', 'last_name', "mobile", 'occupation', 'marital_status');
+        return $model->newQuery()->select('owner_id', 'full_name', "mobile", 'occupation', 'marital_status');
     }
 
     /**
@@ -70,8 +70,7 @@ class OwnerDataTable extends DataTable
     {
         return [
             'owner_id',
-            'first_name',
-            'last_name',
+            'full_name',
             "mobile",
             'occupation',
             'marital_status'

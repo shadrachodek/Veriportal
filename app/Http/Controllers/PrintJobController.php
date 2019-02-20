@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Document;
 use App\PrintJob;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,10 @@ class PrintJobController extends Controller
      */
     public function index()
     {
-        return view('back.print.index');
+
+        $documents = Document::where('can_print', true)->get()->groupBy('batch_id');
+
+        return view('back.print.index', compact('documents'));
     }
 
     /**

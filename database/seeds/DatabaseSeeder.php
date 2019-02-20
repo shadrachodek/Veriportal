@@ -11,15 +11,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        factory(App\Model\Cofo::class, 150)
+//        factory(App\Model\Cofo::class, 500)
 //            ->create()
 //            ->each(function ($user) {$user->documents()
 //                ->save(factory(App\Model\Document::class)
 //                    ->make());
 //            });
-//
-//        factory(App\Model\DocumentList::class, 1)
-//            ->create();
+
+        factory(App\Model\DocumentList::class, 1)
+            ->create();
         factory(App\Model\User::class, 1)
             ->create();
 

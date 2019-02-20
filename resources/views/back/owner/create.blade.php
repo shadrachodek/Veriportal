@@ -27,29 +27,11 @@
     @csrf
                     <!-- First row of inputs -->
 
-                    <div class="col-md-4">
+                    <div class="col-md-12">
 
                             <div class="form-group">
-                                    <label>First Name</label>
-                                    <input type="text" value="{{ old('first_name') }}" name="first_name" placeholder="Enter first name" class="form-control" />
-                            </div>
-
-                    </div>
-
-                    <div class="col-md-4">
-
-                            <div class="form-group">
-                                    <label>Middle Name</label>
-                                    <input type="text" value="{{ old('middle_name') }}" name="middle_name" placeholder="Enter Middle Name" class="form-control" />
-                            </div>
-                        
-                    </div>
-
-                    <div class="col-md-4">
-
-                            <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" value="{{ old('last_name') }}" name="last_name" placeholder="Enter Last Name" class="form-control" />
+                                    <label>Full Name</label>
+                                    <input type="text" value="{{ old('full_name') }}" name="full_name" placeholder="Enter full name" class="form-control" />
                             </div>
                         
                     </div>

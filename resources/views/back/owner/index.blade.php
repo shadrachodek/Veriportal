@@ -57,7 +57,7 @@
                                             <tbody>
                                             @foreach($owners as $owner)
                                                 <tr>
-                                                    <td>{{ $owner->first_name . " " . $owner->last_name  }}</td>
+                                                    <td>{{ $owner->full_name  }}</td>
                                                     <td>{{ $owner->owner_id }}</td>
                                                     <td>{{ $owner->date_of_birth }}</td>
                                                     <td>{{ $owner->occupation }}</td>

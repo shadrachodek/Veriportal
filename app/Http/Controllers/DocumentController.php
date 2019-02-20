@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DocumentFilters;
 use App\Model\Signature;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ use App\Model\DocumentList;
 use App\Model\Batch;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
 
 
 class DocumentController extends Controller
@@ -22,8 +24,16 @@ class DocumentController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request, DocumentFilters $filters)
     {
+
+      //  return Document::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))
+
+         //   ->get();
+
+      //  return Document::filter($filters)->get();
+
+
         $documentCount = Document::all()->count();
         $documents = Document::all();
         return view('back.document.index', compact('documentCount','documents'));
@@ -107,6 +117,12 @@ class DocumentController extends Controller
     }
 
     public function setForApproval(Request $request, $document_id){
+        $document = Document::whereDocumentId($document_id)->firstOrFail();
+        if (!$document->surveyPlan){
+            return back()->with('Survey Plan file needs to be uploaded before this document  set for approval ');
+        }
+
+
         try{
             $batch = Batch::where('number_of_document', '<', Batch::MAX_DOCUMENT)->firstOrFail();
         } catch (ModelNotFoundException  $exception) {
@@ -116,7 +132,7 @@ class DocumentController extends Controller
 
         try {
 
-            $document = Document::whereDocumentId($document_id)->firstOrFail();
+
             $document->status = Document::AWAITING[0];
             $document->approved_status = Document::AWAITING[1];
             $document->set_for_approval_by = $request->user()->id;

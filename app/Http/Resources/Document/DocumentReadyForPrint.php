@@ -29,6 +29,7 @@ class DocumentReadyForPrint extends JsonResource
             "approvedStatus" => $this->approved_status,
             "approvedBy" => $this->getFullName(),
             "approvedAt"=> $this->approved_at,
+            "surveyPlan" =>  $this->surveyPlan ? $this->surveyPlan->file : null,
             'documentType' => $this->documentable_type,
             'batch' => new BatchResource( $this->batch ),
             'owner' => new OwnerResource( $this->owner ),

@@ -55,6 +55,10 @@ Route::post('document/{owner_id}/certificate-of-occupancy', 'CofoController@stor
 
 Route::post('owner-that-need-document', 'OwnerController@getOwner')->name('owner-that-need-document');
 
+Route::post('document/{document}/survey_plan_file_upload', 'CofoController@SurveyPlanUpload')->name('doc.survey_plan_file_upload');
+Route::get('document/{document}/survey_plan', 'CofoController@SurveyPlan')->name('doc.survey_plan');
+
+
 
 Route::get('/document/{document}/receipt/', 'DocumentController@receipt')->name('doc.receipt');
 Route::get('document/{document}/payments', 'DocumentController@loadPaymentPage')->name('doc.payments');
@@ -82,6 +86,12 @@ Route::get('/report', function(){
 })->name('report');
 
 
+
+Route::get('/charts', 'DashboardController@showGraph');
+
+
+
+
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 
@@ -101,4 +111,17 @@ $this->post('logout', 'UserController@logout')->name('logout');
 Route::get('qr-code', function () {
     return \SimpleSoftwareIO\QrCode\Facades\QrCode::size(500)->generate('Welcome to kerneldev.com!');
 });
+
+Route::get('user-list',  'DashboardController@userList')->name('user-list');
+
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\OwnerDocumentImport;
+use App\Imports\OwnersImport;
+
+Route::get('/imports', function(){
+   // return "jdjhd";
+
+    Excel::import(new OwnerDocumentImport, 'area-ua.csv');
+});
+
 

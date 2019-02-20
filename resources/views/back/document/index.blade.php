@@ -57,8 +57,8 @@
                                                 <th>Document ID</th>
                                                 <th>Document Type</th>
                                                 <th>Status</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
+                                                <th>File Number</th>
+                                                <th>Full Name</th>
                                                 <th class="text-right">Actions</th>
 
                                             </tr>
@@ -71,8 +71,8 @@
                                                 <td>{{ $document->document_id }}</td>
                                                 <td>{{ $document->documentable_type }}</td>
                                                 <td>{{ $document->status }}</td>
-                                                <td>{{ $document->owner->first_name }}</td>
-                                                <td>{{ $document->owner->last_name }}</td>
+                                                <td>{{ $document->documentable->file_number }}</td>
+                                                <td>{{ $document->owner->full_name }}</td>
                                                 <td class="text-right">
                                                     <a class="btn btn-default btn-fill small-btn" href="{{ route('document.show', $document->document_id) }}"> View </a>
                                                 </td>

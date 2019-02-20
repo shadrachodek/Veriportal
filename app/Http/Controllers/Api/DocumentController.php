@@ -16,6 +16,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\OwnerDocumentImport;
 
 
 class DocumentController extends Controller
@@ -34,6 +36,12 @@ class DocumentController extends Controller
     {
        return DocumentCollection::collection( Document::where('approved_status', Document::PENDING[1])->get() );
 
+
+    }
+
+    public function import()
+    {
+        return "djdj";
 
     }
 

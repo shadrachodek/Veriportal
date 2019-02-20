@@ -6,11 +6,9 @@ use Keygen\Keygen;
 $factory->define(App\Model\Owner::class, function (Faker $faker) {
     return [
         'owner_id' => Keygen::numeric(11)->generate(),
-        'first_name' => $faker->firstName,
-        'middle_name' => $faker->firstNameMale,
-        'last_name' => $faker->lastName,
+        'full_name' => $faker->name,
         'date_of_birth' => $faker->date(),
-        'marital_status' => $faker->jobTitle,
+        'marital_status' => $faker->randomElement(['Single', 'Married', 'Divorce', 'Separated']),
         'occupation' => $faker->jobTitle,
         'address' => $faker->streetAddress,
         'city' => $faker->city,

@@ -15,7 +15,7 @@
 
                             <h4 class="title">Print Management</h4>
                    
-                    
+
                     
                 </div>
 
@@ -26,43 +26,12 @@
                                 <div class="row spacerx2">
 
 
-                                    <div class="col-md-15 col-sm-3"> 
+                                    <div class="col-md-12 col-sm-12">
                                         
-                                            <h5 class="sub-title-2"> 129 - Available Print Job </h5>
+                                            <h5 class="sub-title-2"> {{ count($documents->keys()) }} - Available Print Job </h5>
             
                                     </div>
 
-                                    
-                                    <div class="col-md-15 col-sm-3"> 
-                                        
-                                        <div class="form-group">
-                                            <input type="text" value="" name="document-id" placeholder="Job ID #" class="form-control" />
-                                        </div>  
-            
-                                    </div>
-
-                                    <div class="col-md-15 col-sm-3"> 
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control datepicker" placeholder="Date Picker Here"/>
-                                        </div>
-
-                                    </div>
-                                    
-                                    <div class=col-md-15 col-sm-3">
-                                        
-                                            <select name="status" class="selectpicker" data-title="Status" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                                    <option value="id">Pending</option>
-                                                    <option value="ms">Printed</option>
-                                                ...
-                                            </select>
-                                    
-                                    </div>
-                                    <div class="col-md-2"> 
-                                        
-                                            <button class="btn btn-default btn-fill btn-block">Submit</button>
-                                    
-                                    </div>
 
                         </div>
 
@@ -84,10 +53,10 @@
                                             </thead>
                                            
                                             <tbody>
+                                            @foreach( $documents->keys() as $document)
                                                 <tr>
-
-                                                    <td class="text-center">56382637</td>
-                                                    <td class="text-center">125</td>
+                                                    <td class="text-center">{{ $document }}</td>
+                                                    <td class="text-center">{{ count($documents[$document]) }}</td>
                                                     <td class="text-center">Pending</td>
                                                     <td class="text-center"> 
                                                             <a class="btn btn-default btn-fill small-btn " href="print-job-view.html">      view </a>
@@ -95,122 +64,7 @@
                                                  
                                                    
                                                 </tr>
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"> 
-                                                            <a class="btn btn-default btn-fill small-btn " href="#">      view </a> 
-                                                        </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"> 
-                                                            <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-                                                        
-                                                    </tr>
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"> 
-                                                            <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-                                                    
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center">
-                                                             <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-                                                    
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"> 
-                                                            <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-                                                    
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"> <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-                                                    
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"> <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"> <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-                                                    
-                                                </tr>
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"> <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-                                                        
-                                                    </tr>
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"> <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-                                                </tr>
-
-
-                                                <tr>
-                                                    
-                                                        <td class="text-center">56382637</td>
-                                                        <td class="text-center">125</td>
-                                                        <td class="text-center">Pending</td>
-                                                        <td class="text-center"><a class="btn btn-default btn-fill small-btn " href="#">      view </a>
-                                                        </td>
-                                                        
-                                                </tr>
-
-                                                
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>

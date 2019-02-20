@@ -25,21 +25,14 @@
                                <!-- ********first row******** -->
                                 <div class="row border-bottom">
                                     <h2> Bio-Data </h2>
-                                        <div class="col-md-3">
+                                        <div class="col-md-9">
                                             <h5>First Name</h5>
-                                            <h3>{{ $document->owner->first_name }}</h3>
+                                            <h3>{{ $document->owner->full_name }}</h3>
 
                                         </div>
 
-                                        <div class="col-md-3">
-                                            <h5>Middle Name</h5>
-                                            <h3>{{ $document->owner->middle_name }}</h3>
-                                        </div>
 
-                                        <div class="col-md-3">
-                                            <h5>Last Name</h5>
-                                            <h3>{{ $document->owner->last_name }}</h3>
-                                        </div>
+
 
                                         <div class="col-md-3">
                                             <h5>Unique id #</h5>
@@ -227,14 +220,21 @@
 
                             <div class="row ">
 
-                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
 
                                     <p>Document Type</p>
                                     <h3>{{ $document->documentable_type }}</h3>
-                                        
+
                                 </div>
 
-                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div>
+                                        <p>File Number</p>
+                                        <h3>{{ $document->documentable->file_number }}</h3>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12">
                                     <div class="pull-right">
                                         <p>Document ID</p>
                                         <h3>#{{ $document->document_id }}</h3>
@@ -269,8 +269,8 @@
                                 </div>
     
                                 <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <h5> Local Government </h5>
-                                    <h3>{{ $document->documentable->lga }}</h3>
+                                    <h5> Area </h5>
+                                    <h3>{{ $document->documentable->area }}</h3>
                                 </div>
      
                         </div>
@@ -356,7 +356,7 @@
 
         
 
-            <div class="col-md-12 card-inner-spacer card doc-file-footer">
+            <div class="col-md-6 card-inner-spacer card doc-file-footer">
                     <h2> Attached Documents </h2>
 
                     <div class="row">
@@ -377,6 +377,27 @@
 
 
             </div>
+
+            <div class="col-md-6 card-inner-spacer card doc-file-footer">
+                    <h2> Survey Plan </h2>
+
+                    <div class="row">
+                        @if( $document->surveyPlan)
+                            <div class="col-xs-12 col-md-4 col-md-12 ">
+
+                                <a target="_parent" href="{{asset($document->surveyPlan->file) }}" class="thumbnail">
+                                    <img src="{{ asset($document->surveyPlan->file) }}">
+                                    <h5>View</h5>
+                                </a>
+
+                            </div>
+                        @endif
+
+
+                    </div>
+
+
+                </div>
 
         
 

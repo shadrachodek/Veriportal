@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Owner extends Model
 {
     protected $fillable = [
-        'owner_id', 'first_name', 'middle_name', 'last_name', 'date_of_birth', 'marital_status', 'occupation', 'address', 'city', 'lga_lcda', 'nearest_bus_stop', 'telephone', 'mobile', 'email_address'
+        'owner_id', 'full_name', 'date_of_birth', 'marital_status', 'occupation', 'address', 'city', 'lga_lcda', 'nearest_bus_stop', 'telephone', 'mobile', 'email_address'
     ];
 
     public function getRouteKeyName()
@@ -35,6 +35,6 @@ class Owner extends Model
 
 
     public function getFullname(){
-        return $this->first_name . " " . $this->last_name;
+        return $this->full_name;
     }
 }
