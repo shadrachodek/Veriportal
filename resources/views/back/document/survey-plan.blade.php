@@ -35,9 +35,13 @@
 								</div>
 							</div>
 							<div class="row top-buffer-3">
-								<div class="col-md-12">
+								<div class="col-md-6">
 									<button class="btn btn-default btn-fill btn-wd mg-top" type="submit"> Save & Continue  </button>
 								</div>
+
+                                <div class="col-md-6">
+                                    <a class="btn btn-default btn-fill btn-wd mg-top" href="{{ route('doc.payments', $id) }}"> Upload Later  </a>
+                                </div>
 							</div>
 						</div>
 					</form>

@@ -151,6 +151,10 @@ class CofoController extends Controller
             $fileImage->document_id = $document_id;
             $fileImage->save();
 
+            if($document->payment){
+                alertify()->success('Updated survey plan file successfully');
+                return redirect()->route('document.show', compact('document_id'));
+            }
             return redirect()->route('doc.payments', compact('document_id'));
 
         }

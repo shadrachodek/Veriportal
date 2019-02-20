@@ -14,15 +14,6 @@
                     <h4 class="title">New User Registration</h4>
 
                 <div class="row card card-inner-spacer card-inner-top card-inner-bottom">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
 <form method="post" action="{{ route('user-management.store') }}">
     @csrf
                     <!-- First row of inputs -->

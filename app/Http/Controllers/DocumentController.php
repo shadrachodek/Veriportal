@@ -15,6 +15,7 @@ use App\Model\Batch;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
+use Alert;
 
 
 class DocumentController extends Controller
@@ -119,7 +120,15 @@ class DocumentController extends Controller
     public function setForApproval(Request $request, $document_id){
         $document = Document::whereDocumentId($document_id)->firstOrFail();
         if (!$document->surveyPlan){
-            return back()->with('Survey Plan file needs to be uploaded before this document  set for approval ');
+            $path = route('doc.survey_plan', compact('document_id'));
+            Alert::error('Survey Plan file needs to be uploaded before this document  set for approval <a href="'. $path .'">Click Here To Upload</a>','Oops!')->html()->persistent('Upload Later');
+            return back();
+        }
+
+        if (!$document->payment){
+            $path = route('doc.payments', compact('document_id'));
+            Alert::error('No payment transaction <a href="'. $path .'">Click Here To Make Payment</a>','Oops!')->html()->persistent('Pay Later');
+            return back();
         }
 
 
@@ -154,10 +163,11 @@ class DocumentController extends Controller
             ]);
         }
         catch (ModelNotFoundException  $exception) {
-            return back()->withError('Document not found by ID '. $document_id)->withInput();
+            return back()->with('errors', 'Document not found by ID '. $document_id);
         }
 
-        return back()->with('Document set for approval ');
+        alertify()->success('Document set for approval successfully');
+        return back();
 
     }
 

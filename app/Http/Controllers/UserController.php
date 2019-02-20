@@ -53,14 +53,14 @@ class UserController extends Controller
     {
 
         $request->validate([
-            'first_name' => 'string', 'max:255',
-            'last_name' => 'string', 'max:255',
+            'first_name' => 'string|max:255',
+            'last_name' => 'string|max:255',
             'phone' => 'numeric',
-            'lga_lcda' => 'string', 'max:255',
-            'username' => 'string', 'max:255', 'unique:users',
+            'lga_lcda' => 'string|max:255',
+            'username' => 'string|max:255|unique:users',
             'city' => 'string',
-            'email' => 'string', 'email', 'max:255', 'unique:users',
-            'password' => 'string', 'min:6', 'confirmed',
+            'email' => 'email|max:255|unique:users',
+            'password' => 'string|min:6|confirmed',
         ]);
 
         $user = User::create([
@@ -77,6 +77,7 @@ class UserController extends Controller
         ]);
         $role = $request->get('role');
         $user->assignRole($role);
+        alertify()->success('User created successfully');
         return redirect()->route('user-management.index');
     }
 

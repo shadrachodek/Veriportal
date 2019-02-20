@@ -354,49 +354,40 @@
         </div> <!-- row ends here ---->
 
 
-        
 
-            <div class="col-md-6 card-inner-spacer card doc-file-footer">
-                    <h2> Attached Documents </h2>
+                <div class="col-md-6 ">
+                    <div class="card-inner-spacer card doc-file-footer">
+                        <h2> Attached Documents </h2>
+                        <div class="row">
+                            @foreach( $document->files as $file)
+                                <div class="col-xs-6 col-md-6">
 
-                    <div class="row">
-                        @foreach( $document->files as $file)
-                            <div class="col-xs-12 col-md-4 col-md-12 ">
-                                
-                              <a target="_parent" href="{{ \Illuminate\Support\Facades\URL::to('storage/document/'.$file->filename) }}" class="thumbnail">
-                                <img src="{{ asset('storage/document/'.$file->filename) }}">
-
-                                <h5>View</h5>
-                              </a>
-                           
-                            </div>
-                        @endforeach
-
-                     
-                          </div>
-
-
-            </div>
-
-            <div class="col-md-6 card-inner-spacer card doc-file-footer">
-                    <h2> Survey Plan </h2>
-
-                    <div class="row">
-                        @if( $document->surveyPlan)
-                            <div class="col-xs-12 col-md-4 col-md-12 ">
-
-                                <a target="_parent" href="{{asset($document->surveyPlan->file) }}" class="thumbnail">
-                                    <img src="{{ asset($document->surveyPlan->file) }}">
-                                    <h5>View</h5>
-                                </a>
-
-                            </div>
-                        @endif
-
-
+                                    <a class="thumbnail" href="{{asset($file->filename) }}" data-fancybox data-caption="&lt;b&gt;Document - {{$document->document_id }} &lt;/b&gt;">
+                                        <img src="{{ asset($file->filename) }}">
+                                        <h5>View</h5>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
+                </div>
 
+                <div class="col-md-6 ">
+                    <div class="card-inner-spacer card doc-file-footer">
+                        <h2> Survey Plan </h2>
 
+                        <div class="row">
+                            @if( $document->surveyPlan)
+                                <div class="col-xs-12 col-md-4 col-md-12 ">
+
+                                    <a class="thumbnail" href="{{asset($document->surveyPlan->file) }}" data-fancybox data-caption="&lt;b&gt;Survey Plan - {{$document->documentable->file_number }} &lt;/b&gt;">
+                                        <img src="{{ asset($document->surveyPlan->file) }}">
+                                        <h5>View</h5>
+                                    </a>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
 
         

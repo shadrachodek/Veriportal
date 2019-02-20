@@ -111,27 +111,9 @@
                                 </div>
 <!--*****************************************************************************************************************-->
                                 <!-- Profile picture and signature starts here-->
-                            <div class="doc-view-footer card-inner-spacer">
+                            <div class="">
 
-                                        <div class="col-md-2">
 
-                                                <div class="avata">
-                    
-                                                <img class="img border-gray " src="{{ asset('/img/faces/face-2.jpg') }}" alt="photo">
-                    
-                                                </div>
-                    
-                                        </div>
-
-                                        <div class="col-md-8 col-md-offset-1 data-cap-white">
-
-                                            <div class="signature">
-
-                                                <img src="{{ asset('/img/signature.png') }}" alt="owner's signature">
-                                                        
-                                            </div>    
-
-                                </div> <!-- Profile picture and signature ends here-->
                             </div> 
                         </div>
                 </div><!-- Left Panel ends here-->

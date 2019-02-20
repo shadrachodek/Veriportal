@@ -24,6 +24,7 @@
     <link href="{{ asset('css/pe-icon-7-stroke.css') }}" rel="stylesheet" /><!-- Custom Css Here -->
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/print.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
 </head>
 <body>
 
@@ -68,8 +69,8 @@
 <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
 
 <!-- Sweet Alert 2 plugin -->
-<script src="{{ asset('js/sweetalert2.js') }}"></script>
-
+<script src="{{ asset('js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('js/alertify.js') }}"></script>
 <!-- Wizard Plugin    -->
 <script src="{{ asset('js/jquery.bootstrap.wizard.min.js') }}"></script>
 
@@ -89,6 +90,8 @@
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 <script src="{{ asset('js/signature_pad.min.js') }}"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+
 
 
 
@@ -128,11 +131,13 @@
 <!-- Include this after the sweet alert js file -->
 @include('sweet::alert')
 
-<script>
-    $(function () {
-        // flash auto hide
-        $('#flash-msg .alert').not('.alert-danger, .alert-important').delay(6000).slideUp(500);
-    })
-</script>
+@include('alertify::alertify')
+
+{{--<script>--}}
+    {{--$(function () {--}}
+        {{--// flash auto hide--}}
+        {{--$('#flash-msg .alert').not('.alert-danger, .alert-important').delay(6000).slideUp(500);--}}
+    {{--})--}}
+{{--</script>--}}
 
 </html>

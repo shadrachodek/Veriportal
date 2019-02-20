@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Spatie\Permission\Models\Role;
+use Alert;
 
 class SettingController extends Controller
 {
@@ -56,21 +57,25 @@ class SettingController extends Controller
         $role = Role::create(['name' => $request->role]);
         $role->syncPermissions($request->permissions);
 
-        return redirect()->route('setting.role.view.update', compact('role'))->with('info', title_case( $role->name ) . " Role Created!");
+        alertify()->success(title_case( $role->name ) . " Role Created!");
+        return redirect()->route('setting.role.view.update', compact('role'));
     }
 
     public function UserEditRolePermissionStore(Request $request, Role $role){
         $role->syncPermissions($request->permissions);
 
-        return redirect()->back()->with('success', title_case( $role->name ) . " Role Updated!");
+        alertify()->success(title_case( $role->name ) . " Role Updated!");
+        return redirect()->back();
     }
 
     public function UserDeleteRolePermissionStore(Role $role){
         if (collect($role->permissions)->isNotEmpty()){
-            return redirect()->back()->with('error',"You can not delete Role that have permissions, Remove all Permission before delete");
+            Alert::warning('You can not delete Role that have permissions, Remove all Permission before delete', 'Oops!')->persistent('Okay');
+            return redirect()->back();
         }
         $role->delete();
-        return redirect()->back()->with('info', $role->name . " Role Deleted!");
+        alertify()->success(title_case( $role->name ) . " Role Deleted!");
+        return redirect()->back();
 
     }
 
@@ -101,6 +106,7 @@ class SettingController extends Controller
             'password' => Hash::make($request->get('password')),
         ]);
         $role = $request->get('role');
+
         return redirect()->route('user-management.index');
     }
 

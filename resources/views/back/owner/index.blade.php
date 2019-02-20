@@ -44,7 +44,7 @@
                                         <table id="datatables" class="order-column table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                             <thead>
                                             <tr>
-                                                <th>Name</th>
+                                                <th>Full Name</th>
                                                 <th>Owner Id</th>
                                                 <th>Date of Birth</th>
                                                 <th>Occupation</th>
