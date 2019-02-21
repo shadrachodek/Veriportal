@@ -6,6 +6,7 @@ use Spatie\Permission\Models\Permission;
 use App\Model\PaymentType;
 use App\Model\Lga;
 use App\Model\User;
+use App\Model\CofoType;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
@@ -60,6 +61,23 @@ class RolesAndPermissionsSeeder extends Seeder
         PaymentType::create(['name' => 'GTB', 'type' => 'Bank Transfer']);
         PaymentType::create(['name' => 'First Bank', 'type' => 'Pos']);
         PaymentType::create(['name' => 'Office', 'type' => 'Cash']);
+
+        // Cofo type
+        CofoType::create(['category' => 'New', 'name' => 'Residential', 'fee' => 150000]);
+        CofoType::create(['category' => 'New', 'name' => 'Commercial', 'fee' => 500000]);
+        CofoType::create(['category' => 'New', 'name' => 'Education', 'fee' => 100000]);
+        CofoType::create(['category' => 'New', 'name' => 'Hotels', 'fee' => 2000000]);
+        CofoType::create(['category' => 'New', 'name' => 'Churches/Mosques', 'fee' => 100000]);
+        CofoType::create(['category' => 'New', 'name' => 'Filling Stations', 'fee' => 1000000]);
+        CofoType::create(['category' => 'New', 'name' => 'Industrial', 'fee' => 1000000]);
+        CofoType::create(['category' => 'New', 'name' => 'Agricultural Purposes', 'fee' => 100000]);
+        CofoType::create(['category' => 'New', 'name' => 'Hospitals', 'fee' => 100000]);
+        CofoType::create(['category' => 'Change Of Purpose', 'name' => 'Hotels', 'fee' => 5000000]);
+        CofoType::create(['category' => 'Change Of Purpose', 'name' => 'Clubs', 'fee' => 5000000]);
+        CofoType::create(['category' => 'Change Of Purpose', 'name' => 'Bars', 'fee' => 5000000]);
+        CofoType::create(['category' => 'Change Of Purpose', 'name' => 'Education', 'fee' => 10000000]);
+        CofoType::create(['category' => 'Change Of Purpose', 'name' => 'Schools', 'fee' => 10000000]);
+        CofoType::create(['category' => 'Change Of Purpose', 'name' => 'Residential to Hotels', 'fee' => 10000000]);
 
         // Lga
         $imoLga = ["Aboh-Mbaise", "Ahiazu-Mbaise", "Ehime-Mbano", "Ezinihitte", "Ideato North", "Ideato South",

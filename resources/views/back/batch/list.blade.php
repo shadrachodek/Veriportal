@@ -8,48 +8,23 @@
 
         <div class="main-content anchor-styling">
             <div class="container-fluid ">
-
                 <div class="row ">
-
-                   
-
                             <h4 class="title">Document Batches</h4>
-                    
-                    
-                    
                 </div>
-
-                    <div class="row"> 
-
+                    <div class="row">
                             <div class="card card-inner-spacer card-inner-bottom-2">
-                            
                                 <div class="row">
-
-                                            
-                                        <div class="col-md-4"> 
-                                                
+                                        <div class="col-md-4">
                                                 <h5 class="sub-title-2">Batch ID - {{ $batchDoc->batch_id }}</h5>
-                    
                                         </div>
-
-                                        <div class="col-md-4"> 
-                    
+                                        <div class="col-md-4">
                                                 <h5 class="sub-title-2">{{ $batchDoc->number_of_document }} - Available Documents</h5>
-                     
                                             </div>
-
-                                       
                                         <div class="col-md-4 text-right hidden">
-                                                
                                             <button class="btn tweaked-margin btn-success btn-fill small-btn "><i class="fa fa-check"></i><a href="#signaturePad" data-toggle="modal" data-target="#signaturePad">Approve Batch </a></button>
                                             <button class="btn btn-warning btn-fill small-btn "><i class="fa fa-times"></i><a href="#ModalCenter-2" data-toggle="modal" data-target="#ModalCenter-2">Decline Batch</a></button>
-                                            
                                         </div>
-
                                 </div>
-
-
-
                                 <div class="content">
                                     
                                     <div class="fresh-datatables">
@@ -79,10 +54,8 @@
                                                     <td class="text-right">
                                                         <a href="{{ route('batch.show', $document->document_id) }}" class="btn btn-default btn-fill small-btn"> View </a>
                                                     </td>
-                                                   
                                                 </tr>
                                             @endforeach
-                                                
                                             </tbody>
                                         </table>
                                     </div>

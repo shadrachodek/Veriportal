@@ -54,4 +54,6 @@ Route::prefix('v1')->group(function () {
     Route::post('document/status/update ', 'Api\DocumentController@callback');
     Route::get('get-document-graph-info', 'Api\DocumentController@documentGraph');
 
+    Route::get('get-cofo-type/{cat}', 'CofoTypeController@cofoType');
+
 });

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\DocumentFilters;
+use App\Model\Cofo;
+use App\Model\CofoType;
 use App\Model\Signature;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
@@ -213,9 +215,24 @@ class DocumentController extends Controller
         }
 
         $payment_types = ['BANK POS', 'CASH', 'BANK TRANSFER'];
+        $category = $document->documentable->category;
+        $purpose_of_use = $document->documentable->purpose_of_use;
+        if ($category == "Recertification"){
+            $category = "New";
+            $doc_fee = CofoType::where('category', $category)
+                ->where('name', $purpose_of_use)
+                ->first()->fee;
+            $fee = ($doc_fee * 0.50);
+
+            return view('back.document.reg-payment', compact('document', 'payment_types', 'fee'));
+
+        }
+        $fee = CofoType::where('category', $category)
+            ->where('name', $purpose_of_use)
+            ->first()->fee;
 
         //   $owners = Owner::all();
-        return view('back.document.reg-payment', compact('document', 'payment_types'));
+        return view('back.document.reg-payment', compact('document', 'payment_types', 'fee'));
     }
 
     public function receipt(Document $document){

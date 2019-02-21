@@ -25,6 +25,9 @@ Route::prefix('setting')->group(function () {
     Route::post('user-store-role/{role}/edit', 'SettingController@UserEditRolePermissionStore')->name('setting.store.role.permission');
     Route::get('user-store-role/{role}/delete', 'SettingController@UserDeleteRolePermissionStore')->name('setting.delete.role.permission');
     Route::get('/', 'SettingController@index')->name('setting.index');
+    Route::get('cofo/type', 'CofoTypeController@index')->name('setting.cofo.type.index');
+    Route::post('cofo/type/store', 'CofoTypeController@store')->name('setting.cofo.type.store');
+    Route::get('cofo/type/{type}/destroy', 'CofoTypeController@destroy')->name('setting.cofo.type.destroy');
 });
 
 Route::prefix('stock')->group(function () {

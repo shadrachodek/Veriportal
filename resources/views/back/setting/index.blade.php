@@ -30,7 +30,7 @@
                                             <div class="center-screen">
                                                 <ul>
                                                     <li> <a href="settings-lga-cda.html"> LGA/LCDA's </a> </li>    
-                                                    <li> <a href="settings-payment-type.html"> Payment Type  </a> </li>  
+                                                    <li> <a href="{{ route('setting.cofo.type.index') }}"> Payment Type  </a> </li>
                                                     <li><a href="{{ route('setting.roles') }}"> User Roles & Priviledges </a></li>
                                                     <li><a href="settings-stock-warehouse.html"> Stock Warehouse </a></li>  
                                                 </ul>

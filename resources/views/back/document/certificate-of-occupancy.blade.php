@@ -40,59 +40,44 @@
                         <h3>Location Information</h3>
 
                         <div class="row">
-
                             <div class="col-md-4">
+                                <label>Document Categories</label>
 
+                                <select id="cofo_category" name="cofo_category" class="selectpicker" data-title="Select Document Categories" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                    <option class="new-cat">New</option>
+                                    <option class="new-cat">Recertification</option>
+                                    <option class="use-pur">Change Of Purpose</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label> File Number </label>
+                                    <input type="text" name="file_number" value="{{ old('file_number') }}"  class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label> House/Plot Number </label>
                                     <input type="text" value="{{ old('house_plot_number') }}" name="house_plot_number" class="form-control" />
                                 </div>
-
                             </div>
-
                             <div class="col-md-4">
-
                                 <div class="form-group">
                                     <label>Street Name</label>
                                     <input type="text" value="{{ old('street_name') }}" name="street_name" class="form-control" />
                                 </div>
-
                             </div>
                             <div class="col-md-4">
-
                                 <div class="form-group">
                                     <label>City</label>
                                     <input type="text" value="{{ old('city') }}" name="city" class="form-control" />
                                 </div>
-
                             </div>
-
-                        </div>
-
-
-
-                        <!-- ****************************************************************************************************** -->
-                        <div class="row">
-
-                            <div class="col-md-6">
-
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label> Area </label>
                                     <input type="text" value="{{ old('area') }}" name="area" class="form-control" />
                                 </div>
-
-                            </div>
-
-
-                            <div class="col-md-6">
-
-                                <div class="form-group">
-
-                                    <label> File Number </label>
-                                    <input type="text" name="file_number" value="{{ old('file_number') }}"  class="form-control">
-
-                                </div>
-
                             </div>
                         </div>
                         <!-- ****************************************************************************************************** -->
@@ -124,12 +109,8 @@
 
                                 <div class="form-group">
                                     <label>Purpose of Use</label>
-                                    <select name="purpose_of_use" class="selectpicker" data-title="Select Purpose of Use" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                        <option>Public </option>
-                                        <option> Residential</option>
-                                        <option> Commercial </option>
-                                        <option> Commercial/Residential </option>
-
+                                    <select name="purpose_of_use" id="purpose_of_use" class="form-control form-control-lg">
+                                        <option></option>
                                     </select>
                                 </div>
 
@@ -406,6 +387,26 @@
                 });
             });
 
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#cofo_category").change(function(){
+                    let cat =  $("#cofo_category").val();
+                    let purpose =  $("#purpose_of_use");
+                    $.get('/api/v1/get-cofo-type/'+ cat, function(response) {
+                        purpose.empty();
+                        purpose.append(
+                            $('<option></option>').html('Nothing Selected')
+                        );
+                        response.forEach(function(data){
+                            purpose.append(
+                                $('<option></option>').html(data.name)
+                            );
+                        });
+                    });
+                });
+            });
         </script>
 
     @endpush

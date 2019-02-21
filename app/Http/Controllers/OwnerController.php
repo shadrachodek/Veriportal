@@ -188,7 +188,7 @@ class OwnerController extends Controller
             $signature= $request->file('signature');
             $extension = $signature->getClientOriginalExtension();
             $filename  = $owner . "-". time() . '-signature.' . $extension;
-            $signature->storeAs('public/signature', $filename);
+            $signature->storeAs('public/signature/', $filename);
 
             // save to database
             $fileImage = new OwnerSignature();

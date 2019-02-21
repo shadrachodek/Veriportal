@@ -7,20 +7,14 @@
         @include('layouts.partial.topbar')
         <div class="main-content">
             <div class="container-fluid">
-
                 <div class="status-check">
                     <p> Status</p>
                     <h5 class="title pending"> {{ $document->status }}</h5>
                 </div>
-
-            
                 <div class="row modal-modifier doc-view">
-
                     <!-- Left Panel Starts here-->
-                    
                     <div class="col-md-6">
                         <div class="card ">
-
                             <div class="card-inner-spacer bottom-buffer">
                                <!-- ********first row******** -->
                                 <div class="row border-bottom">
@@ -28,28 +22,20 @@
                                         <div class="col-md-9">
                                             <h5>First Name</h5>
                                             <h3>{{ $document->owner->full_name }}</h3>
-
                                         </div>
-
-
-
-
                                         <div class="col-md-3">
                                             <h5>Unique id #</h5>
                                             <h3>{{ $document->owner->owner_id }}</h3>
                                         </div>
-
                                 </div>
                                     <!-- ********first row******** -->
 
                                     <!-- ********Second row******** -->
 
                                     <div class="row border-bottom">
-
                                             <div class="col-md-3">
                                                 <h5>Date of Birth</h5>
                                                 <h3>{{ $document->owner->date_of_birth }}</h3>
-                
                                             </div>
                 
                                             <div class="col-md-3">
@@ -138,7 +124,7 @@
                                     @if($document->owner->photo)
                                         <div class="avata">
 
-                                            <img class="img border-gray " src="{{ $document->owner->photo->file }}" alt="photo">
+                                            <img class="img border-gray " src="{{ asset($document->owner->photo->file) }}" alt="{{ $document->owner->full_name . " photo" }}">
                                         </div>
                                     @else
                                         <a href="{{ route('photo-signature', $document->owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Photo </a>
@@ -152,7 +138,7 @@
                                         <div class="col-md-8 col-md-offset-2 ">
                                             @if($document->owner->signature)
                                                 <div class="signature data-cap-white">
-                                                    <img src="{{ url('storage/signature/'.$document->owner->signature->file) }}" alt="owner's signature">
+                                                    <img src="{{ asset($document->owner->signature->file) }}" alt="{{ $document->owner->full_name . " signature" }}">
 
                                                 </div>
                                             @else
@@ -202,9 +188,7 @@
                                 </div>
 
                                 <div class="col-md-6">
-
-                                        <button class="btn  btn-danger btn-fill btn-wd btn-block"><a href="comm-document-decline.html">Decline</a></button>
-
+                                    <a class="btn  btn-danger btn-fill btn-wd btn-block" href="#">Decline</a>
                                 </div>
                             @endif
 

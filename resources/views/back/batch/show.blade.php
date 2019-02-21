@@ -7,16 +7,11 @@
         @include('layouts.partial.topbar')
         <div class="main-content">
             <div class="container-fluid">
-
                     <a href="{{ route('batch.list', $document->batch_id) }}" class="btn bottom-buffer-2 tweaked-margin btn-success btn-fill small-btn "> <i class="fa fa-angle-left"></i> Back to Batch - {{ $document->batch_id }}</a>
-
                 <div class="row modal-modifier doc-view">
-
                     <!-- Left Panel Starts here-->
-
                     <div class="col-md-6">
                         <div class="card ">
-
                             <div class="card-inner-spacer bottom-buffer">
                                <!-- ********first row******** -->
                                 <div class="row border-bottom">
@@ -24,9 +19,7 @@
                                         <div class="col-md-3">
                                             <h5>First Name</h5>
                                             <h3>{{ $document->owner->first_name }}</h3>
-
                                         </div>
-
                                         <div class="col-md-3">
                                             <h5>Middle Name</h5>
                                             <h3>{{ $document->owner->middle_name }}</h3>
@@ -141,7 +134,7 @@
                                     @if($document->owner->photo)
                                         <div class="avata">
 
-                                            <img class="img border-gray " src="{{ $document->owner->photo->file }}" alt="photo">
+                                            <img class="img border-gray " src="{{ $document->owner->photo->file }}" alt="{{ $document->owner->full_name . ' photo'}}">
                                         </div>
                                     @else
                                         <a href="{{ route('photo-signature', $document->owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Photo </a>
@@ -155,7 +148,7 @@
                                         <div class="col-md-8 col-md-offset-2 ">
                                             @if($document->owner->signature)
                                                 <div class="signature data-cap-white">
-                                                    <img src="{{ url('storage/signature/'.$document->owner->signature->file) }}" alt="owner's signature">
+                                                    <img src="{{ asset($document->owner->signature->file) }}" alt="{{ $document->owner->full_name . ' signature'}}">
 
                                                 </div>
                                             @else
@@ -177,16 +170,11 @@
                     <div class="col-md-6"> <!-- right Panel Starts here-->
                         <div class="card card-inner-spacer">
                                     <h2> Documents </h2>
-
                             <div class="row ">
-
                                 <div class="col-md-6">
-
                                     <p>Document Type</p>
                                     <h3>{{ $document->documentable_type }}</h3>
-                                        
                                 </div>
-
                                 <div class="col-md-6">
                                     <div class="pull-right">
                                         <p>Document ID</p>
@@ -196,60 +184,42 @@
 
                         </div>
                         <!--***************************************************-->
-
                         <div class="row border-bottom">
-
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h5>House Number / Plot Number</h5>
                                     <h3>{{ $document->documentable->house_plot_number }}</h3>
-    
                                 </div>
-    
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h5> Street Name </h5>
                                     <h3>{{ $document->documentable->street_name }}</h3>
                                 </div>
-     
                         </div>
-
                         <div class="row border-bottom">
-
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h5>City</h5>
                                     <h3>{{ $document->documentable->city }}</h3>
-    
                                 </div>
-    
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h5> Local Government </h5>
                                     <h3>{{ $document->documentable->lga }}</h3>
                                 </div>
-     
                         </div>
-
                         <div class="row border-bottom">
 
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <h5>Survey Plan Number</h5>
                                     <h3>{{ $document->documentable->survey_plan_number }}</h3>
-    
                                 </div>
-    
                         </div>
-
                         <div class="row border-bottom">
-
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h5>Dimension Area (SQM)</h5>
                                     <h3>{{ $document->documentable->dimension }}</h3>
-    
                                 </div>
-    
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h5> Development Period </h5>
                                     <h3>{{ $document->documentable->development_period }}</h3>
                                 </div>
-     
                         </div>
 
                         <div class="row border-bottom">

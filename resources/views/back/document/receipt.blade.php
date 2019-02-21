@@ -9,17 +9,12 @@
          <!-- Main Content starts Here -->
         <div class="main-content">
             <div class="container-fluid">
-
                 <div class="row"> <h4 class="title"> Document Registration</h4> </div>
-
                 <div class="row card card-inner-top card-inner-bottom modifier">
-
                     <div class="col-md-6 col-sm-12">
                             <div style="float: right; margin-top: -35px"> {!! QrCode::size(350)->generate(
-
                         "Registration Mode: " . $document->mode . "\nDocument ID: " . $document->document_id . "\nCreated Date: " . $document->created_at->toFormattedDateString() . "\nPayment Status: " .
                         $document->payment->status . "\nStatus: " . $document->status
-
                             ); !!}
                             </div>
                     </div>

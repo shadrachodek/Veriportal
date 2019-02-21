@@ -74,6 +74,7 @@ class CofoController extends Controller
             ]);
 
         $cofo = Cofo::create([
+            'category' => $request->cofo_category,
             'house_plot_number' => $request->house_plot_number,
             'street_name' => $request->street_name,
             'area' => $request->area,

@@ -15,6 +15,7 @@ class CreateCofosTable extends Migration
     {
         Schema::create('cofos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('category');
             $table->string('house_plot_number');
             $table->string('street_name')->nullable();
             $table->string('area');

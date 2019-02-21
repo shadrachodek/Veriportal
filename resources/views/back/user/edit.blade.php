@@ -10,13 +10,8 @@
             <div class="container-fluid">
 
                 <div class="status-check">
-
-                    
-                    <h4 class="title"> User Management </h5>
-
+                    <h4 class="title"> User Management </h4>
                 </div>
-
-            
                 <div class="row modal-modifier doc-view">
 
                     <!-- Left Panel Starts here-->

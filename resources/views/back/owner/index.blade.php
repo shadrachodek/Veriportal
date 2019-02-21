@@ -63,7 +63,7 @@
                                                     <td>{{ $owner->occupation }}</td>
                                                     <td>{{ $owner->marital_status }}</td>
                                                     <td class="text-right">
-                                                        <button class="btn btn-default btn-fill small-btn"> <a href="{{ route('owner.show', $owner->owner_id) }}"> View </a> </button>
+                                                        <a class="btn btn-default btn-fill small-btn" href="{{ route('owner.show', $owner->owner_id) }}"> View </a>
                                                     </td>
 
                                                 </tr>

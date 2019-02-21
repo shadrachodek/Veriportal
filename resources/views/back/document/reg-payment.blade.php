@@ -45,7 +45,7 @@
                                 <div class="form-group">
 
                                     <label>Amount Paid</label>
-                                    <input type="number" name="amount_paid" class="form-control" />
+                                    <input type="number" readonly name="amount_paid" class="form-control" value="{{ $fee }}" />
                                 </div>
 
                             </div>
