@@ -2,16 +2,16 @@
 
 namespace App\Imports;
 
+use App\Model\CofoType;
 use App\Model\DocumentSurveyPlan;
 use App\Model\Owner;
 use App\Model\Document;
 use App\Model\Cofo;
 use App\Model\OwnerPassport;
-use Illuminate\Support\Collection;
+use App\Model\Payment;
 use Keygen\Keygen;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\ToCollection;
-use Maatwebsite\Excel\Concerns\Importable;
+use Illuminate\Support\Str;
 
 class OwnerDocumentImport implements ToModel
 {
@@ -25,6 +25,7 @@ class OwnerDocumentImport implements ToModel
         $owner->save();
 
         $cofo = Cofo::create([
+            'category' => "New",
             'house_plot_number' => $row[4],
             'street_name' => null,
             'area' => $row[3],
@@ -32,7 +33,7 @@ class OwnerDocumentImport implements ToModel
             'file_number' => $row[2],
             'dimension' => null,
             'survey_plan_number' => $row[8],
-            'purpose_of_use' => $row[6],
+            'purpose_of_use' => Str::title($row[6]),
             'commencement_year' => null,
             'development_period' => $row[10],
             'building_value' => $row[9],
@@ -51,6 +52,17 @@ class OwnerDocumentImport implements ToModel
         $surveyPlan->document_id = $doc->document_id;
         $surveyPlan->file = str_replace(" ","_",$cofo->file_number) . ".jpg";
         $surveyPlan->save();
+
+        $category = $cofo->category;
+        $name = $cofo->purpose_of_use;
+        $fee = CofoType::getFee($category, $name)->first();
+
+        $payment = new Payment();
+        $payment->amount = $fee ? $fee->fee : 0;
+        $payment->payment_type = "CASH";
+        $payment->document_id = $doc->document_id;
+        $payment->status = "Paid";
+        $payment->save();
 
         $passport = new OwnerPassport();
         $passport->owner_id = $owner->owner_id;

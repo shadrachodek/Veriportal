@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class CofoType extends Model
 {
@@ -21,5 +22,12 @@ class CofoType extends Model
                 return "Disable";
                 break;
         }
+    }
+
+
+    public function scopeGetFee($query, $cat, $name)
+    {
+        $fee = $query->where('category', $cat)
+            ->where('name', $name);
     }
 }

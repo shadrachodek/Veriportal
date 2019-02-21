@@ -125,6 +125,7 @@ Route::get('/imports', function(){
    // return "jdjhd";
 
     Excel::import(new OwnerDocumentImport, 'area-ua.csv');
+    Excel::import(new OwnerDocumentImport, 'area-u.csv');
 });
 
 

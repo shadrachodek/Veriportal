@@ -48,11 +48,12 @@ class CofoTypeController extends Controller
 
     public function destroy(CofoType $type){
         $type->delete();
-        alertify()->success(title_case( $type->name ) . " cofo type Deleted!");
+        alertify()->success(Str::title( $type->name ) . " cofo type Deleted!");
         return redirect()->back();
 
     }
 
+    // api for selection field on Cofo document registration
     public function cofoType($category){
         if ($category == 'Recertification') {
             $category = "New";
