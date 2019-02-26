@@ -10,79 +10,30 @@
             <div class="container-fluid ">
 
                 <div class="row">
-
-                    
-
                             <h4 class="title">Reports</h4>
-                   
-                    
-                    
                 </div>
-
-                    <div class="row"> 
-
+                    <div class="row">
                             <div class="card card-inner-spacer boxes">
-
                                 <div class="row">
-
-                                    <div class="col-md-4 col-md-offset-4">
-
+                                    <div class="col-md-6 col-md-offset-3">
                                             <div class="center-screen">
                                                 <ul>
-                                                    <li> <a href="#"> Document </a> </li>
-                                                    <li> <a href="#"> Owners  </a> </li>
-                                                    <li><a href="#"> Stock </a></li>
-                                                    <li><a href="#"> Print Jobs  </a></li>
+                                                    <li> <a href="reports-document-reports.html"> Document </a> </li>
+                                                    <li> <a href="reports-owners-report.html"> Owners  </a> </li>
+                                                    <li><a href="reports-stocks-report.html"> Stock </a></li>
+                                                    <li><a href="report-print-jobs.html"> Print Jobs  </a></li>
+                                                    <li><a href="{{ route('payment-collection') }}"> Payment Collection</a></li>
+                                                    <li><a href="{{ route('platform-charges') }}"> Platform Charges  </a></li>
                                                 </ul>
                                             </div>
                                     </div>
-
-                                   
-
                                 </div>
                                                               
                             </div><!--  end card  -->
                     </div> <!-- end row -->
-
-
                     <!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLongTitle"> Bio Data </h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <div class="row ">
-            <div class="col-md-8">
-                    <p>afffa</p>
-            </div>
-
-            <div class="col-md-4">
-                <p>afffa</p>
             </div>
         </div>
-       
-      </div>
-     
-    </div>
-  </div>
-</div>
-
-
-            </div>
-        </div>
-
-
-        
-
     </div>
 </div>
 

@@ -30,6 +30,19 @@ Route::prefix('setting')->group(function () {
     Route::get('cofo/type/{type}/destroy', 'CofoTypeController@destroy')->name('setting.cofo.type.destroy');
 });
 
+Route::prefix('reports')->group(function () {
+    Route::get('platform-charges', 'PlatformChargesController@index')->name('platform-charges');
+    Route::get('payment-collection', 'PaymentController@index')->name('payment-collection');
+//    Route::post('new.role-permission', 'SettingController@UserNewRolePermissionStore')->name('setting.create.role.permission');
+//    Route::get('user-permission-roles/{role}/view_update', 'SettingController@UserEditRolePermission')->name('setting.role.view.update');
+//    Route::post('user-store-role/{role}/edit', 'SettingController@UserEditRolePermissionStore')->name('setting.store.role.permission');
+//    Route::get('user-store-role/{role}/delete', 'SettingController@UserDeleteRolePermissionStore')->name('setting.delete.role.permission');
+//    Route::get('/', 'SettingController@index')->name('setting.index');
+//    Route::get('cofo/type', 'CofoTypeController@index')->name('setting.cofo.type.index');
+//    Route::post('cofo/type/store', 'CofoTypeController@store')->name('setting.cofo.type.store');
+//    Route::get('cofo/type/{type}/destroy', 'CofoTypeController@destroy')->name('setting.cofo.type.destroy');
+});
+
 Route::prefix('stock')->group(function () {
     Route::get('materials-request', 'StockController@MaterialRequest')->name('stock.materials.request');
     Route::get('receive-item', 'StockController@ReceiveItem')->name('stock.receive.item');

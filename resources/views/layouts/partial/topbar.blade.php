@@ -20,7 +20,7 @@
                     <input type="text" value="" class="form-control" placeholder="Search...">
                 </div>
             </form>
-
+            @auth
             <ul class="nav navbar-nav navbar-right">
                 {{--<li>--}}
                     {{--<a href="charts.html">--}}
@@ -44,6 +44,8 @@
 
                     {{--</ul>--}}
                 {{--</li>--}}
+
+
 
 
 
@@ -104,7 +106,7 @@
             </ul>
 
 
-
+            @endauth
 
 
         </div>

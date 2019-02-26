@@ -34,13 +34,13 @@
                                <!-- ********first row******** -->
                                 <div class="row border-bottom">
 
-                                        <div class="col-md-9">
+                                        <div class="col-md-8">
                                             <h5>Full Name</h5>
                                             <h3>{{ $owner->full_name }}</h3>
 
                                         </div>
 
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <h5>Unique id #</h5>
                                             <h3>{{ $owner->owner_id }}</h3>
                                         </div>
@@ -52,24 +52,24 @@
 
                                     <div class="row border-bottom">
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <h5>Date of Birth</h5>
                                                 <h3>{{ $owner->date_of_birth }}</h3>
-                
+
                                             </div>
-                
-                                            <div class="col-md-3">
+
+                                            <div class="col-md-4">
                                                 <h5>Marital Status</h5>
                                                 <h3>{{ $owner->marital_status }}</h3>
                                             </div>
-                
-                                            <div class="col-md-6">
+
+                                            <div class="col-md-4">
                                                 <h5>Occupation</h5>
                                                 <h3>{{ $owner->occupation }}</h3>
                                             </div>
-                
-                                            
-                
+
+
+
                                     </div>
 
                                     <!-- ********Second row******** -->
@@ -81,9 +81,9 @@
                                             <div class="col-md-12">
                                                 <h5>Street Address</h5>
                                                 <h3>{{ $owner->address }}</h3>
-                
+
                                             </div>
-                
+
                                     </div>
 
 
@@ -92,23 +92,23 @@
                                     <!-- ********Fourthrow******** -->
                                     <div class="row border-bottom">
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <h5>City</h5>
                                                 <h3>{{ $owner->city }}</h3>
-                
+
                                             </div>
-                
-                                            <div class="col-md-3">
+
+                                            <div class="col-md-4">
                                                 <h5>LGA/LCDA</h5>
                                                 <h3>{{ $owner->lga_lcda }}</h3>
                                             </div>
-                
-                                            <div class="col-md-6">
+
+                                            <div class="col-md-4">
                                                 <h5>Nearest Bust-Stop</h5>
                                                 <h3>{{ $owner->nearest_bus_stop }}</h3>
                                             </div>
-                
-                                                
+
+
                                     </div>
 
 
@@ -117,18 +117,18 @@
                                     <!-- ********Fifthrow******** -->
                                     <div class="row border-bottom">
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <h5>Telephone</h5>
                                                 <h3>{{ $owner->telephone }}</h3>
-                
+
                                             </div>
-                
-                                            <div class="col-md-3">
+
+                                            <div class="col-md-4">
                                                 <h5>Mobile</h5>
                                                 <h3>{{ $owner->mobile }}</h3>
                                             </div>
-                
-                                            <div class="col-md-6 ">
+
+                                            <div class="col-md-4">
                                                 <h5>Email</h5>
                                                 <h3>{{ $owner->email_address }}</h3>
                                             </div>

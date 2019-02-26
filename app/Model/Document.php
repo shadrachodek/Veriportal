@@ -58,8 +58,16 @@ class Document extends Model
         return $this->hasOne('App\Model\Payment', 'document_id', 'document_id');
     }
 
+    public function platformCharge(){
+        return $this->hasOne('App\Model\PlatformCharges', 'document_id', 'document_id');
+    }
+
     public function surveyPlan(){
         return $this->hasOne('App\Model\DocumentSurveyPlan', 'document_id', 'document_id');
+    }
+
+    public function documentFee(){
+        return $this->hasOne('App\Model\Payment', 'document_id', 'document_id');
     }
 
     public function files(){

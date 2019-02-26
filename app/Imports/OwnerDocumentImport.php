@@ -9,6 +9,7 @@ use App\Model\Document;
 use App\Model\Cofo;
 use App\Model\OwnerPassport;
 use App\Model\Payment;
+use App\Model\PlatformCharges;
 use Keygen\Keygen;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Str;
@@ -17,12 +18,12 @@ class OwnerDocumentImport implements ToModel
 {
     public function model(array $row)
     {
-        $owner = new Owner([
-            'full_name'     => $row[1],
-            'owner_id'    => Keygen::numeric(10)->generate(),
-        ]);
 
-        $owner->save();
+//            new Owner([
+//            'full_name'     => $row[1],
+//            'owner_id'    => Keygen::numeric(10)->generate(),
+//        ]);
+
 
         $cofo = Cofo::create([
             'category' => "New",
@@ -41,6 +42,12 @@ class OwnerDocumentImport implements ToModel
             'term' => $row[7],
             'revision_period' => null,
         ]);
+
+        $owner = Owner::firstOrNew(
+            ['full_name' => $row[1]],
+            ['owner_id' => Keygen::numeric(10)->generate()]
+        );
+        $owner->save();
 
         $doc = new Document();
         $doc->document_id = Keygen::numeric(12)->generate();
@@ -63,6 +70,13 @@ class OwnerDocumentImport implements ToModel
         $payment->document_id = $doc->document_id;
         $payment->status = "Paid";
         $payment->save();
+
+        if(!is_null($payment)){
+            $charges = new PlatformCharges();
+            $charges->document_id = $doc->document_id;
+            $charges->charges = $payment->amount * 0.10;
+            $charges->save();
+        }
 
         $passport = new OwnerPassport();
         $passport->owner_id = $owner->owner_id;
