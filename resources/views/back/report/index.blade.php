@@ -18,10 +18,10 @@
                                     <div class="col-md-6 col-md-offset-3">
                                             <div class="center-screen">
                                                 <ul>
-                                                    <li> <a href="reports-document-reports.html"> Document </a> </li>
-                                                    <li> <a href="reports-owners-report.html"> Owners  </a> </li>
-                                                    <li><a href="reports-stocks-report.html"> Stock </a></li>
-                                                    <li><a href="report-print-jobs.html"> Print Jobs  </a></li>
+                                                    {{--<li> <a href="reports-document-reports.html"> Document </a> </li>--}}
+                                                    {{--<li> <a href="reports-owners-report.html"> Owners  </a> </li>--}}
+                                                    {{--<li><a href="reports-stocks-report.html"> Stock </a></li>--}}
+                                                    {{--<li><a href="report-print-jobs.html"> Print Jobs  </a></li>--}}
                                                     <li><a href="{{ route('payment-collection') }}"> Payment Collection</a></li>
                                                     <li><a href="{{ route('platform-charges') }}"> Platform Charges  </a></li>
                                                 </ul>
