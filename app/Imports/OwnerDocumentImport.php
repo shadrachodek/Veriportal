@@ -74,7 +74,7 @@ class OwnerDocumentImport implements ToModel
         if(!is_null($payment)){
             $charges = new PlatformCharges();
             $charges->document_id = $doc->document_id;
-            $charges->charges = $payment->amount * 0.10;
+            $charges->charges = $payment->amount * (20/100);
             $charges->save();
         }
 
