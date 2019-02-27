@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class PlatformChargesController extends Controller
 {
 
+
     public function index(){
 
         $charges = PlatformCharges::all()->load('document');

@@ -30,7 +30,8 @@ Route::prefix('setting')->group(function () {
     Route::get('cofo/type/{type}/destroy', 'CofoTypeController@destroy')->name('setting.cofo.type.destroy');
 });
 
-Route::prefix('reports')->group(function () {
+Route::prefix('reports')->middleware('auth')->group(function () {
+    Route::view('/', 'back.report.index')->name('report');
     Route::get('platform-charges', 'PlatformChargesController@index')->name('platform-charges');
     Route::get('payment-collection', 'PaymentController@index')->name('payment-collection');
 //    Route::post('new.role-permission', 'SettingController@UserNewRolePermissionStore')->name('setting.create.role.permission');
@@ -97,9 +98,7 @@ Route::get('/', function(){
     return view('auth.login');
 });
 
-Route::get('/report', function(){
-    return view('back.report.index');
-})->name('report');
+
 
 
 

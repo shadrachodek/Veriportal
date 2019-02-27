@@ -76,7 +76,7 @@
                                                     <th> Payment Category </th>
                                                     <th> Clause Purpose </th>
                                                     <th> Amount Paid </th>
-                                                    <th> Platform Charges </th>
+                                                    <th> Payment Type </th>
                                                     <th> Owner Full Name </th>
                                                    
                                                 </tr>
@@ -88,7 +88,7 @@
                                                     <td> {{ $payment->document->documentable_type }} </td>
                                                     <td> {{ $payment->document->documentable->purpose_of_use }}  </td>
                                                     <td> {{number_format(sprintf('%0.2f', preg_replace("/[^0-9.]/", "", $payment->amount)),2)  }} </td>
-                                                    <td> {{ number_format(sprintf('%0.2f', preg_replace("/[^0-9.]/", "", $payment->platformCharges->charges )),2)  }} </td>
+                                                    <td> {{ $payment->payment_type }} </td>
                                                     <td> {{ @$payment->document->owner->full_name }} </td>
                                                 </tr>
                                             @endforeach
