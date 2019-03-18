@@ -18,6 +18,8 @@ class CreatePaymentsTable extends Migration
             $table->string('payment_type');
             $table->bigInteger('amount');
             $table->unsignedBigInteger('document_id')->index();
+            $table->string('purpose_of_use');
+            $table->string('name');
             $table->string('status');
             $table->timestamps();
         });

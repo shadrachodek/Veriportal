@@ -34,6 +34,7 @@ Route::prefix('reports')->middleware('auth')->group(function () {
     Route::view('/', 'back.report.index')->name('report');
     Route::get('platform-charges', 'PlatformChargesController@index')->name('platform-charges');
     Route::get('payment-collection', 'PaymentController@index')->name('payment-collection');
+   // Route::post('payment-collection', 'PaymentController@index')->name('query-payment-collection');
 //    Route::post('new.role-permission', 'SettingController@UserNewRolePermissionStore')->name('setting.create.role.permission');
 //    Route::get('user-permission-roles/{role}/view_update', 'SettingController@UserEditRolePermission')->name('setting.role.view.update');
 //    Route::post('user-store-role/{role}/edit', 'SettingController@UserEditRolePermissionStore')->name('setting.store.role.permission');

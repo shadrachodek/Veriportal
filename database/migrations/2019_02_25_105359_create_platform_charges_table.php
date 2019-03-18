@@ -17,6 +17,9 @@ class CreatePlatformChargesTable extends Migration
             $table->increments('id');
             $table->unsignedBigInteger('document_id')->index();
             $table->double('charges');
+            $table->string('payment_type');
+            $table->bigInteger('amount');
+            $table->string('purpose_of_use');
             $table->timestamps();
         });
     }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     protected $fillable = [
-        'amount', 'payment_type', 'status', 'document_id',
+        'amount', 'payment_type', 'status', 'document_id', 'purpose_of_use', 'name',
     ];
 
 //    public function getAmountAttribute($value) {

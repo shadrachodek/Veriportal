@@ -66,15 +66,20 @@ class OwnerDocumentImport implements ToModel
 
         $payment = new Payment();
         $payment->amount = $fee ? $fee->fee : 0;
-        $payment->payment_type = "CASH";
+        $payment->payment_type = "Cash";
         $payment->document_id = $doc->document_id;
         $payment->status = "Paid";
+        $payment->name = $owner->full_name;
+        $payment->purpose_of_use = $cofo->purpose_of_use;
         $payment->save();
 
         if(!is_null($payment)){
             $charges = new PlatformCharges();
             $charges->document_id = $doc->document_id;
             $charges->charges = $payment->amount * (20/100);
+            $charges->amount = $payment->amount;
+            $charges->payment_type = $payment->payment_type;
+            $charges->purpose_of_use = $cofo->purpose_of_use;
             $charges->save();
         }
 

@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class PlatformCharges extends Model
 {
 
-
+    protected $fillable = [
+        'amount', 'charges', 'document_id', 'purpose_of_use', 'payment_type'
+    ];
 
     public function document()
     {
