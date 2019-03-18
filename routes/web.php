@@ -139,6 +139,10 @@ Route::get('/imports', function(){
 
     Excel::import(new OwnerDocumentImport, 'area-ua.csv');
     Excel::import(new OwnerDocumentImport, 'area-u.csv');
+    Excel::import(new OwnerDocumentImport, 'area-p.csv');
+    Excel::import(new OwnerDocumentImport, 'clerks-quarters.csv');
+    Excel::import(new OwnerDocumentImport, 'new-market-layout.csv');
+    Excel::import(new OwnerDocumentImport, 'rescue-layout.csv');
 });
 
 

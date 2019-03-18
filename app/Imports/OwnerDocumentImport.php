@@ -32,7 +32,7 @@ class OwnerDocumentImport implements ToModel
             'area' => $row[3],
             'city' => null,
             'file_number' => $row[2],
-            'dimension' => null,
+            'dimension' => (@$row[11] ? $row[11] : null),
             'survey_plan_number' => $row[8],
             'purpose_of_use' => Str::title($row[6]),
             'commencement_year' => null,
