@@ -34,8 +34,7 @@
                                                     <th>Document ID</th>
                                                     <th>Document Type</th>
                                                     <th>Status</th>
-                                                    <th>Owners Last Name</th>
-                                                    <th>Owners First Name</th>
+                                                    <th>Owners Name</th>
                                                     <th class="text-right">View</th>
                                                     
                                                 </tr>
@@ -48,8 +47,7 @@
                                                     <td>{{ $document->document_id }}</td>
                                                     <td>{{ $document->documentable_type }} </td>
                                                     <td>{{ $document->status }}</td>
-                                                    <td>{{ $document->owner->first_name }} </td>
-                                                    <td>{{ $document->owner->last_name }} </td>
+                                                    <td>{{ $document->owner->full_name }} </td>
 
                                                     <td class="text-right">
                                                         <a href="{{ route('batch.show', $document->document_id) }}" class="btn btn-default btn-fill small-btn"> View </a>
