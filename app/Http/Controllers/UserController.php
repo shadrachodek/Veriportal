@@ -113,7 +113,21 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+    }
+
+
+    public function UpdatePassword(Request $request, User $user)
+    {
+        $request->validate([
+            'password' => 'string|min:6|confirmed',
+        ]);
+
+        $user->update([
+            'password' => Hash::make($request->get('password'))
+        ]);
+        alertify()->success('Password updated successfully');
+        return redirect()->back();
     }
 
     /**
@@ -137,9 +151,11 @@ class UserController extends Controller
         $credentials = $request->only('username', 'password');
 
         if (!Auth::attempt($credentials)) {
-            return back();
+          //  alertify()->error();
+            return redirect()->back()->with('success', 'Invalid details');
         }
 
+        alertify()->success($credentials['username'] . ' Login');
         return redirect()->intended('dashboard');
     }
 

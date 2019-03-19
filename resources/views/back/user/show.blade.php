@@ -122,27 +122,30 @@
                     
                     <div class="col-md-6"> <!-- right Panel Starts here-->
                         <div class="card card-inner-spacer">
-
-                                    <h2> Change Password </h2>
-
-                            <div class="row ">
-
+                            <h2> Change Password </h2>
+                            <form method="post" action="{{ route('user.update.password', $user) }}">
+                                @csrf
+                                <div class="row">
                                     <div class="content">
-
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" placeholder="" name="username" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Retype-Password</label>
-                                                <input type="password" name="password" placeholder="" class="form-control">
-                                            </div>
-                                            
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                            @if ($errors->has('password'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Retype-Password</label>
+                                            <input type="password" class="form-control" name="password_confirmation" required>
+                                        </div>
                                     </div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-default btn-fill btn-block ">Submit</button>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-default btn-fill btn-block">Submit</button>
+                                    </div>
                                 </div>
-                        </div>
+                            </form>
 
                         <h2 class="spacerx2"> Account Status</h2>
 

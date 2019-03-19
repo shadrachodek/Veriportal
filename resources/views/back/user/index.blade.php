@@ -36,48 +36,27 @@
                     <div class="row"> 
 
                             <div class="card card-inner-spacer card-inner-bottom-2">
-                            
                                     <div class="row spacerx2">
-
-
-                                            <div class="col-md-6"> 
-                                                
+                                            <div class="col-md-6">
                                                     <h5 class="sub-title-2"> {{ $userCount }} - Available Users  </h5>
-                    
                                             </div>
-        
-                                            
-                                            
-        
-                                           
-                                            
                                             <div class="col-md-2">
-                                                
                                                     <select name="warehouse" class="selectpicker" data-title="Role" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
                                                             <option value="id">Super Admin</option>
                                                             <option value="ms">Document Manager Approval </option>
                                                         ...
                                                     </select>
-                                            
                                             </div>
-
                                             <div class="col-md-2">
-                                                
                                                     <select name="activity" class="selectpicker" data-title="Status" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
                                                             <option value="id">Pending</option>
                                                             <option value="ms">Active</option>
                                                         ...
                                                     </select>
-                                            
                                             </div>
-
-
-                                            <div class="col-md-2"> 
-                                                
+                                            <div class="col-md-2">
                                                     <button class="btn btn-default btn-fill btn-block">Submit</button>
-                                            
                                             </div>
-        
                                     </div>
 
 

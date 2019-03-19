@@ -14,6 +14,7 @@
 //Route::get("alert/{AlertType}","sweetalertController@alert")->name("alert");
 
 
+Route::post('/password/{user}/update', 'UserController@UpdatePassword')->name('user.update.password');
 Route::resource('/user-management', 'UserController');
 Route::resource('/owner', 'OwnerController');
 

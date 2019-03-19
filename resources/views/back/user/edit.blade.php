@@ -18,9 +18,6 @@
                     
                     <div class="col-md-6">
                         <div class="card ">
-
-                           
-
                             <div class="card-inner-spacer bottom-buffer">
 
                                     <h2> Bio-Data </h2>
@@ -30,21 +27,15 @@
                                         <div class="col-md-3">
                                             <h5>First Name</h5>
                                             <h3>Oluseye</h3>
-
                                         </div>
-
-                                        
-
                                         <div class="col-md-3">
                                             <h5>Last Name</h5>
                                             <h3>Adebola</h3>
                                         </div>
-
                                         <div class="col-md-6">
                                             <h5>Unique id #</h5>
                                             <h3>5247352921</h3>
                                         </div>
-
                                 </div>
                                     <!-- ********first row******** -->
 
@@ -143,25 +134,24 @@
                         <div class="card card-inner-spacer">
 
                                     <h2> Change Password </h2>
-
-                            <div class="row ">
-
+                            <form method="post" action="{{ route('user-management.update', ) }}">
+                                @csrf
+                                <div class="row">
                                     <div class="content">
-
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" placeholder="" name="username" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Retype-Password</label>
-                                                <input type="password" name="password" placeholder="" class="form-control">
-                                            </div>
-                                            
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" placeholder="" name="password" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Retype-Password</label>
+                                            <input type="password" name="password" placeholder="" class="form-control">
+                                        </div>
                                     </div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-default btn-fill btn-block ">Submit</button>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-default btn-fill btn-block">Submit</button>
+                                    </div>
                                 </div>
-                        </div>
+                            </form>
 
                         <h2 class="spacerx2"> Account Status</h2>
 
