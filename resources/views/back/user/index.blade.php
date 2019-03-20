@@ -10,31 +10,16 @@
             <div class="container-fluid ">
 
                 <div class="row">
-
-                   
-
                         <div class="col-md-6">
-
                                 <h4 class="title"> User Management </h4>
-
                         </div>
-                        
                         <div class="col-md-6">
-
                              <span class="btn-label">
                                  <a href="{{ route('user-management.create') }}" class="btn small-screens-mg btn-default btn-fill btn-wd pull-right btn-top">   <i class="fa fa-pencil"></i>   New User </a>
                             </span>
-    
-                           
-    
-                        </div> 
-                    
-                    
-                    
+                        </div>
                 </div>
-
-                    <div class="row"> 
-
+                    <div class="row">
                             <div class="card card-inner-spacer card-inner-bottom-2">
                                     <div class="row spacerx2">
                                             <div class="col-md-6">
@@ -103,7 +88,4 @@
         </div>
 </div>
 
-    @endsection
-@push('scripts')
-    <script src="{{ asset('js/knockout-3.4.2.js') }}"></script>
-@endpush
+@endsection

@@ -12,12 +12,12 @@
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet">
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+
     <!--  Light Bootstrap Dashboard core CSS    -->
     <link href="{{ asset('css/light-bootstrap-dashboard.css') }}" rel="stylesheet"/>
     <!--  Custom CSS    -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/filepond.css') }}" rel="stylesheet" />
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <!--     Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -25,6 +25,7 @@
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/print.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+    <link href="{{ asset('css/bootstrap-toggle.min.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -89,7 +90,6 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 <script src="{{ asset('js/signature_pad.min.js') }}"></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
 
 

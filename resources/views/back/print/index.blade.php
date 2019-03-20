@@ -59,7 +59,7 @@
                                                     <td class="text-center">{{ count($documents[$document]) }}</td>
                                                     <td class="text-center">Pending</td>
                                                     <td class="text-center"> 
-                                                            <a class="btn btn-default btn-fill small-btn " href="print-job-view.html">      view </a>
+                                                            <a class="btn btn-default btn-fill small-btn " href="#">      view </a>
                                                     </td>
                                                  
                                                    

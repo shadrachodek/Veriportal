@@ -9,48 +9,21 @@
                     <div class="container-fluid ">
 
                         <div class="row ">
-
-
-
                             <h4 class="title">Stock Management</h4>
-
-
-
                         </div>
-
                         <div class="row">
-
                             <div class="card card-inner-spacer card-inner-bottom-2">
-
                                 <div class="row">
-
-
                                     <div class="col-md-6 ">
-
                                         <h5 class="sub-title-2 ">2 - Available Items</h5>
-
                                     </div>
-
-
-
-
                                     <div class="col-md-6 text-right">
-
                                         <a class="btn btn-default btn-fill small-btn " href="#ModalCenter-2" data-toggle="modal" data-target="#ModalCenter-2">New Item</a>
                                         <a class="btn btn-danger btn-fill small-btn " href="#ModalCenter-3" data-toggle="modal" data-target="#ModalCenter-3">Material Request</a>
                                         <a class="btn tweaked-margin btn-success btn-fill small-btn " href="#ModalCenter" data-toggle="modal" data-target="#ModalCenter">Receive Stock </a>
-
-
                                     </div>
-
                                 </div>
-
-
-
                                 <div class="content">
-                                    <div id="flash-msg">
-                                        @include('flash-message')
-                                    </div>
                                     <div class="fresh-datatables">
                                         <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                             <thead>
@@ -129,20 +102,16 @@
 
                                                         <div class="form-group">
                                                             <label>Production Opening Quantity</label>
-                                                            <input type="text" name="production"  class="form-control">
+                                                            <input type="number" value="0" name="production"  class="form-control">
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label>Storage Opening Quantity</label>
-                                                            <input type="text" name="storage"  class="form-control">
+                                                            <input type="number" value="0" name="storage"  class="form-control">
                                                         </div>
 
                                                         <p>STATUS</p>
-                                                        <div class="bootstrap-switch-container" style="width: 122px;">
-                                                            <span class="bootstrap-switch-label" style="width: 30px;">&nbsp;</span>
-                                                            <span class="bootstrap-switch-handle-off bootstrap-switch-info" style="width: 100px;"></span>
-                                                            <input type="checkbox" name="status" checked="" data-toggle="switch" data-on-color="info" data-off-color="info" data-on="Ready" data-on-text="Active" data-off-text="Inactive">
-                                                        </div>
+                                                        <input type="checkbox" name="status" checked data-toggle="toggle" data-on="Active" data-off="Disabled" data-onstyle="success btn-fill" data-offstyle="danger btn-fill">
 
                                                     </div>
 
@@ -353,4 +322,18 @@
     </div>
     </div>
 
+
+
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('/js/bootstrap-toggle.min.js') }}"></script>
+    <script type=text/javascript">
+         $(function() {
+            $('#toggle-two').bootstrapToggle({
+              on: 'Enabled',
+              off: 'Disabled'
+            });
+          })
+        </script>
+@endpush

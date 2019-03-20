@@ -49,13 +49,14 @@ class StockController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:stocks',
-            'storage' => 'required|string|max:255',
+            'storage' => 'required|gte:1|string|max:255',
             'production' => 'required|string|max:255',
             'documentType' => 'required|string|max:255',
         ],
             [
                 'name.required' => 'Item Name is require!',
                 'storage.required' => 'Storage is require!',
+                'storage.gte' => 'Storage can not be empty!',
                 'production.required' => 'Storage is require!',
             ]);
 
@@ -78,7 +79,8 @@ class StockController extends Controller
             'document_list_id' => $request->documentType,
         ]);
 
-        return redirect()->back()->with('success', $stock->name . " with Item ID: " . $stock->stock_id . " successfuly created");
+        alertify()->success($stock->name . " with Item ID: " . $stock->stock_id . " successfuly created");
+        return redirect()->back();
     }
 
     /**
