@@ -27,19 +27,19 @@ class OwnerDocumentImport implements ToModel
 
         $cofo = Cofo::create([
             'category' => "New",
-            'house_plot_number' => $row[4],
+            'house_plot_number' => @$row[4] ? $row[4] : null,
             'street_name' => null,
-            'area' => $row[3],
+            'area' => @$row[3] ? $row[3] : null,
             'city' => null,
-            'file_number' => $row[2],
+            'file_number' => @$row[2] ? $row[2] : null,
             'dimension' => (@$row[11] ? $row[11] : null),
-            'survey_plan_number' => $row[8],
-            'purpose_of_use' => Str::title($row[6]),
+            'survey_plan_number' => @$row[8] ? $row[8] : null,
+            'purpose_of_use' => @$row[6] ? Str::title($row[6]) : "Commercial/residential",
             'commencement_year' => null,
-            'development_period' => $row[10],
-            'building_value' => $row[9],
-            'yearly_rent_payable' => $row[5],
-            'term' => $row[7],
+            'development_period' => @$row[10] ? $row[10] : null,
+            'building_value' => @$row[9] ? $row[9] : null,
+            'yearly_rent_payable' => @$row[5] ? $row[5] : null,
+            'term' => @$row[7] ? $row[7] : null,
             'revision_period' => null,
         ]);
 
@@ -57,7 +57,7 @@ class OwnerDocumentImport implements ToModel
 
         $surveyPlan = new DocumentSurveyPlan();
         $surveyPlan->document_id = $doc->document_id;
-        $surveyPlan->file = str_replace(" ","_",$cofo->file_number) . ".jpg";
+        $surveyPlan->file = @$cofo->file_number ? str_replace(" ","_",$cofo->file_number) . ".jpg" : null;
         $surveyPlan->save();
 
         $category = $cofo->category;
@@ -85,7 +85,8 @@ class OwnerDocumentImport implements ToModel
 
         $passport = new OwnerPassport();
         $passport->owner_id = $owner->owner_id;
-        $passport->file = str_replace(" ","_",$cofo->file_number) . ".jpg";
+        $passport->passport_one = @$cofo->file_number ? str_replace(" ","_",$cofo->file_number) . ".jpg" : null;
+        $passport->passport_two = @$cofo->file_number ? str_replace(" ","_",$cofo->file_number) . "_b.jpg" : null;
         $passport->save();
 
 

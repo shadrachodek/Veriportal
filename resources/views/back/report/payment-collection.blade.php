@@ -79,7 +79,7 @@
                             <div class="card card-inner-spacer">
                                     <div class="row spacerx2">
                                             <div class="col-md-8">
-                                                    <h5 class="sub-title-2"> Total Platform Charges NGN {{ number_format(sprintf('%0.2f', preg_replace("/[^0-9.]/", "", $total)),2)  }}  </h5>
+                                                    <h5 class="sub-title-2"> Total Payment Collection NGN {{ number_format(sprintf('%0.2f', preg_replace("/[^0-9.]/", "", $total)),2)  }}  </h5>
                                             </div>
                                             <div class="col-md-2" style="display: none">
                                                     <button class="btn btn-success small-screens-mg small-btn  btn-fill btn-block">PDF</button>

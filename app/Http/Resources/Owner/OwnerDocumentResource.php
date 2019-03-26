@@ -27,7 +27,8 @@ class OwnerDocumentResource extends JsonResource
             'telephone' => $this->telephone,
             'mobile' => $this->mobile,
             'emailAddress' => $this->email_address,
-            "passport" =>  $this->passport ? $this->passport->file : null,
+            "passport_one" =>  $this->passport ? $this->passport->passport_one : null,
+            "passport_two" =>  $this->passport ? $this->passport->passport_two : null,
             "signature" =>  $this->signature ? $this->signature->file : null,
         ];
     }

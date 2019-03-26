@@ -18,6 +18,8 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
 use Alert;
+use App\Exports\DocumentExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class DocumentController extends Controller
@@ -36,9 +38,36 @@ class DocumentController extends Controller
 
       //  return Document::filter($filters)->get();
 
+        $document = (new Document())->newQuery();
+
+//        if (($request->has('from-date') && $request->filled('from-date')) && ($request->has('to-date') && $request->filled('to-date'))){
+//            $charge->whereBetween('created_at', [$request->input('from-date'), $request->input('to-date')]);
+//        }
+
+        if ($request->has('document_id') && $request->filled('document_id')){
+            $document->where('document_id', $request->input('document_id'));
+        }
+
+        if ($request->has('document_type') && $request->filled('document_type')){
+            $document->where('documentable_type', $request->input('document_type'));
+        }
+
+        if ($request->has('name') && $request->filled('name')){
+            $document->with('owner')->where('document.owner.full_name', $request->input('name'));
+        }
+
+        if ($request->has('status') && $request->filled('status')){
+            $document->where('status', $request->input('status'));
+        }
+
+        $documents = $document->paginate(50);
+      //  $total = PlatformCharges::all()->sum('charges');
+       // $paymentTypes = PaymentType::pluck('type');
+//        return view('back.report.platform-charges', compact('charges', 'total', 'paymentTypes', 'cofoTypes'));
+
 
         $documentCount = Document::all()->count();
-        $documents = Document::all();
+       // $documents = Document::all();
         return view('back.document.index', compact('documentCount','documents'));
     }
 
@@ -241,7 +270,10 @@ class DocumentController extends Controller
 
     public function payment(Request $request, $document_id)
     {
-        $request->validate([
+        $document = Document::whereDocumentId($document_id)->firstOrFail();
+
+        $request->validate(
+            [
             'amount_paid' => 'required|numeric',
             'payment_type' => 'required|string|max:255',
         ],
@@ -249,17 +281,25 @@ class DocumentController extends Controller
                 'amount_paid.required' => 'Amount paid is require!',
                 'amount_paid.numeric' => 'Invalid value input'
 
-            ]);
+            ]
+        );
 
         $payment = Payment::create([
             'amount' => $request->amount_paid,
             'payment_type' => $request->payment_type,
             'document_id' => $document_id,
+            'purpose_of_use' => $document->documentable->purpose_of_use,
+            'name' => $document->owner->full_name,
             'status' => 'Paid',
         ]);
 
         return redirect()->route('doc.receipt', compact('document_id'));
 
+    }
+
+    public function export()
+    {
+        return Excel::download(new DocumentExport, 'document.csv', \Maatwebsite\Excel\Excel::CSV);
     }
 
 }

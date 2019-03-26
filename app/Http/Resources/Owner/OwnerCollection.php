@@ -28,8 +28,9 @@ class OwnerCollection extends Resource
             'telephone' => $this->telephone,
             'mobile' => $this->mobile,
             'emailAddress' => $this->email_address,
-            "passport" =>  $this->passport ? Storage::url('passport/'.$this->passport->file) : null,
-            "signature" =>  $this->signature ? Storage::url('passport/'.$this->signature->file) : null,
+            "passport_one" =>  $this->passport ? $this->passport->passport_one : null,
+            "passport_two" =>  $this->passport ? $this->passport->passport_two : null,
+            "signature" =>  $this->signature ? $this->signature->file : null,
         ];
     }
 }

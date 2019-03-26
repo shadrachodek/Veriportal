@@ -16,7 +16,8 @@ class CreateOwnerPassportsTable extends Migration
         Schema::create('owner_passports', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('owner_id')->unsigned();
-            $table->string('file');
+            $table->string('passport_one')->nullable();
+            $table->string('passport_two')->nullable();
             $table->timestamps();
         });
     }

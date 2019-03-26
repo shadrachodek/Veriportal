@@ -16,7 +16,7 @@ class CreateDocumentSurveyPlansTable extends Migration
         Schema::create('document_survey_plans', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('document_id')->unsigned();
-            $table->string('file');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

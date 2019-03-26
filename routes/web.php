@@ -135,7 +135,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\OwnerDocumentImport;
 use App\Imports\OwnersImport;
 
-Route::get('/imports', function(){
+Route::get('/import1', function(){
    // return "jdjhd";
 
     Excel::import(new OwnerDocumentImport, 'area-ua.csv');
@@ -144,6 +144,31 @@ Route::get('/imports', function(){
     Excel::import(new OwnerDocumentImport, 'clerks-quarters.csv');
     Excel::import(new OwnerDocumentImport, 'new-market-layout.csv');
     Excel::import(new OwnerDocumentImport, 'rescue-layout.csv');
+});
+
+
+Route::get('/import2', function(){
+
+
+    Excel::import(new OwnerDocumentImport, 'compile_c_f_o.csv');
+    Excel::import(new OwnerDocumentImport, 'land_of_c_f_o.csv');
+    Excel::import(new OwnerDocumentImport, 'recreative.csv');
+
+});
+
+Route::get('/import3', function(){
+
+    Excel::import(new OwnerDocumentImport, 'okohia_layout.csv');
+    Excel::import(new OwnerDocumentImport, 'compile_c_f_o_sheet2.csv');
+    Excel::import(new OwnerDocumentImport, 'compile_c_f_o_sheet3.csv');
+
+});
+
+
+Route::get('/export', 'DocumentController@export')->name('export');
+Route::get('/exports', function(){
+    $documents = \App\Model\Document::all();
+    return view('back.document.export', compact('documents'));
 });
 
 

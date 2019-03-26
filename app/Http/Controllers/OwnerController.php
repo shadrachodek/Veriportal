@@ -24,11 +24,34 @@ class OwnerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-       $owners = Owner::all();
-        //return redirect()->route('owner.index');
-        //return view('back.owner.index', compact('owners'));
+
+        $owner = (new Owner())->newQuery();
+
+//        if (($request->has('from-date') && $request->filled('from-date')) && ($request->has('to-date') && $request->filled('to-date'))){
+//            $charge->whereBetween('created_at', [$request->input('from-date'), $request->input('to-date')]);
+//        }
+
+        if ($request->has('owner_id') && $request->filled('owner_id')){
+            $owner->where('owner_id', $request->input('owner_id'));
+        }
+
+        if ($request->has('name') && $request->filled('name')){
+            $owner->where('full_name', $request->input('name'));
+        }
+
+        if ($request->has('marital_status') && $request->filled('marital_status')){
+            $owner->where('marital_status', $request->input('marital_status'));
+        }
+
+        if ($request->has('occupation') && $request->filled('occupation')){
+            $owner->where('occupation', $request->input('occupation'));
+        }
+
+        $owners = $owner->paginate(50);
+
+
         $ownerCount = Owner::all()->count();
         return view('back.owner.index', compact('ownerCount', 'owners'));
     }
@@ -40,7 +63,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        $maritalStatus = collect(['Single', 'Married', 'Divorce', 'Seperated']);
+        $maritalStatus = collect(['Single', 'Married', 'Divorce', 'Separated']);
         $occupations = collect(['Accountant', 'Civil Service', 'Engineer']);
         return view('back.owner.create', compact('maritalStatus', 'occupations'));
     }

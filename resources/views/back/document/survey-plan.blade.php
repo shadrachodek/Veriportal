@@ -23,7 +23,7 @@
 									<div class="photo-upload-wrap">
 										<input class="photo-upload-input" name="survey_plan" type='file' onchange="readURL1(this);" accept="image/*" />
 										<div class="drag-text">
-											<h3>Drag and drop your Passport Photograph</h3>
+											<h3>Drag and drop survey plan image</h3>
 										</div>
 									</div>
 									<div class="photo-upload-content">
