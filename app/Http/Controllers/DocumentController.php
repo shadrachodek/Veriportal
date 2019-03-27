@@ -48,8 +48,21 @@ class DocumentController extends Controller
             $document->where('document_id','like', '%' . $request->input('document_id') . '%');
         }
 
-        if ($request->has('document_type') && $request->filled('document_type')){
-            $document->where('documentable_type', $request->input('document_type'));
+//        if ($request->has('document_type') && $request->filled('document_type')){
+//            $document->where('documentable_type', $request->input('document_type'));
+//        }
+
+        if ($request->has('file_number') && $request->filled('file_number')) {
+            $name = $request->input('file_number');
+
+            $document->whereHas('cofo', function($q) use ($name) {
+                return $q->where('file_number', 'like', '%' . $name . '%');
+            });
+
+
+//            $document->with(['cofo'])->whereHas('cofo', function($query) use ($name) {
+//                $query->where('file_number', 'like', '%' . $name . '%');
+//            });
         }
 
         if ($request->has('full_name') && $request->filled('full_name')) {

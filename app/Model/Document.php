@@ -49,6 +49,12 @@ class Document extends Model
         return $this->morphTo();
     }
 
+    public function cofo()
+    {
+        return $this->belongsTo(Cofo::class, 'documentable_id')
+            ->where('documents.documentable_type', 'Certificate of Occupancy');
+    }
+
     public function setForApprovalOwner() {
         return $this->documentable()->where('set_for_approval_status', 1);
     }

@@ -43,10 +43,7 @@
                                             <input type="text" name="document_id" placeholder="Document Id" value="{{ @$_GET['document_id'] }}" class="form-control" >
                                         </div>
                                         <div class="col-md-2">
-                                            <select name="document_type" class="selectpicker" data-title="Document Type" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                                <option>Certificate of Occupancy</option>
-                                                ...
-                                            </select>
+                                            <input type="text" name="file_number" placeholder="File Number" value="{{ @$_GET['file_number'] }}" class="form-control" >
                                         </div>
                                         <div class="col-md-2">
                                             <input type="text" name="full_name" placeholder="Full Name" value="{{ @$_GET['full_name'] }}" class="form-control" >
