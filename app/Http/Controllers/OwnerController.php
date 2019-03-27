@@ -34,11 +34,11 @@ class OwnerController extends Controller
 //        }
 
         if ($request->has('owner_id') && $request->filled('owner_id')){
-            $owner->where('owner_id', $request->input('owner_id'));
+            $owner->where('owner_id', 'like', '%' . $request->input('owner_id') . '%');
         }
 
         if ($request->has('name') && $request->filled('name')){
-            $owner->where('full_name', $request->input('name'));
+            $owner->where('full_name', 'like', '%' . $request->input('name') . '%');
         }
 
         if ($request->has('marital_status') && $request->filled('marital_status')){

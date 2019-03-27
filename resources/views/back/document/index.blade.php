@@ -35,12 +35,12 @@
                         <div class="col-md-12 ">
                             <div class="card card-inner-spacer">
                                 <div class="row">
-                                    <div class="col-md-2">
+                                    <div class="col-md-4">
                                         <h5 class="sub-title-2"> {{ $documentCount }} - Documents </h5>
                                     </div>
                                     <form method="get" action="{{ route('document.index') }}">
                                         <div class="col-md-2">
-                                            <input type="text" name="document_id" class="form-control" >
+                                            <input type="text" name="document_id" placeholder="Document Id" value="{{ @$_GET['document_id'] }}" class="form-control" >
                                         </div>
                                         <div class="col-md-2">
                                             <select name="document_type" class="selectpicker" data-title="Document Type" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
@@ -49,13 +49,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <select name="warehouse" class="selectpicker" data-title="Status" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                                <option>Pending Approval</option>
-                                                ...
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <input type="text" name="name" class="form-control" >
+                                            <input type="text" name="full_name" placeholder="Full Name" value="{{ @$_GET['full_name'] }}" class="form-control" >
                                         </div>
                                         <div class="col-md-2">
                                             <button class="btn btn-default btn-fill btn-block">Submit</button>
@@ -89,7 +83,7 @@
                                                 <td>{{ $document->documentable_type }}</td>
                                                 <td>{{ $document->status }}</td>
                                                 <td>{{ $document->documentable->file_number }}</td>
-                                                <td>{{ $document->owner->full_name }}</td>
+                                                <td>{{ @$document->owner->full_name }}</td>
                                                 <td class="text-right">
                                                     <a class="btn btn-default btn-fill small-btn" href="{{ route('document.show', $document->document_id) }}"> View </a>
                                                 </td>

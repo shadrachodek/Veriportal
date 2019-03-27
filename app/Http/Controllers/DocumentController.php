@@ -45,20 +45,22 @@ class DocumentController extends Controller
 //        }
 
         if ($request->has('document_id') && $request->filled('document_id')){
-            $document->where('document_id', $request->input('document_id'));
+            $document->where('document_id','like', '%' . $request->input('document_id') . '%');
         }
 
         if ($request->has('document_type') && $request->filled('document_type')){
             $document->where('documentable_type', $request->input('document_type'));
         }
 
-        if ($request->has('name') && $request->filled('name')){
-            $document->with('owner')->where('document.owner.full_name', $request->input('name'));
+        if ($request->has('full_name') && $request->filled('full_name')) {
+            $name = $request->input('full_name');
+            $document->with(['owner'])->whereHas('owner', function($query) use ($name) {
+                $query->where('full_name', 'like', '%' . $name . '%');
+            });
         }
 
-        if ($request->has('status') && $request->filled('status')){
-            $document->where('status', $request->input('status'));
-        }
+
+
 
         $documents = $document->paginate(50);
       //  $total = PlatformCharges::all()->sum('charges');
