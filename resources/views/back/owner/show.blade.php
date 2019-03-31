@@ -147,7 +147,7 @@
                                     @if($owner->photo)
                                     <div class="avata">
 
-                                            <img class="img border-gray " src="{{ $owner->photo->file }}" alt="{{ $owner->full_name . " photo" }}">
+                                            <img class="img border-gray " src="{{ $owner->photo->passport_one }}" alt="{{ $owner->full_name . " photo" }}">
                                     </div>
                                         @else
                                             <a href="{{ route('photo-signature', $owner->owner_id) }}" class="btn small-screens-mg btn-default btn-fill btn-wd> <i class="fa fa-pencil"></i>   Add Photo </a>
