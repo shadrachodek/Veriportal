@@ -217,6 +217,44 @@ class DocumentController extends Controller
 
     }
 
+    public function setForApprovalAll(Request $request){
+      //  dd("I'm here");
+
+        Document::all()->map(function ($document) use ($request) {
+
+                try {
+                    $batch = Batch::where('number_of_document', '<', Batch::MAX_DOCUMENT)->firstOrFail();
+                } catch (ModelNotFoundException  $exception) {
+                    $batch = Batch::createBatch();
+                }
+
+                try {
+                    $document['status'] = Document::AWAITING[0];
+                    $document['approved_status'] = Document::AWAITING[1];
+                    $document['set_for_approval_by'] = $request->user()->id;
+                    $document['batch_id'] = $batch->batch_id;
+                    $document['set_for_approval_at'] = Carbon::now();
+                    $document['set_for_approval_status'] = true;
+                    $document['created_at'] = Carbon::now();
+
+                    $batchStatus = "Partially Processed";
+                    if ($batch->number_of_document < 1) {
+                        $batchStatus = "Awaiting";
+                    }
+
+
+                    $batch::whereId($batch->id)->update([
+                        'number_of_document' => $batch->number_of_document + 1,
+                        'status' => $batchStatus
+                    ]);
+                } catch (ModelNotFoundException  $exception) {
+                    return back()->with('errors', 'Document not found by ID ' . $document->id);
+                }
+
+        });
+
+    }
+
     public function approveDocuments(){
 
         $documents = Document::where('approved_status', Document::APPROVED[1])->get();

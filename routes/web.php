@@ -66,6 +66,9 @@ Route::get('/total-document-owners', 'DashboardController@totalDocumentOwners');
 Route::resource('/document', 'DocumentController');
 Route::resource('/print-job', 'PrintJobController');
 
+Route::get('set-for-approval-all', 'DocumentController@setForApprovalAll');
+
+
 Route::get('{owner}/select-document-type', 'DocumentController@documentType')->name('documentType');
 Route::get('{owner}/{type}/document', 'DocumentController@selectedDocument')->name('selectedDocument');
 Route::get('document/{document_id}/set-for-approval', 'DocumentController@setForApproval')->name('set.for.approval');
